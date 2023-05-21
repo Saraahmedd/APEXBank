@@ -1,18 +1,18 @@
-import logo from './imgs/logo.svg';
-import BankAccountTransactionsScreen from './screens/BankAccountTransactionsScreen';
-import BankAccountsScreen from './screens/BankAccountsScreen';
-import BillsScreen from './screens/BillsScreen';
-import CreditCardApplicationScreen from './screens/CreditCardApplicationScreen';
-import CreditCardScreen from './screens/CreditCardScreen';
-import HomeScreen from './screens/HomeScreen';
-import LoginScreen from './screens/LoginScreen';
-import LoanApplicationScree from './screens/LoanApplicationScree';
+// import logo from './imgs/logo.svg';
+import BankAccountTransactionsScreen from './screens/client//BankAccountTransactionsScreen';
+import BankAccountsScreen from './screens/client/BankAccountsScreen';
+import BillsScreen from './screens/client/BillsScreen';
+import CreditCardApplicationScreen from './screens/client/CreditCardApplicationScreen';
+import CreditCardScreen from './screens/client/CreditCardScreen';
+import HomeScreen from './screens/client/HomeScreen';
+import LoginScreen from './screens/client/LoginScreen';
+import LoanApplicationScree from './screens/client/LoanApplicationScreen';
 import './styles/App.css';
 import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom'
-import SignUpScreen from './screens/SignUpScreen';
-import TransferMoneyScreen from './screens/TransferMoneyScreen';
-import LoansScreen from './screens/LoansScreen';
-import LoanScreen from './screens/loanScreen';
+import SignUpScreen from './screens/client/SignUpScreen';
+import TransferMoneyScreen from './screens/client/TransferMoneyScreen';
+import LoansScreen from './screens/client/LoansScreen';
+import LoanScreen from './screens/client/loanScreen';
 
 function App() {
    
@@ -21,6 +21,7 @@ function App() {
     <>
     <Router>
       <Routes>
+        {/* Client */}
         <Route path="/" element={<HomeScreen/>}> </Route>
          <Route path="/login" element={<LoginScreen/>}> </Route>
          <Route path="/bankAccount" element={<BankAccountsScreen/>}> </Route>
@@ -33,6 +34,10 @@ function App() {
          <Route path="/bankTransfer" element={<TransferMoneyScreen/>}> </Route>
          <Route path="/loans" element={<LoansScreen/>}> </Route>
          <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route>
+
+         {/* Banker */}
+
+         {/* Admin */}
             
          
       </Routes>
