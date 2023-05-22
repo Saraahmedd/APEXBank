@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const viewLoanReqeuestsScreen = () => {
-  return (
-    <div>viewLoanReqeuestsScreen</div>
-  )
-}
+const ViewLoanReqeuestsScreen = () => {
+  return <div>viewLoanReqeuestsScreen</div>;
+};
 
-export default viewLoanReqeuestsScreen
+export default ViewLoanReqeuestsScreen;
