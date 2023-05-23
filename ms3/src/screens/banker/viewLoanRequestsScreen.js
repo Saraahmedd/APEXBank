@@ -3,8 +3,8 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 
-const ViewLoanReqeuestsScreen = () => {
+const ViewLoanRequestsScreen = () => {
   return <></>;
 };
 
-export default ViewLoanReqeuestsScreen;
+export default ViewLoanRequestsScreen;

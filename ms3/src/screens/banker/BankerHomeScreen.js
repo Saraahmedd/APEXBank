@@ -7,7 +7,7 @@ const AdminHomeScreen = () => {
       <div className="row ">
         <Sidebar></Sidebar>
         <div className="col-9">
-          <h1 className="p-4">Welcome, Admin</h1>
+          <h1 className="p-4">Welcome, Banker</h1>
           <div className="row">
             <div className="card col-3 m-1">
               <div className="card-body">
