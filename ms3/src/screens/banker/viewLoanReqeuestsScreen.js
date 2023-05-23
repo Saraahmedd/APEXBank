@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import Datatable from "../../components/table";
+import Grid from "../../components/grid";
+import Sidebar from "../../components/Sidebar";
 
-const viewLoanReqeuestsScreen = () => {
-  return (
-    <div>viewLoanReqeuestsScreen</div>
-  )
-}
+const ViewLoanReqeuestsScreen = () => {
+  return <></>;
+};
 
-export default viewLoanReqeuestsScreen
+export default ViewLoanReqeuestsScreen;

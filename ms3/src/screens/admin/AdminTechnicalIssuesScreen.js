@@ -1,9 +1,9 @@
-import React from "react";
+import Sidebar from "../../components/Sidebar";
 import Datatable from "../../components/table";
 import Grid from "../../components/grid";
-import Sidebar from "../../components/Sidebar";
+import React from "react";
 
-const ViewCllientTransactionsScreen = () => {
+const AdminTechnicalIssuesScreen = () => {
   return (
     <>
       <div className="row">
@@ -14,4 +14,4 @@ const ViewCllientTransactionsScreen = () => {
   );
 };
 
-export default ViewCllientTransactionsScreen;
+export default AdminTechnicalIssuesScreen;
