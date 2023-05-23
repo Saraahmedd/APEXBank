@@ -13,6 +13,7 @@ import SignUpScreen from './screens/client/SignUpScreen';
 import TransferMoneyScreen from './screens/client/TransferMoneyScreen';
 import LoansScreen from './screens/client/LoansScreen';
 import LoanScreen from './screens/client/loanScreen';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
    
