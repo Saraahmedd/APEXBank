@@ -13,7 +13,7 @@ import SignUpScreen from "./screens/client/SignUpScreen";
 import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
 import LoansScreen from "./screens/client/LoansScreen";
 import LoanScreen from "./screens/client/loanScreen";
-import { BankerLoginScreen } from "./screens/banker/BankerLoginScreen";
+import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
 import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
 import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
 import ViewCreditCardReports from "./screens/banker/ViewCreditCardReports";

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Datatable from "../../components/table";
+import Grid from "../../components/grid";
+import Sidebar from "../../components/Sidebar";
 
 const ViewSingleLoanRequest = () => {
   return (
-    <div>ViewSingleLoanRequest</div>
-  )
-}
+    <>
 
-export default ViewSingleLoanRequest
+    </>
+  );
+};
+
+export default ViewSingleLoanRequest;

@@ -10,9 +10,8 @@ import {
 import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
-    <div
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}>
-      <CDBSidebar textColor="#fff" className="bg-primary">
+    <div className="col-3 h-100 ">
+      <CDBSidebar textColor="#fff" className="bg-primary pb-5">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a
             href="/"
@@ -26,8 +25,11 @@ const Sidebar = () => {
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/tables" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
+            <NavLink
+              exact
+              to="/banker/viewclientdata"
+              activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="table">client data</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profile" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
@@ -39,12 +41,19 @@ const Sidebar = () => {
             </NavLink>
             <NavLink
               exact
-              to="/hero404"
-              target="_blank"
+              to="/termsandconditions"
               activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="exclamation-circle">
-                404 page
+              <CDBSidebarMenuItem icon="book">
+                terms and conditions
               </CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/privacypolicy" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="sign">
+                privacy policy
+              </CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/admin/login" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="user">logout</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>

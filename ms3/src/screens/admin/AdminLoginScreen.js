@@ -22,7 +22,7 @@ export default function () {
     // console.log(document.getElementById("email").value);
   };
   return (
-    <div className="Auth-form-container bg-primary">
+    <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>

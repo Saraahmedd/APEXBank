@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Datatable from "../../components/table";
+import Grid from "../../components/grid";
+import Sidebar from "../../components/Sidebar";
 
 const ViewSingleCCRequestScreen = () => {
   return (
-    <div>ViewSingleCCRequestScreen</div>
-  )
-}
+    <>
 
-export default ViewSingleCCRequestScreen
+    </>
+  );
+};
+
+export default ViewSingleCCRequestScreen;
