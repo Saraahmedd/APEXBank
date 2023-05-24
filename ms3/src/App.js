@@ -1,18 +1,32 @@
-import logo from './imgs/logo.svg';
-import BankAccountTransactionsScreen from './screens/BankAccountTransactionsScreen';
-import BankAccountsScreen from './screens/BankAccountsScreen';
-import BillsScreen from './screens/BillsScreen';
-import CreditCardApplicationScreen from './screens/CreditCardApplicationScreen';
-import CreditCardScreen from './screens/CreditCardScreen';
-import HomeScreen from './screens/HomeScreen';
-import LoginScreen from './screens/LoginScreen';
-import LoanApplicationScree from './screens/LoanApplicationScree';
-import './styles/App.css';
-import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom'
-import SignUpScreen from './screens/SignUpScreen';
-import TransferMoneyScreen from './screens/TransferMoneyScreen';
-import LoansScreen from './screens/LoansScreen';
-import LoanScreen from './screens/loanScreen';
+
+// import logo from './imgs/logo.svg';
+import BankAccountTransactionsScreen from "./screens/client//BankAccountTransactionsScreen";
+import BankAccountsScreen from "./screens/client/BankAccountsScreen";
+import BillsScreen from "./screens/client/BillsScreen";
+import CreditCardApplicationScreen from "./screens/client/CreditCardApplicationScreen";
+import CreditCardScreen from "./screens/client/CreditCardScreen";
+import HomeScreen from "./screens/client/HomeScreen";
+import LoginScreen from "./screens/client/LoginScreen";
+import LoanApplicationScree from "./screens/client/LoanApplicationScreen";
+import "./styles/App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SignUpScreen from "./screens/client/SignUpScreen";
+import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
+import LoansScreen from "./screens/client/LoansScreen";
+import LoanScreen from "./screens/client/loanScreen";
+import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
+import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
+import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
+import ViewCreditCardReports from "./screens/banker/ViewCreditCardReports";
+import ViewCreditCardRequests from "./screens/banker/ViewCreditCardRequests";
+import ViewLoanReqeuestsScreen from "./screens/banker/viewLoanReqeuestsScreen";
+import ViewSingleCCRequestScreen from "./screens/banker/ViewSingleCCRequestScreen";
+import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
+import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
+import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
+import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
+
+
 
 function App() {
    
