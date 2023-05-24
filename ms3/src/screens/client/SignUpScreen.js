@@ -17,6 +17,8 @@ import {
 }
 from 'mdb-react-ui-kit';
 
+import Header from '../../components/client/Header';
+
 const RegistrationForm = () => {
   const [step, setStep] = React.useState(1);
 
@@ -40,6 +42,8 @@ const RegistrationForm = () => {
   };
 
   return (
+    <>
+    <Header />
   <MDBContainer className="my-5 min-vh-100 d-flex align-items-center justify-content-center" style={{ maxWidth: "55%" }}>
   <MDBRow className='m-auto'>
     <MDBCol col='8'>
@@ -56,6 +60,7 @@ const RegistrationForm = () => {
     </MDBCol>
   </MDBRow>
 </MDBContainer>
+</>
 
   );
 };

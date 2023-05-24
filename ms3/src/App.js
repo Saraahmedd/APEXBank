@@ -25,6 +25,7 @@ import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -119,6 +120,7 @@ function App() {
             }></Route>
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 }
