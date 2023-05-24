@@ -25,6 +25,7 @@ import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
+import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
 
 function App() {
   return (
@@ -83,7 +84,11 @@ function App() {
             element={<BankerHomeScreen></BankerHomeScreen>}
           ></Route>
           <Route
-            path="/banker/viewclientdata"
+            path="/banker/viewclients"
+            element={<ViewClientsScreen></ViewClientsScreen>}
+          ></Route>
+          <Route
+            path="/banker/viewclientdata/:id"
             element={<ViewClientDataScreen></ViewClientDataScreen>}
           ></Route>
           <Route

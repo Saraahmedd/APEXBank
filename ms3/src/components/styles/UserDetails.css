@@ -1,3 +1,7 @@
+.custom-card {
+  width: 95%;
+}
+
 .user-details {
   display: flex;
   flex-direction: column;

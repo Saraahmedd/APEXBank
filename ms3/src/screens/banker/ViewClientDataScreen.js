@@ -3,8 +3,11 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import React from "react";
 import UserDetails from "../../components/UserDetails";
+import { useParams } from "react-router-dom";
 
 const ViewClientDataScreen = () => {
+  const { id } = useParams();
+
   return (
     <div style={{ display: "flex" }}>
       <div className="column" style={{ flex: "1" }}>
@@ -13,7 +16,7 @@ const ViewClientDataScreen = () => {
       <div className="column m-4" style={{ flex: "3" }}>
         <h2>Client Data</h2>
         <hr />
-        <UserDetails />
+        <UserDetails userID={id} />
       </div>
     </div>
   );

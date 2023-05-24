@@ -19,15 +19,19 @@ const Sidebar = () => {
         </CDBSidebarHeader>
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink
+              exact
+              to="/banker/homescreen"
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
-              to="/banker/viewclientdata"
+              to="/banker/viewclients"
               activeClassName="activeClicked"
             >
-              <CDBSidebarMenuItem icon="table">client data</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="table">client List</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profile" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>

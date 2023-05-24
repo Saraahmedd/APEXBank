@@ -3,14 +3,32 @@ import { Card, Row, Col } from "react-bootstrap";
 import "./styles/UserDetails.css"; // Custom CSS file for additional styling
 import CardComponent from "./CardComponent.js";
 
-const UserDetails = () => {
+const UserDetails = ({ userID }) => {
   const basicInfoFields = [
-    { label: "Full Name", value: "John Doe" },
-    { label: "Email", value: "johndoe@example.com" },
-    { label: "Phone", value: "123-456-7890" },
-    { label: "Age", value: 30 },
-    { label: "Username", value: "johndoe123" },
-    { label: "Marital Status", value: "single" },
+    [
+      { label: "First Name", value: "John" },
+      { label: "Last Name", value: "Doe" },
+      { label: "Email", value: "johndoe@example.com" },
+      { label: "Phone", value: "123-456-7890" },
+      { label: "Age", value: 30 },
+      { label: "Username", value: "johndoe123" },
+    ],
+    [
+      { label: "First Name", value: "Jessica" },
+      { label: "Last Name", value: "Smith" },
+      { label: "Email", value: "jessicasmith@example.com" },
+      { label: "Phone", value: "123-456-7890" },
+      { label: "Age", value: 25 },
+      { label: "Username", value: "jessicasmith220" },
+    ],
+    [
+      { label: "First Name", value: "Liam" },
+      { label: "Last Name", value: "Taylor" },
+      { label: "Email", value: "liamtaylor@example.com" },
+      { label: "Phone", value: "123-456-7890" },
+      { label: "Age", value: 27 },
+      { label: "Username", value: "liamtaylor997" },
+    ],
   ];
 
   const addressFields = [
@@ -18,49 +36,31 @@ const UserDetails = () => {
     { label: "City", value: "New York City" },
   ];
 
-  const renderFields = (fields) => {
-    const rows = [];
-    for (let i = 0; i < fields.length; i += 3) {
-      const rowFields = fields.slice(i, i + 3);
-      const row = (
-        <Row key={i} className="m-2">
-          {rowFields.map((field, index) => (
-            <Col key={index} sm={4}>
-              <div className="field-label">
-                <strong>{field.label}:</strong>
-              </div>
-              <div className="field-value">{field.value}</div>
-            </Col>
-          ))}
-        </Row>
-      );
-      rows.push(row);
-    }
-    return rows;
-  };
+  const bankAccounts = [
+    [
+      { label: "Account 1", value: "XXXX XXXX XXXX 0583" },
+      { label: "Account 2", value: "XXXX XXXX XXXX 8936" },
+    ],
+    [{ label: "Account 1", value: "XXXX XXXX XXXX 7394" }],
+    [{ label: "Account 1", value: "XXXX XXXX XXXX 9376" }],
+  ];
 
   return (
-    <div className="user-details">
-      <Card className="mb-3 user-card">
-        <Card.Header className="card-header">
-          <strong>Basic Information</strong>
-        </Card.Header>
-        <Card.Body className="container">
-          {renderFields(basicInfoFields)}
-        </Card.Body>
-      </Card>
-
-      {/* <CardComponent
+    <div className="user-details" style={{ width: "100%" }}>
+      <CardComponent
         title="Basic Information"
-        data={basicInfoFields}
-      ></CardComponent> */}
+        data={basicInfoFields[userID]}
+      ></CardComponent>
 
-      <Card className="mb-3 user-card">
-        <Card.Header className="card-header --bs-secondary-bg-rgb">
-          <strong>Address Information</strong>
-        </Card.Header>
-        <Card.Body>{renderFields(addressFields)}</Card.Body>
-      </Card>
+      <CardComponent
+        title="Address Information"
+        data={addressFields}
+      ></CardComponent>
+
+      <CardComponent
+        title="Bank Accounts"
+        data={bankAccounts[userID]}
+      ></CardComponent>
     </div>
   );
 };
