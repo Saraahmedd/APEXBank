@@ -19,7 +19,6 @@ import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
 import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
 import ViewCreditCardReports from "./screens/banker/ViewCreditCardReports";
 import ViewCreditCardRequests from "./screens/banker/ViewCreditCardRequests";
-// import ViewLoanReqeuestsScreen from "./screens/banker/ViewLoanReqeuestsScreen";
 import ViewLoanReqeuestsScreen from "./screens/banker/viewLoanReqeuestsScreen";
 import ViewSingleCCRequestScreen from "./screens/banker/ViewSingleCCRequestScreen";
 import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
