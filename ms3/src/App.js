@@ -26,6 +26,7 @@ import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
+import SearchForClient from "./screens/banker/SearchForClient";
 
 function App() {
   return (
@@ -85,7 +86,7 @@ function App() {
           ></Route>
           <Route
             path="/banker/viewclients"
-            element={<ViewClientsScreen></ViewClientsScreen>}
+            element={<SearchForClient></SearchForClient>}
           ></Route>
           <Route
             path="/banker/viewclientdata/:id"

@@ -31,7 +31,7 @@ const Sidebar = () => {
               to="/banker/viewclients"
               activeClassName="activeClicked"
             >
-              <CDBSidebarMenuItem icon="table">client List</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="table">Clients</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profile" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>

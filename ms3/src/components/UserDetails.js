@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
-import "./styles/UserDetails.css"; // Custom CSS file for additional styling
+import "./styles/UserDetails.css";
 import CardComponent from "./CardComponent.js";
 
 const UserDetails = ({ userID }) => {
@@ -44,6 +44,8 @@ const UserDetails = ({ userID }) => {
     [{ label: "Account 1", value: "XXXX XXXX XXXX 7394" }],
     [{ label: "Account 1", value: "XXXX XXXX XXXX 9376" }],
   ];
+
+  const clients = [[], [], []];
 
   return (
     <div className="user-details" style={{ width: "100%" }}>
