@@ -38,3 +38,9 @@ code {
     border-bottom-right-radius: .3rem;
   }
 }
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  height: 60%;
+}

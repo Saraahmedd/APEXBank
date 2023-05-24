@@ -26,6 +26,7 @@ import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
 import Footer from "./components/Footer";
+import BankAccountOpeningScreen from "./screens/client/BankAccountOpeningFormScreen";
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
             {" "}
           </Route>
           <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route>
+           <Route path="/openBankAcc" element={<BankAccountOpeningScreen></BankAccountOpeningScreen>}></Route>
 
           {/* Banker */}
           <Route
