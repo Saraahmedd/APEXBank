@@ -38,17 +38,15 @@ const UserDetails = ({ userID }) => {
 
   const bankAccounts = [
     [
-      { label: "Account 1", value: "XXXX XXXX XXXX 0583" },
-      { label: "Account 2", value: "XXXX XXXX XXXX 8936" },
+      { label: "Account 1", value: "1426 3784 5263 0583" },
+      { label: "Account 2", value: "9495 52637 1497 8936" },
     ],
-    [{ label: "Account 1", value: "XXXX XXXX XXXX 7394" }],
-    [{ label: "Account 1", value: "XXXX XXXX XXXX 9376" }],
+    [{ label: "Account 1", value: "6472 8596 7495 7394" }],
+    [{ label: "Account 1", value: "7349 6372 6378 9376" }],
   ];
 
-  const clients = [[], [], []];
-
   return (
-    <div className="user-details" style={{ width: "100%" }}>
+    <div className=" col-12" style={{ width: "100%" }}>
       <CardComponent
         title="Basic Information"
         data={basicInfoFields[userID]}

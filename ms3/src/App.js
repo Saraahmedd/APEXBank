@@ -17,9 +17,9 @@ import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
 import BankerHomeScreen from "./screens/banker/BankerHomeScreen";
 import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
 import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
-import ViewCreditCardReports from "./screens/banker/ViewCreditCardReports";
-import ViewCreditCardRequests from "./screens/banker/ViewCreditCardRequests";
-import ViewLoanRequestsScreen from "./screens/banker/viewLoanRequestsScreen";
+import ViewReports from "./screens/banker/ViewReports";
+import ViewCreditCardDetails from "./screens/banker/ViewCreditCardDetails";
+import ViewLoanDataScreen from "./screens/banker/ViewLoanDataScreen";
 import ViewSingleCCRequestScreen from "./screens/banker/ViewSingleCCRequestScreen";
 import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
@@ -99,16 +99,16 @@ function App() {
             }
           ></Route>
           <Route
-            path="/banker/viewcreditcardreports"
-            element={<ViewCreditCardReports></ViewCreditCardReports>}
+            path="/banker/viewreports"
+            element={<ViewReports></ViewReports>}
           ></Route>
           <Route
-            path="/banker/viewcreditcardrequests"
-            element={<ViewCreditCardRequests></ViewCreditCardRequests>}
+            path="/banker/viewcreditcards/:id"
+            element={<ViewCreditCardDetails></ViewCreditCardDetails>}
           ></Route>
           <Route
-            path="/banker/viewloanrequests"
-            element={<ViewLoanRequestsScreen></ViewLoanRequestsScreen>}
+            path="/banker/viewloans/:id"
+            element={<ViewLoanDataScreen></ViewLoanDataScreen>}
           ></Route>
           <Route
             path="/banker/viewsingleCC"

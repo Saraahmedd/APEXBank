@@ -85,44 +85,52 @@ const SearchForClient = () => {
         <hr />
         <input
           type="text"
-          placeholder="Search by name or bank account"
+          placeholder="Search by bank account number"
           value={searchTerm}
           onChange={handleSearch}
           style={{ width: "90%", textAlign: "center" }}
         />
-        {searchResults.length > 0 ? (
-          searchResults.map((client) => (
-            <Card className="mb-3 user-card col-4" key={client.id}>
-              <Card.Header className="card-header">
-                {client.icon}
-                <span className="ms-2" style={{ fontWeight: "bold" }}>
-                  {client.name}
-                </span>
-              </Card.Header>
-              <Card.Body>
-                <div className="bank-accounts">
-                  <span style={{ fontWeight: "bold", color: "#333333" }}>
-                    Bank Accounts:
+        <hr />
+        <div className="row flex-row">
+          {searchResults.length > 0 ? (
+            searchResults.map((client) => (
+              <Card
+                className="m-2 user-card col-4"
+                key={client.id}
+                style={{ alignItems: "center", textAlign: "center" }}
+              >
+                <Card.Header className="card-header">
+                  {client.icon}
+                  <span className="ms-2" style={{ fontWeight: "bold" }}>
+                    {client.name}
                   </span>
-                  {client.bankAccounts.map((account, index) => (
-                    <div key={index}>{account}</div>
-                  ))}
-                </div>
-                <Link
-                  to={`/banker/viewclientdata/${client.id}`}
-                  className="btn btn-primary"
-                >
-                  View Details
-                </Link>
-              </Card.Body>
-            </Card>
-          ))
-        ) : (
-          <div>
-            <hr />
-            <h3 style={{ textAlign: "center" }}>No search results found.</h3>
-          </div>
-        )}
+                </Card.Header>
+                <Card.Body>
+                  <div className="bank-accounts">
+                    <span style={{ fontWeight: "bold", color: "#333333" }}>
+                      Bank Accounts:
+                    </span>
+                    {client.bankAccounts.map((account, index) => (
+                      <div key={index}>{account}</div>
+                    ))}
+                  </div>
+                  <hr />
+                  <Link
+                    to={`/banker/viewclientdata/${client.id}`}
+                    className="btn btn-primary"
+                  >
+                    View Details
+                  </Link>
+                </Card.Body>
+              </Card>
+            ))
+          ) : (
+            <div>
+              <hr />
+              <h3 style={{ textAlign: "center" }}>No search results found.</h3>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
