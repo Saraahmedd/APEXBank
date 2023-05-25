@@ -17,15 +17,16 @@ import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
 import BankerHomeScreen from "./screens/banker/BankerHomeScreen";
 import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
 import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
-import ViewCreditCardReports from "./screens/banker/ViewCreditCardReports";
-import ViewCreditCardRequests from "./screens/banker/ViewCreditCardRequests";
-import ViewLoanRequestsScreen from "./screens/banker/viewLoanRequestsScreen";
+import ViewReports from "./screens/banker/ViewReports";
+import ViewCreditCardDetails from "./screens/banker/ViewCreditCardDetails";
+import ViewLoanDataScreen from "./screens/banker/ViewLoanDataScreen";
 import ViewSingleCCRequestScreen from "./screens/banker/ViewSingleCCRequestScreen";
 import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
+import SearchForClient from "./screens/banker/SearchForClient";
 
 function App() {
   return (
@@ -81,7 +82,7 @@ function App() {
             element={<BankerHomeScreen></BankerHomeScreen>}></Route>
           <Route
             path="/banker/viewclients"
-            element={<ViewClientsScreen></ViewClientsScreen>}></Route>
+            element={<SearchForClient></SearchForClient>}></Route>
           <Route
             path="/banker/viewclientdata/:id"
             element={<ViewClientDataScreen></ViewClientDataScreen>}></Route>
