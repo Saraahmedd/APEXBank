@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Container, Nav, NavDropdown, Navbar, Form } from 'react-bootstrap'
-import '../../../styles/Client.css';
+import '../../styles/Client.css';
 
 const ClientNavbar = () => {
     return (
