@@ -44,8 +44,7 @@ function App() {
           </Route>
           <Route
             path="/bankAccount/transaction"
-            element={<BankAccountTransactionsScreen />}
-          >
+            element={<BankAccountTransactionsScreen />}>
             {" "}
           </Route>
           <Route path="/bills" element={<BillsScreen />}>
@@ -56,8 +55,7 @@ function App() {
           </Route>
           <Route
             path="/creditCardApplication"
-            element={<CreditCardApplicationScreen />}
-          >
+            element={<CreditCardApplicationScreen />}>
             {" "}
           </Route>
           <Route path="/loanApplication" element={<LoanApplicationScree />}>
@@ -77,61 +75,52 @@ function App() {
           {/* Banker */}
           <Route
             path="/banker/login"
-            element={<BankerLoginScreen></BankerLoginScreen>}
-          ></Route>
+            element={<BankerLoginScreen></BankerLoginScreen>}></Route>
           <Route
             path="/banker/homescreen"
-            element={<BankerHomeScreen></BankerHomeScreen>}
-          ></Route>
+            element={<BankerHomeScreen></BankerHomeScreen>}></Route>
           <Route
             path="/banker/viewclients"
-            element={<ViewClientsScreen></ViewClientsScreen>}
-          ></Route>
+            element={<ViewClientsScreen></ViewClientsScreen>}></Route>
           <Route
             path="/banker/viewclientdata/:id"
-            element={<ViewClientDataScreen></ViewClientDataScreen>}
-          ></Route>
+            element={<ViewClientDataScreen></ViewClientDataScreen>}></Route>
           <Route
             path="/banker/viewclienttransactions"
             element={
               <ViewClientTransactionsScreen></ViewClientTransactionsScreen>
-            }
-          ></Route>
+            }></Route>
           <Route
             path="/banker/viewcreditcardreports"
-            element={<ViewCreditCardReports></ViewCreditCardReports>}
-          ></Route>
+            element={<ViewCreditCardReports></ViewCreditCardReports>}></Route>
           <Route
             path="/banker/viewcreditcardrequests"
-            element={<ViewCreditCardRequests></ViewCreditCardRequests>}
-          ></Route>
+            element={<ViewCreditCardRequests></ViewCreditCardRequests>}></Route>
           <Route
             path="/banker/viewloanrequests"
-            element={<ViewLoanRequestsScreen></ViewLoanRequestsScreen>}
-          ></Route>
+            element={<ViewLoanRequestsScreen></ViewLoanRequestsScreen>}></Route>
           <Route
             path="/banker/viewsingleCC"
-            element={<ViewSingleCCRequestScreen></ViewSingleCCRequestScreen>}
-          ></Route>
+            element={
+              <ViewSingleCCRequestScreen></ViewSingleCCRequestScreen>
+            }></Route>
           <Route
             path="/banker/viewsingleloan"
-            element={<ViewSingleLoanRequest></ViewSingleLoanRequest>}
-          ></Route>
+            element={<ViewSingleLoanRequest></ViewSingleLoanRequest>}></Route>
 
           {/* Admin */}
 
           <Route
             path="/admin/homescreen"
-            element={<AdminHomeScreen></AdminHomeScreen>}
-          ></Route>
+            element={<AdminHomeScreen></AdminHomeScreen>}></Route>
           <Route
             path="/admin/login"
-            element={<AdminLoginScreen></AdminLoginScreen>}
-          ></Route>
+            element={<AdminLoginScreen></AdminLoginScreen>}></Route>
           <Route
             path="/admin/technicalissues"
-            element={<AdminTechnicalIssuesScreen></AdminTechnicalIssuesScreen>}
-          ></Route>
+            element={
+              <AdminTechnicalIssuesScreen></AdminTechnicalIssuesScreen>
+            }></Route>
         </Routes>
       </Router>
     </>

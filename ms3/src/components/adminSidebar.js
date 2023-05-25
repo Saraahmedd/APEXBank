@@ -8,7 +8,7 @@ import {
   CDBSidebarMenuItem,
 } from "cdbreact";
 import { NavLink } from "react-router-dom";
-const Sidebar = () => {
+const AdminSidebar = () => {
   return (
     <div className="col-3 min-vh-100 ">
       <CDBSidebar textColor="#fff" className="bg-primary pb-5">
@@ -61,4 +61,4 @@ const Sidebar = () => {
     </div>
   );
 };
-export default Sidebar;
+export default AdminSidebar;

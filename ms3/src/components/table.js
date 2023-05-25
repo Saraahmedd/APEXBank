@@ -502,7 +502,13 @@ const Datatable = () => {
   };
 
   return (
-    <MDBDataTable striped bordered small data={data} className="col-7 pt-4" />
+    <MDBDataTable
+      striped
+      bordered
+      small
+      data={data}
+      className="col-12 pt-4 table "
+    />
   );
 };
 

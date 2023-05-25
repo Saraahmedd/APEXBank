@@ -6,7 +6,13 @@ import Sidebar from "../../components/Sidebar";
 const ViewSingleLoanRequest = () => {
   return (
     <>
-
+      <div className="row">
+        <Sidebar></Sidebar>
+        <div className="col-8">
+          <Datatable></Datatable>
+          <Datatable></Datatable>
+        </div>
+      </div>
     </>
   );
 };
