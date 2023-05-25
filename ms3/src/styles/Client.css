@@ -26,11 +26,19 @@
 }
 
 .text-gradient {
-    color: #004087;
+    color: #003087 !important;
 }
 
 .font-big {
     font-size: calc(1.25rem + 1.5vw)!important;
+}
+
+.font-very-big {
+    font-size: calc(2rem + 1.5vw)!important;
+}
+
+.banner {
+    height: 60%;
 }
 
 .second-image-borders {
@@ -47,8 +55,22 @@
     border-bottom-left-radius: 2rem;
 }
 
-/* @media screen and (max-width: 768px) {
-    .navbar-styles {
-        border-bottom: none;
+.testimonial-img {
+    width: 50%;
+    border-radius: 50%;
+}
+
+ @media screen and (max-width: 768px) {
+    .first-image-borders {
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 0rem;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 0rem;
     }
-} */
+    .second-image-borders {
+        border-top-left-radius: 0rem;
+        border-bottom-left-radius: 2rem;
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 2rem;
+    }
+}

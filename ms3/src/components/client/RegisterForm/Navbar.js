@@ -21,8 +21,8 @@ const ClientNavbar = () => {
                             <Nav.Link href="#link" className="fw-semibold fs-5 text-primary">About</Nav.Link>
                             <Nav.Link href="#link" className="fw-semibold fs-5 text-primary">Contact</Nav.Link>
                             <div className='flex-fill'></div>
-                            <Button variant="outline-primary" className="px-4">Log In</Button>
-                            <Button variant="primary" className="ms-lg-2 mt-2 mt-lg-0 px-4">Sign Up</Button>
+                            <Button variant="outline-primary" className="px-4 rounded-pill">Log In</Button>
+                            <Button variant="primary" className="ms-lg-2 mt-2 mt-lg-0 px-4 rounded-pill">Sign Up</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
