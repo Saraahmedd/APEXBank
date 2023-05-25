@@ -1,0 +1,54 @@
+.downloadApp {
+    height: 50px;
+    background: #faf8f5;
+}
+
+.navbar-styles {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.client-navbar {
+    height: 88px;
+}
+
+.bg-buffet {
+    background: url('../imgs/buffet.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.page-block {
+    height: 500px;
+}
+
+.bg-gradient {
+    background: #003087 !important;
+}
+
+.text-gradient {
+    color: #004087;
+}
+
+.font-big {
+    font-size: calc(1.25rem + 1.5vw)!important;
+}
+
+.second-image-borders {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.get-started-btn {
+    width: fit-content;
+}
+
+.first-image-borders {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+/* @media screen and (max-width: 768px) {
+    .navbar-styles {
+        border-bottom: none;
+    }
+} */

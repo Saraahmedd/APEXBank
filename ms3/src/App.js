@@ -25,6 +25,7 @@ import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
+import Home from "./screens/client/Home";
 
 
 function App() {
@@ -33,10 +34,14 @@ function App() {
       <Router>
         <Routes>
           {/* Client */}
-          <Route path="/" element={<HomeScreen />}>
+          <Route path="/" element={<Home />}>
             {" "}
           </Route>
+          
           <Route path="/login" element={<LoginScreen />}>
+            {" "}
+          </Route>
+          <Route path="/portal" element={<HomeScreen />}>
             {" "}
           </Route>
           <Route path="/bankAccount" element={<BankAccountsScreen />}>
