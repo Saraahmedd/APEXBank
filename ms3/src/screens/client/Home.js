@@ -13,7 +13,7 @@ const Home = () => {
             <div className="min-vh-100">
                 <ClientNavbar loggedIn={false} />
 
-                <Container className="my-5 page-block d-flex flex-column rounded-5 px-3">
+                <Container className="my-5 d-flex flex-column rounded-5 px-3">
                     <h1 className="fw-bold font-very-big text-gradient">Hassle-free banking for all.</h1>
                     <Row className="p-0 mt-5 banner">
                         <Col xs={12} md={6} order={2} order-md={1} className="p-0 d-flex flex-col">

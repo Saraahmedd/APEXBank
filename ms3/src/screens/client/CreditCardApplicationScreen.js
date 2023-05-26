@@ -17,11 +17,10 @@ const CreditCardApplicationScreen = () => {
         <ClientNavbar loggedIn={true} />
 
         <Container className="mt-3">
-
-          <h4>Credit Card Application Form</h4>
+          <h4 className="">Apply for a Credit Card</h4>
           <Row>
             <Col md={8} className="">
-              <Form className="mt-5">
+              <Form className="mt-3">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="loanType">Card Type</Form.Label>
                   <Form.Select id="loanType">
