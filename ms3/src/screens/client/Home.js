@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <>
             <div className="min-vh-100">
-                <ClientNavbar />
+                <ClientNavbar loggedIn={false} />
 
                 <Container className="my-5 page-block d-flex flex-column rounded-5 px-3">
                     <h1 className="fw-bold font-very-big text-gradient">Hassle-free banking for all.</h1>
