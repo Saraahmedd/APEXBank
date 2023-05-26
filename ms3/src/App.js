@@ -10,7 +10,7 @@ import LoanApplicationScree from "./screens/client/LoanApplicationScreen";
 import "./styles/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUpScreen from "./screens/client/SignUpScreen";
-import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
+// import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
 import LoansScreen from "./screens/client/LoansScreen";
 import LoanScreen from "./screens/client/loanScreen";
 import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
@@ -70,9 +70,9 @@ function App() {
           <Route path="/register" element={<SignUpScreen />}>
             {" "}
           </Route>
-          <Route path="/bankTransfer" element={<TransferMoneyScreen />}>
+          {/* <Route path="/bankTransfer" element={<TransferMoneyScreen />}>
             {" "}
-          </Route>
+          </Route> */}
           <Route path="/loans" element={<LoansScreen />}>
             {" "}
           </Route>

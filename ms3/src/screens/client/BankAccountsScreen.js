@@ -3,6 +3,9 @@ import { Card, Button, Row, Col, Container, Dropdown } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
 import Navbar from '../../components/client/Navbar'
 import Footer from '../../components/client/Footer';
+import Modal from '../../components/client/BankTransferModal';
+import BankTransferModal from '../../components/client/BankTransferModal';
+import CloseBankAccountModal from '../../components/client/CloseBankAccountModal';
 
 const BankAccountsScreen = () => {
   // Dummy data for bank accounts
@@ -10,7 +13,21 @@ const BankAccountsScreen = () => {
     { id: 1, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "personal" },
     { id: 2, name: 'Checking Account', balance: 10000, thisMonthTransaction: 2000, type: "personal" },
     { id: 3, name: 'Investment Account', balance: 25000, thisMonthTransaction: 2000, type: "personal" },
+      { id: 5, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "personal" },
+    { id: 6, name: 'Checking Account', balance: 10000, thisMonthTransaction: 2000, type: "personal" },
+    { id: 7, name: 'Investment Account', balance: 25000, thisMonthTransaction: 2000, type: "personal" },
   ];
+
+  const [show,setShow] = React.useState('');
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+    const [show2,setShow2] = React.useState('');
+
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
 
   const handleViewAccount = (accountId) => {
     // Handle logic to navigate to the single bank account screen
@@ -49,7 +66,7 @@ const BankAccountsScreen = () => {
           Account Actions
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item>Transfer Funds</Dropdown.Item>
+          <Dropdown.Item onClick={handleShow}>Transfer Funds</Dropdown.Item>
           <Dropdown.Item>View Transactions</Dropdown.Item>
           <Dropdown.Item>Edit Account Details</Dropdown.Item>
         </Dropdown.Menu>
@@ -82,6 +99,8 @@ const BankAccountsScreen = () => {
 
   return (
     <div className="text-center min-vh-100">
+      <BankTransferModal show={show} handleClose={handleClose} handleShow={handleShow} />
+      <CloseBankAccountModal show={show2} handleClose={handleClose2} handleShow={handleShow2} />
       <Navbar />
       <Container className=' min-vh-100' >
         <h1 className="mb-4">Bank Account Management</h1>
@@ -100,7 +119,7 @@ const BankAccountsScreen = () => {
                   <MDBIcon icon="dollar-sign" />   Balance: ${account.balance}
                   </Card.Text>
                   {renderAccountActionsDropdown()}
-                  <Button variant="danger" className='my-3' onClick={() => handleDeleteAccount(account.id)}>
+                  <Button variant="danger" className='my-3' onClick={handleShow2}>
                     <MDBIcon icon="trash" className="me-2" />
                     Delete Account
                   </Button>
