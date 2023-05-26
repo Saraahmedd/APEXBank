@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
+import Footer from "../../components/footer";
 import maleAvatar from "../../imgs/maleAvatar.png";
 import femaleAvatar from "../../imgs/femaleAvatar.png";
 
@@ -76,63 +77,64 @@ const SearchForClient = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <div className="column" style={{ flex: "1" }}>
+    <>
+      <div className="bg-light" style={{ display: "flex" }}>
         <Sidebar />
-      </div>
-      <div className="column m-4" style={{ flex: "3" }}>
-        <h2>Clients</h2>
-        <hr />
-        <input
-          type="text"
-          placeholder="Search by bank account number"
-          value={searchTerm}
-          onChange={handleSearch}
-          style={{ width: "90%", textAlign: "center" }}
-        />
-        <hr />
-        <div className="row flex-row">
-          {searchResults.length > 0 ? (
-            searchResults.map((client) => (
-              <Card
-                className="m-2 user-card col-4"
-                key={client.id}
-                style={{ alignItems: "center", textAlign: "center" }}
-              >
-                <Card.Header className="card-header">
-                  {client.icon}
-                  <span className="ms-2" style={{ fontWeight: "bold" }}>
-                    {client.name}
-                  </span>
-                </Card.Header>
-                <Card.Body>
-                  <div className="bank-accounts">
-                    <span style={{ fontWeight: "bold", color: "#333333" }}>
-                      Bank Accounts:
+        <div className="column m-4" style={{ flex: "3" }}>
+          <h2>Clients</h2>
+          <hr />
+          <input
+            type="text"
+            placeholder="Search by bank account number"
+            value={searchTerm}
+            onChange={handleSearch}
+            style={{ width: "90%", textAlign: "center" }}
+          />
+          <hr />
+          <div className="row flex-row">
+            {searchResults.length > 0 ? (
+              searchResults.map((client) => (
+                <Card
+                  className="m-2 user-card col-4"
+                  key={client.id}
+                  style={{ alignItems: "center", textAlign: "center" }}>
+                  <Card.Header className="card-header">
+                    {client.icon}
+                    <span className="ms-2" style={{ fontWeight: "bold" }}>
+                      {client.name}
                     </span>
-                    {client.bankAccounts.map((account, index) => (
-                      <div key={index}>{account}</div>
-                    ))}
-                  </div>
-                  <hr />
-                  <Link
-                    to={`/banker/viewclientdata/${client.id}`}
-                    className="btn btn-primary"
-                  >
-                    View Details
-                  </Link>
-                </Card.Body>
-              </Card>
-            ))
-          ) : (
-            <div>
-              <hr />
-              <h3 style={{ textAlign: "center" }}>No search results found.</h3>
-            </div>
-          )}
+                  </Card.Header>
+                  <Card.Body>
+                    <div className="bank-accounts">
+                      <span style={{ fontWeight: "bold", color: "#333333" }}>
+                        Bank Accounts:
+                      </span>
+                      {client.bankAccounts.map((account, index) => (
+                        <div key={index}>{account}</div>
+                      ))}
+                    </div>
+                    <hr />
+                    <Link
+                      to={`/banker/viewclientdata/${client.id}`}
+                      className="btn btn-primary">
+                      View Details
+                    </Link>
+                  </Card.Body>
+                </Card>
+              ))
+            ) : (
+              <div>
+                <hr />
+                <h3 style={{ textAlign: "center" }}>
+                  No search results found.
+                </h3>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 

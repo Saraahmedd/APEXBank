@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
+import Footer from "../../components/footer";
 
 const ViewLoanDataScreen = () => {
   const { id } = useParams();
@@ -80,80 +81,83 @@ const ViewLoanDataScreen = () => {
   const client = clients.find((client) => client.id === parseInt(id));
 
   return (
-    <div style={{ display: "flex" }}>
-      <Sidebar />
-      <div className="column m-4" style={{ flex: "3" }}>
-        <h2>Loan Details - {client.name}</h2>
-        <hr />
-        <div className="mb-4">
-          <h4>Active Loans</h4>
-          {client.loans
-            .filter((loan) => loan.status === "Active")
-            .map((loan) => (
-              <Card className="mb-3" key={loan.id}>
-                <Card.Header className="card-header">
-                  <strong>Type:</strong> {loan.type}
-                </Card.Header>
-                <Card.Body>
-                  <div>
-                    <strong>Amount:</strong> ${loan.amount}
-                  </div>
-                  <div>
-                    <strong>Interest Rate:</strong> {loan.interestRate}%
-                  </div>
-                  <div>
-                    <strong>Status:</strong> {loan.status}
-                  </div>
-                  <div>
-                    <strong>Monthly Payment:</strong>{" "}
-                    {loan.monthlyPayment ? `$${loan.monthlyPayment}` : "N/A"}
-                  </div>
-                  <div>
-                    <strong>Borrower:</strong> {loan.borrower}
-                  </div>
-                  <div>
-                    <strong>Next Deadline:</strong>{" "}
-                    {loan.nextDeadline ? loan.nextDeadline : "N/A"}
-                  </div>
-                  <button type="submit" className="btn btn-primary mt-3">
-                    <a
-                      className="text-light text-decoration-none"
-                      href="/banker/viewsingleloan">
-                      show details
-                    </a>
-                  </button>
-                </Card.Body>
-              </Card>
-            ))}
-        </div>
-        <div>
-          <h4>Requested Loans</h4>
-          {client.loans
-            .filter((loan) => loan.status === "Requested")
-            .map((loan) => (
-              <Card className="mb-3" key={loan.id}>
-                <Card.Header className="card-header">
-                  <strong>Type:</strong> {loan.type}
-                </Card.Header>
-                <Card.Body>
-                  <div>
-                    <strong>Amount:</strong> ${loan.amount}
-                  </div>
-                  <div>
-                    <strong>Interest Rate:</strong> {loan.interestRate}%
-                  </div>
-                  <div>
-                    <strong>Status:</strong> {loan.status}
-                  </div>
-                  <div>
-                    <strong>Borrower:</strong> {loan.borrower}
-                  </div>
-                </Card.Body>
-              </Card>
-            ))}
+    <>
+      <div className="bg-light" style={{ display: "flex" }}>
+        <Sidebar />
+        <div className="column m-4" style={{ flex: "3" }}>
+          <h2>Loan Details - {client.name}</h2>
+          <hr />
+          <div className="mb-4">
+            <h4>Active Loans</h4>
+            {client.loans
+              .filter((loan) => loan.status === "Active")
+              .map((loan) => (
+                <Card className="mb-3" key={loan.id}>
+                  <Card.Header className="card-header">
+                    <strong>Type:</strong> {loan.type}
+                  </Card.Header>
+                  <Card.Body>
+                    <div>
+                      <strong>Amount:</strong> ${loan.amount}
+                    </div>
+                    <div>
+                      <strong>Interest Rate:</strong> {loan.interestRate}%
+                    </div>
+                    <div>
+                      <strong>Status:</strong> {loan.status}
+                    </div>
+                    <div>
+                      <strong>Monthly Payment:</strong>{" "}
+                      {loan.monthlyPayment ? `$${loan.monthlyPayment}` : "N/A"}
+                    </div>
+                    <div>
+                      <strong>Borrower:</strong> {loan.borrower}
+                    </div>
+                    <div>
+                      <strong>Next Deadline:</strong>{" "}
+                      {loan.nextDeadline ? loan.nextDeadline : "N/A"}
+                    </div>
+                    <button type="submit" className="btn btn-primary mt-3">
+                      <a
+                        className="text-light text-decoration-none"
+                        href="/banker/viewsingleloan">
+                        show details
+                      </a>
+                    </button>
+                  </Card.Body>
+                </Card>
+              ))}
+          </div>
+          <div>
+            <h4>Requested Loans</h4>
+            {client.loans
+              .filter((loan) => loan.status === "Requested")
+              .map((loan) => (
+                <Card className="mb-3" key={loan.id}>
+                  <Card.Header className="card-header">
+                    <strong>Type:</strong> {loan.type}
+                  </Card.Header>
+                  <Card.Body>
+                    <div>
+                      <strong>Amount:</strong> ${loan.amount}
+                    </div>
+                    <div>
+                      <strong>Interest Rate:</strong> {loan.interestRate}%
+                    </div>
+                    <div>
+                      <strong>Status:</strong> {loan.status}
+                    </div>
+                    <div>
+                      <strong>Borrower:</strong> {loan.borrower}
+                    </div>
+                  </Card.Body>
+                </Card>
+              ))}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 

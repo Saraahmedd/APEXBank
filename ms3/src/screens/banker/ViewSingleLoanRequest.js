@@ -2,11 +2,12 @@ import React from "react";
 import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
+import Footer from "../../components/footer";
 
 const ViewSingleLoanRequest = () => {
   return (
     <>
-      <div className="row">
+      <div className="row bg-light">
         <Sidebar></Sidebar>
         <div className="col-8">
           <h1 className="py-3">Loan For Mr. Ahmed Mohsen</h1>
@@ -129,6 +130,7 @@ const ViewSingleLoanRequest = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };

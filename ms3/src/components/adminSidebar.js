@@ -10,7 +10,7 @@ import {
 import { NavLink } from "react-router-dom";
 const AdminSidebar = () => {
   return (
-    <div className="col-3 min-vh-100 ">
+    <div className="col-3 min-vh-100 p-0 m-0">
       <CDBSidebar textColor="#fff" className="bg-primary pb-5">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <h4 className="text-decoration-none" style={{ color: "inherit" }}>
@@ -21,24 +21,19 @@ const AdminSidebar = () => {
           <CDBSidebarMenu>
             <NavLink
               exact
-              to="/banker/homescreen"
+              to="/admin/homescreen"
               activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="columns">Homescreen</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
-              to="/banker/viewclients"
+              to="/admin/technicalissues"
               activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">client List</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">
-                Analytics
+              <CDBSidebarMenuItem icon="table">
+                technical issues
               </CDBSidebarMenuItem>
             </NavLink>
+
             <NavLink
               exact
               to="/termsandconditions"

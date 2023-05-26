@@ -2,7 +2,8 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
-import "../../components/styles/UserDetails.css"; // Custom CSS file for additional styling
+import "../../components/styles/UserDetails.css";
+import Footer from "../../components/footer"; // Custom CSS file for additional styling
 
 const ViewCreditCardDetails = () => {
   const { id } = useParams();
@@ -66,85 +67,88 @@ const ViewCreditCardDetails = () => {
   const selectedClient = clients.find((client) => client.id === Number(id));
 
   return (
-    <div style={{ display: "flex" }}>
-      <Sidebar />
-      <div className="column m-4" style={{ flex: "3" }}>
-        <h2>Credit Cards - {selectedClient.name}</h2>
-        <hr />
-        {selectedClient && (
-          <>
-            {/* <h3>{selectedClient.name}'s Credit Cards</h3> */}
-            <h4>Active Credit Cards</h4>
-            {selectedClient.creditCards.length > 0 ? (
-              selectedClient.creditCards
-                .filter((card) => card.status === "Active")
-                .map((card) => (
-                  <Card className="mb-3" key={card.id}>
-                    <Card.Header
-                      className="card-header"
-                      style={{ size: "18px" }}>
-                      <strong>Credit Card Number:</strong> {card.cardNumber}
-                    </Card.Header>
-                    <Card.Body>
-                      <Card.Text>
-                        <strong>Expiry Date:</strong> {card.expiryDate}
-                      </Card.Text>
-                      <Card.Text>
-                        <strong>Issue Date:</strong> {card.issueDate}
-                      </Card.Text>
-                      <Card.Text>
-                        <strong>Status:</strong> {card.status}
-                      </Card.Text>
-                      <Card.Text>
-                        <strong>Credit Limit:</strong> {card.creditLimit}
-                      </Card.Text>
-                      <Card.Text>
-                        <strong>Balance:</strong> {card.balance}
-                      </Card.Text>
-                      <Card.Text>
-                        <strong>Reward Points:</strong> {card.rewardPoints}
-                      </Card.Text>
-                      <button type="submit" className="btn btn-primary mt-3">
-                        <a
-                          className="text-light text-decoration-none"
-                          href="/banker/viewsingleCC">
-                          show details
-                        </a>
-                      </button>
-                    </Card.Body>
-                  </Card>
-                ))
-            ) : (
-              <p>No credit cards found.</p>
-            )}
-            <h4>Requested Credit Cards</h4>
-            {selectedClient.creditCards.length > 0 ? (
-              selectedClient.creditCards
-                .filter((card) => card.status === "Inactive")
-                .map((card) => (
-                  <Card className="mb-3" key={card.id}>
-                    <Card.Header
-                      className="card-header"
-                      style={{ size: "18px" }}>
-                      <strong>Pending Credit Card Request</strong>
-                    </Card.Header>
-                    <Card.Body>
-                      <button className="btn btn-primary btn-rounded col-3 m-2">
-                        Approve
-                      </button>
-                      <button className="btn btn-primary btn-rounded col-3 m-2">
-                        Reject
-                      </button>
-                    </Card.Body>
-                  </Card>
-                ))
-            ) : (
-              <></>
-            )}
-          </>
-        )}
+    <>
+      <div className="bg-light" style={{ display: "flex" }}>
+        <Sidebar />
+        <div className="column m-4" style={{ flex: "3" }}>
+          <h2>Credit Cards - {selectedClient.name}</h2>
+          <hr />
+          {selectedClient && (
+            <>
+              {/* <h3>{selectedClient.name}'s Credit Cards</h3> */}
+              <h4>Active Credit Cards</h4>
+              {selectedClient.creditCards.length > 0 ? (
+                selectedClient.creditCards
+                  .filter((card) => card.status === "Active")
+                  .map((card) => (
+                    <Card className="mb-3" key={card.id}>
+                      <Card.Header
+                        className="card-header"
+                        style={{ size: "18px" }}>
+                        <strong>Credit Card Number:</strong> {card.cardNumber}
+                      </Card.Header>
+                      <Card.Body>
+                        <Card.Text>
+                          <strong>Expiry Date:</strong> {card.expiryDate}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Issue Date:</strong> {card.issueDate}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Status:</strong> {card.status}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Credit Limit:</strong> {card.creditLimit}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Balance:</strong> {card.balance}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Reward Points:</strong> {card.rewardPoints}
+                        </Card.Text>
+                        <button type="submit" className="btn btn-primary mt-3">
+                          <a
+                            className="text-light text-decoration-none"
+                            href="/banker/viewsingleCC">
+                            show details
+                          </a>
+                        </button>
+                      </Card.Body>
+                    </Card>
+                  ))
+              ) : (
+                <p>No credit cards found.</p>
+              )}
+              <h4>Requested Credit Cards</h4>
+              {selectedClient.creditCards.length > 0 ? (
+                selectedClient.creditCards
+                  .filter((card) => card.status === "Inactive")
+                  .map((card) => (
+                    <Card className="mb-3" key={card.id}>
+                      <Card.Header
+                        className="card-header"
+                        style={{ size: "18px" }}>
+                        <strong>Pending Credit Card Request</strong>
+                      </Card.Header>
+                      <Card.Body>
+                        <button className="btn btn-primary btn-rounded col-3 m-2">
+                          Approve
+                        </button>
+                        <button className="btn btn-primary btn-rounded col-3 m-2">
+                          Reject
+                        </button>
+                      </Card.Body>
+                    </Card>
+                  ))
+              ) : (
+                <></>
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 

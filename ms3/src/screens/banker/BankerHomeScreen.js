@@ -67,7 +67,7 @@ const BankerHomeScreen = () => {
   };
   return (
     <>
-      <div className="row ">
+      <div className="row bg-light ">
         <Sidebar></Sidebar>
         <div className="col-9 p-4">
           <h1 className="p-4">Welcome, Banker</h1>
