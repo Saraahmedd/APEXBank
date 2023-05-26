@@ -4,7 +4,7 @@ import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 
-const ViewSingleLoanRequest = () => {
+const ViewSingleLoan = () => {
   return (
     <>
       <div className="row bg-light">
@@ -135,4 +135,4 @@ const ViewSingleLoanRequest = () => {
   );
 };
 
-export default ViewSingleLoanRequest;
+export default ViewSingleLoan;

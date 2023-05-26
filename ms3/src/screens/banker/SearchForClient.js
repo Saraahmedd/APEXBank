@@ -97,7 +97,8 @@ const SearchForClient = () => {
                 <Card
                   className="m-2 user-card col-4"
                   key={client.id}
-                  style={{ alignItems: "center", textAlign: "center" }}>
+                  style={{ alignItems: "center", textAlign: "center" }}
+                >
                   <Card.Header className="card-header">
                     {client.icon}
                     <span className="ms-2" style={{ fontWeight: "bold" }}>
@@ -116,7 +117,8 @@ const SearchForClient = () => {
                     <hr />
                     <Link
                       to={`/banker/viewclientdata/${client.id}`}
-                      className="btn btn-primary">
+                      className="btn btn-primary"
+                    >
                       View Details
                     </Link>
                   </Card.Body>
@@ -124,10 +126,12 @@ const SearchForClient = () => {
               ))
             ) : (
               <div>
-                <hr />
                 <h3 style={{ textAlign: "center" }}>
                   No search results found.
                 </h3>
+                <h5 style={{ textAlign: "center" }}>
+                  Enter a valid bank account number.
+                </h5>
               </div>
             )}
           </div>

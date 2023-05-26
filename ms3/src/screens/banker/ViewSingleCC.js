@@ -71,7 +71,7 @@ const ViewSingleCC = () => {
           </div>
 
           <div className="my-4">
-            <h2>Paid amounts</h2>
+            <h2>Transactions</h2>
             <table class="table table-striped">
               <thead>
                 <tr>

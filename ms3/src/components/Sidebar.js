@@ -22,13 +22,15 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/banker/homescreen"
-              activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">HomeScreen</CDBSidebarMenuItem>
+              activeClassName="activeClicked"
+            >
+              <CDBSidebarMenuItem icon="columns">Home</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
               to="/banker/viewclients"
-              activeClassName="activeClicked">
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem icon="table">
                 clients database
               </CDBSidebarMenuItem>
@@ -44,7 +46,8 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/termsandconditions"
-              activeClassName="activeClicked">
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem icon="book">
                 terms and conditions
               </CDBSidebarMenuItem>

@@ -103,9 +103,7 @@ const ViewLoanDataScreen = () => {
                     <div>
                       <strong>Interest Rate:</strong> {loan.interestRate}%
                     </div>
-                    <div>
-                      <strong>Status:</strong> {loan.status}
-                    </div>
+
                     <div>
                       <strong>Monthly Payment:</strong>{" "}
                       {loan.monthlyPayment ? `$${loan.monthlyPayment}` : "N/A"}
@@ -117,10 +115,12 @@ const ViewLoanDataScreen = () => {
                       <strong>Next Deadline:</strong>{" "}
                       {loan.nextDeadline ? loan.nextDeadline : "N/A"}
                     </div>
+                    <hr />
                     <button type="submit" className="btn btn-primary mt-3">
                       <a
                         className="text-light text-decoration-none"
-                        href="/banker/viewsingleloan">
+                        href="/banker/viewsingleloan"
+                      >
                         show details
                       </a>
                     </button>
@@ -150,6 +150,13 @@ const ViewLoanDataScreen = () => {
                     <div>
                       <strong>Borrower:</strong> {loan.borrower}
                     </div>
+                    <hr />
+                    <button type="submit" className="btn btn-primary m-2">
+                      Grant
+                    </button>
+                    <button type="submit" className="btn btn-primary m-2">
+                      Reject
+                    </button>
                   </Card.Body>
                 </Card>
               ))}

@@ -37,6 +37,8 @@ const ViewCreditCardDetails = () => {
         {
           id: 2,
           status: "Inactive",
+          creditLimit: "$8,000",
+          isReplacement: "replacement",
         },
       ],
     },
@@ -84,24 +86,22 @@ const ViewCreditCardDetails = () => {
                     <Card className="mb-3" key={card.id}>
                       <Card.Header
                         className="card-header"
-                        style={{ size: "18px" }}>
+                        style={{ size: "18px" }}
+                      >
                         <strong>Credit Card Number:</strong> {card.cardNumber}
                       </Card.Header>
                       <Card.Body>
                         <Card.Text>
-                          <strong>Expiry Date:</strong> {card.expiryDate}
-                        </Card.Text>
-                        <Card.Text>
                           <strong>Issue Date:</strong> {card.issueDate}
                         </Card.Text>
                         <Card.Text>
-                          <strong>Status:</strong> {card.status}
-                        </Card.Text>
-                        <Card.Text>
-                          <strong>Credit Limit:</strong> {card.creditLimit}
+                          <strong>Expiry Date:</strong> {card.expiryDate}
                         </Card.Text>
                         <Card.Text>
                           <strong>Balance:</strong> {card.balance}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Credit Limit:</strong> {card.creditLimit}
                         </Card.Text>
                         <Card.Text>
                           <strong>Reward Points:</strong> {card.rewardPoints}
@@ -109,7 +109,8 @@ const ViewCreditCardDetails = () => {
                         <button type="submit" className="btn btn-primary mt-3">
                           <a
                             className="text-light text-decoration-none"
-                            href="/banker/viewsingleCC">
+                            href="/banker/viewsingleCC"
+                          >
                             show details
                           </a>
                         </button>
@@ -127,10 +128,17 @@ const ViewCreditCardDetails = () => {
                     <Card className="mb-3" key={card.id}>
                       <Card.Header
                         className="card-header"
-                        style={{ size: "18px" }}>
+                        style={{ size: "18px" }}
+                      >
                         <strong>Pending Credit Card Request</strong>
                       </Card.Header>
                       <Card.Body>
+                        <Card.Text>
+                          <strong>Credit Limit:</strong> {card.creditLimit}
+                        </Card.Text>
+                        <Card.Text>
+                          <strong>Card Type:</strong> {card.isReplacement}
+                        </Card.Text>
                         <button className="btn btn-primary btn-rounded col-3 m-2">
                           Approve
                         </button>
