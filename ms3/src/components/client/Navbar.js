@@ -1,9 +1,34 @@
 import React from "react";
-import { Button, Container, Nav, NavDropdown, Navbar, Form } from 'react-bootstrap'
+import { Button, Container, Row, Col, Nav, NavDropdown, Navbar, Form, OverlayTrigger, Popover } from 'react-bootstrap'
 import '../../styles/Client.css';
-import { Bell, BellFill, PersonCircle } from "react-bootstrap-icons";
+import { BellFill, PersonCircle } from "react-bootstrap-icons";
 
 const ClientNavbar = ({ loggedIn = false }) => {
+    const popover = (
+        <Popover id="popover-basic" className="rounded-0">
+            <Popover.Header as="h3">Notifications</Popover.Header>
+            <Popover.Body className="p-0 rounded-0">
+                <ul className="list-group rounded-0 border-0">
+                    <li className="list-group-item">
+                        <span className="fw-bold">Announcement</span><br />
+                        Exciting news! Update our mobile banking app for a better, more secure experience. Discover new features and enhanced functionality today.<br/>
+                        <span className="text-muted">26/05/2023</span>
+                    </li>
+                    <li className="list-group-item">
+                        <span className="fw-bold">Transaction</span><br />
+                        Spent 175.50 EGP at Talabat Cairo EG<br/>
+                        <span className="text-muted">25/05/2023</span>
+                    </li>
+                    <li className="list-group-item">
+                        <span className="fw-bold">Reminder</span><br />
+                        Loan Payment for loan #32123 due in 1 week<br />
+                        <span className="text-muted">22/05/2023</span>
+                    </li>
+                </ul>
+            </Popover.Body>
+        </Popover>
+    );
+
     return (
         <>
             <Container fluid className="border-bottom border-dark-subtle">
@@ -37,7 +62,10 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                     <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Loans</Nav.Link>
                                     <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Credit Cards</Nav.Link>
                                     <PersonCircle className="ms-3" size={36} />
-                                    <BellFill className="text-warning ms-3" size={24}/>
+
+                                    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                                        <BellFill className="text-warning ms-3 cursor-pointer" size={24} />
+                                    </OverlayTrigger>
                                 </>}
                         </Nav>
                     </Navbar.Collapse>
