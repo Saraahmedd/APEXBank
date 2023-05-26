@@ -27,6 +27,7 @@ import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScre
 import BankAccountOpeningScreen from "./screens/client/BankAccountOpeningFormScreen";
 import Home from "./screens/client/Home";
 import Footer from "./components/client/Footer"
+import UserProfileScreen from "./screens/client/UserProfileScreen";
 
 
 function App() {
@@ -68,6 +69,10 @@ function App() {
             {" "}
           </Route>
           <Route path="/register" element={<SignUpScreen />}>
+            {" "}
+          </Route>
+
+           <Route path="/MyProfile" element={<UserProfileScreen />}>
             {" "}
           </Route>
           {/* <Route path="/bankTransfer" element={<TransferMoneyScreen />}>
