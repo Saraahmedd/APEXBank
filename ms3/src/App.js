@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUpScreen from "./screens/client/SignUpScreen";
 import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
 import LoansScreen from "./screens/client/LoansScreen";
-import LoanScreen from "./screens/client/loanScreen";
+// import LoanScreen from "./screens/client/loanScreen";
 import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
 import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
 import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
@@ -75,7 +75,7 @@ function App() {
           <Route path="/loans" element={<LoansScreen />}>
             {" "}
           </Route>
-          <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route>
+          {/* <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route> */}
 
           {/* Banker */}
           <Route

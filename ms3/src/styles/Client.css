@@ -17,6 +17,10 @@
     background-position: center;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .page-block {
     height: 500px;
 }
