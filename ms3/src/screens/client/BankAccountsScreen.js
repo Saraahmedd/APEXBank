@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button, Row, Col, Container, Dropdown } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
 import Navbar from '../../components/client/Navbar'
+import Footer from '../../components/client/Footer';
 
 const BankAccountsScreen = () => {
   // Dummy data for bank accounts
@@ -82,7 +83,7 @@ const BankAccountsScreen = () => {
   return (
     <div className="text-center min-vh-100">
       <Navbar />
-      <Container>
+      <Container className=' min-vh-100' >
         <h1 className="mb-4">Bank Account Management</h1>
         <Button variant="primary" onClick={handleApplyNewAccount} className="mb-4">
           Apply for a New Bank Account
@@ -110,6 +111,7 @@ const BankAccountsScreen = () => {
           ))}
         </Row>
       </Container>
+       <Footer />
     </div>
   );
 };

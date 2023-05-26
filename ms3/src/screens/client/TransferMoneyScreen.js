@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { MDBInput } from 'mdbreact';
 import { FaDollarSign } from 'react-icons/fa'; // Import additional icon
 import Navbar from '../../components/client/Navbar'
+import Footer from '../../components/client/Footer';
 
 const BankTransferScreen = () => {
   // Dummy data for available amount and current amount
@@ -82,6 +83,7 @@ const BankTransferScreen = () => {
           </Col>
         </Row>
       </Container>
+       <Footer />
     </>
   );
 };

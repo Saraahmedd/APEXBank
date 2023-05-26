@@ -5,6 +5,7 @@ import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
 import Navbar from '../../components/client/Navbar'
+import Footer from '../../components/client/Footer';
 
 const BankAccountScreen = () => {
   return (
@@ -145,6 +146,7 @@ const BankAccountScreen = () => {
         </Row>
       </Form>
     </Container>
+    <Footer />
     </>
   );
 };

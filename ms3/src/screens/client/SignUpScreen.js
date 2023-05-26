@@ -17,6 +17,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 import Navbar from '../../components/client/Navbar'
+import Footer from '../../components/client/Footer';
 
 const RegistrationForm = () => {
   const [step, setStep] = React.useState(1);
@@ -41,25 +42,26 @@ const RegistrationForm = () => {
   };
 
   return (
-    <>
+    <Container className='min-vh-100'>
     <Navbar />
-  <MDBContainer className="mb-5 d-flex justify-content-center" style={{ maxWidth: "55%" }}>
-  <MDBRow className='m-auto'>
-    <MDBCol col='8'>
-     <MDBCard className='my-5 cascading-right bg-light' style={{  borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', height: '550px', width: '500px' }}>
-  <MDBCol md={{ span: 6, offset: 3 }} className="d-flex flex-column align-items-center py-5 ">
-    {renderStep()}
+    <MDBContainer className="mb-5 d-flex justify-content-center" style={{ maxWidth: "55%" }}>
+    <MDBRow className='m-auto'>
+      <MDBCol col='8'>
+      <MDBCard className='my-5 cascading-right bg-light' style={{  borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', height: '550px', width: '500px' }}>
+    <MDBCol md={{ span: 6, offset: 3 }} className="d-flex flex-column align-items-center py-5 ">
+      {renderStep()}
 
-    { (
-      <Button className='mt-4 btn-lg btn-primary' size='lg' onClick={handleNextStep}>{step !== 4 ? "Next": "Register"}</Button>
-    )}
-  </MDBCol>
-</MDBCard>
-
+      { (
+        <Button className='mt-4 btn-lg btn-primary' size='lg' onClick={handleNextStep}>{step !== 4 ? "Next": "Register"}</Button>
+      )}
     </MDBCol>
-  </MDBRow>
-</MDBContainer>
-</>
+  </MDBCard>
+
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+ <Footer />
+</Container>
 
   );
 };

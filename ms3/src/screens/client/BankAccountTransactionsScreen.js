@@ -3,6 +3,7 @@ import { Card, Col, Row, Table } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
 import Navbar from '../../components/client/Navbar'
 import { Line } from 'react-chartjs-2';
+import Footer from '../../components/client/Footer';
 
 const SingleAccountScreen = () => {
   // Dummy data for the bank account
@@ -134,11 +135,13 @@ const SingleAccountScreen = () => {
           </Table>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-5 mb-5">
           <h4>Total Expenses per Month</h4>
           <Line data={chartData} />
         </div>
       </div>
+      
+       <Footer />
     </div>
   );
 };
