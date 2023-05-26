@@ -4,12 +4,12 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBDropdown, MDBDropdow
 import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
-import Header from '../../components/client/Header'
+import Navbar from '../../components/client/Navbar'
 
 const BankAccountScreen = () => {
   return (
     <>
-    <Header />
+    <Navbar/>
     <Container className='min-vh-100  justify-content-center'>
       <h1 className='text-center'>Open Bank Account</h1>
       <hr></hr>

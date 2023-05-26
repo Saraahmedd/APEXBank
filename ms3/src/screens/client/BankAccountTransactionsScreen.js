@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Row, Table } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
-import Header from "../../components/client/Header";
+import Navbar from '../../components/client/Navbar'
 import { Line } from 'react-chartjs-2';
 
 const SingleAccountScreen = () => {
@@ -39,7 +39,7 @@ const SingleAccountScreen = () => {
 
   return (
     <div className="text-center">
-      <Header />
+      <Navbar />
       <div className="container mt-5">
         <h2>Bank Account Details</h2>
         <Card>

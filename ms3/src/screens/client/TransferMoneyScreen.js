@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { MDBInput } from 'mdbreact';
 import { FaDollarSign } from 'react-icons/fa'; // Import additional icon
-import Header from '../../components/client/Header';
+import Navbar from '../../components/client/Navbar'
 
 const BankTransferScreen = () => {
   // Dummy data for available amount and current amount
@@ -11,7 +11,7 @@ const BankTransferScreen = () => {
 
   return (
     <>
-      <Header />
+      <Navbar />
       <Container className="min-vh-100">
         <br />
         <Row className="justify-content-center">

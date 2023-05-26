@@ -8,11 +8,13 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { Button } from 'react-bootstrap';
+import Navbar from '../../components/client/Navbar'
 const logo = require('../../imgs/lightLogo.png')
 function App() {
   return (
-   <MDBContainer className="my-5 gradient-form min-vh-100 d-flex align-items-center justify-content-center">
-
+    <>
+    <Navbar />
+   <MDBContainer className="mb-5 gradient-form min-vh-100 d-flex justify-content-center">
       <MDBRow className='m-auto'>
 
         <MDBCol col='6' className="mb-5">
@@ -69,6 +71,7 @@ function App() {
       </MDBRow>
 
     </MDBContainer>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, Row, Col, Container, Dropdown } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
-import Header from "../../components/client/Header";
+import Navbar from '../../components/client/Navbar'
 
 const BankAccountsScreen = () => {
   // Dummy data for bank accounts
@@ -81,7 +81,7 @@ const BankAccountsScreen = () => {
 
   return (
     <div className="text-center min-vh-100">
-      <Header />
+      <Navbar />
       <Container>
         <h1 className="mb-4">Bank Account Management</h1>
         <Button variant="primary" onClick={handleApplyNewAccount} className="mb-4">

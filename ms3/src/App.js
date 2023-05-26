@@ -24,9 +24,9 @@ import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
-import Footer from "./components/Footer";
 import BankAccountOpeningScreen from "./screens/client/BankAccountOpeningFormScreen";
 import Home from "./screens/client/Home";
+import Footer from "./components/client/Footer"
 
 
 function App() {

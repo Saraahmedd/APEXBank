@@ -16,8 +16,7 @@ import {
   MDBCheckbox
 }
 from 'mdb-react-ui-kit';
-
-import Header from '../../components/client/Header';
+import Navbar from '../../components/client/Navbar'
 
 const RegistrationForm = () => {
   const [step, setStep] = React.useState(1);
@@ -43,12 +42,12 @@ const RegistrationForm = () => {
 
   return (
     <>
-    <Header />
-  <MDBContainer className="my-5 min-vh-100 d-flex align-items-center justify-content-center" style={{ maxWidth: "55%" }}>
+    <Navbar />
+  <MDBContainer className="mb-5 d-flex justify-content-center" style={{ maxWidth: "55%" }}>
   <MDBRow className='m-auto'>
     <MDBCol col='8'>
-     <MDBCard className='my-5 cascading-right' style={{ background: 'linear-gradient(135deg, #eeeeee 0%, #eeeeee 100%)', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', height: '550px', width: '500px' }}>
-  <MDBCol md={{ span: 6, offset: 3 }} className="d-flex flex-column align-items-center py-5">
+     <MDBCard className='my-5 cascading-right bg-light' style={{  borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', height: '550px', width: '500px' }}>
+  <MDBCol md={{ span: 6, offset: 3 }} className="d-flex flex-column align-items-center py-5 ">
     {renderStep()}
 
     { (
