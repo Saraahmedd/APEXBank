@@ -3,19 +3,19 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 
-const ViewSingleLoanRequest = () => {
+const ViewSingleCC = () => {
   return (
     <>
       <div className="row">
         <Sidebar></Sidebar>
         <div className="col-8">
-          <h1 className="py-3">Loan For Mr. Ahmed Mohsen</h1>
+          <h1 className="py-3">Credit Card Details </h1>
           <div className="my-4">
             <h2>Upcoming Deadlines</h2>
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Loan amount ID</th>
+                  <th scope="col">amount ID</th>
                   <th scope="col">amount</th>
                   <th scope="col">Deadline</th>
                 </tr>
@@ -74,26 +74,26 @@ const ViewSingleLoanRequest = () => {
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Loan amount ID</th>
+                  <th scope="col">Transaction ID</th>
                   <th scope="col">amount</th>
-                  <th scope="col">Deadline</th>
+                  <th scope="col">Place</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
                   <td>2000</td>
-                  <td>27/03/2023</td>
+                  <td>Zara</td>
                 </tr>
                 <tr>
                   <th scope="row">2</th>
                   <td>2000</td>
-                  <td>27/04/2023</td>
+                  <td>H&M</td>
                 </tr>
                 <tr>
                   <th scope="row">3</th>
                   <td>2000</td>
-                  <td>27/05/2023</td>
+                  <td>T&A</td>
                 </tr>
               </tbody>
             </table>
@@ -133,4 +133,4 @@ const ViewSingleLoanRequest = () => {
   );
 };
 
-export default ViewSingleLoanRequest;
+export default ViewSingleCC;

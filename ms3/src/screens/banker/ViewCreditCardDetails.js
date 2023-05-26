@@ -67,9 +67,7 @@ const ViewCreditCardDetails = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <div className="column" style={{ flex: "1" }}>
-        <Sidebar />
-      </div>
+      <Sidebar />
       <div className="column m-4" style={{ flex: "3" }}>
         <h2>Credit Cards - {selectedClient.name}</h2>
         <hr />
@@ -84,8 +82,7 @@ const ViewCreditCardDetails = () => {
                   <Card className="mb-3" key={card.id}>
                     <Card.Header
                       className="card-header"
-                      style={{ size: "18px" }}
-                    >
+                      style={{ size: "18px" }}>
                       <strong>Credit Card Number:</strong> {card.cardNumber}
                     </Card.Header>
                     <Card.Body>
@@ -107,6 +104,13 @@ const ViewCreditCardDetails = () => {
                       <Card.Text>
                         <strong>Reward Points:</strong> {card.rewardPoints}
                       </Card.Text>
+                      <button type="submit" className="btn btn-primary mt-3">
+                        <a
+                          className="text-light text-decoration-none"
+                          href="/banker/viewsingleCC">
+                          show details
+                        </a>
+                      </button>
                     </Card.Body>
                   </Card>
                 ))
@@ -121,8 +125,7 @@ const ViewCreditCardDetails = () => {
                   <Card className="mb-3" key={card.id}>
                     <Card.Header
                       className="card-header"
-                      style={{ size: "18px" }}
-                    >
+                      style={{ size: "18px" }}>
                       <strong>Pending Credit Card Request</strong>
                     </Card.Header>
                     <Card.Body>

@@ -23,22 +23,24 @@ const Sidebar = () => {
               exact
               to="/banker/homescreen"
               activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="columns">HomeScreen</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
               to="/banker/viewclients"
               activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">client List</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="table">
+                clients database
+              </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/profile" activeClassName="activeClicked">
+            {/* <NavLink exact to="/profile" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
+            </NavLink> */}
+            {/* <NavLink exact to="/analytics" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">
                 Analytics
               </CDBSidebarMenuItem>
-            </NavLink>
+            </NavLink> */}
             <NavLink
               exact
               to="/termsandconditions"

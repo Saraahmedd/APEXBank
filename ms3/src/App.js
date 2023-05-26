@@ -20,7 +20,7 @@ import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactio
 import ViewReports from "./screens/banker/ViewReports";
 import ViewCreditCardDetails from "./screens/banker/ViewCreditCardDetails";
 import ViewLoanDataScreen from "./screens/banker/ViewLoanDataScreen";
-import ViewSingleCCRequestScreen from "./screens/banker/ViewSingleCCRequestScreen";
+import ViewSingleCC from "./screens/banker/ViewSingleCC";
 import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
@@ -92,19 +92,14 @@ function App() {
               <ViewClientTransactionsScreen></ViewClientTransactionsScreen>
             }></Route>
           <Route
-            path="/banker/viewcreditcardreports"
-            element={<ViewCreditCardReports></ViewCreditCardReports>}></Route>
+            path="/banker/viewcreditcards/:id"
+            element={<ViewCreditCardDetails></ViewCreditCardDetails>}></Route>
           <Route
-            path="/banker/viewcreditcardrequests"
-            element={<ViewCreditCardRequests></ViewCreditCardRequests>}></Route>
-          <Route
-            path="/banker/viewloanrequests"
-            element={<ViewLoanRequestsScreen></ViewLoanRequestsScreen>}></Route>
+            path="/banker/viewloans/:id"
+            element={<ViewLoanDataScreen></ViewLoanDataScreen>}></Route>
           <Route
             path="/banker/viewsingleCC"
-            element={
-              <ViewSingleCCRequestScreen></ViewSingleCCRequestScreen>
-            }></Route>
+            element={<ViewSingleCC></ViewSingleCC>}></Route>
           <Route
             path="/banker/viewsingleloan"
             element={<ViewSingleLoanRequest></ViewSingleLoanRequest>}></Route>

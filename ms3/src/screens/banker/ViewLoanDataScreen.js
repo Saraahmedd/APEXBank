@@ -81,9 +81,7 @@ const ViewLoanDataScreen = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <div className="column" style={{ flex: "1" }}>
-        <Sidebar />
-      </div>
+      <Sidebar />
       <div className="column m-4" style={{ flex: "3" }}>
         <h2>Loan Details - {client.name}</h2>
         <hr />
@@ -117,6 +115,13 @@ const ViewLoanDataScreen = () => {
                     <strong>Next Deadline:</strong>{" "}
                     {loan.nextDeadline ? loan.nextDeadline : "N/A"}
                   </div>
+                  <button type="submit" className="btn btn-primary mt-3">
+                    <a
+                      className="text-light text-decoration-none"
+                      href="/banker/viewsingleloan">
+                      show details
+                    </a>
+                  </button>
                 </Card.Body>
               </Card>
             ))}

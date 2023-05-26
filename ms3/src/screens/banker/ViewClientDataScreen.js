@@ -11,9 +11,7 @@ const ViewClientDataScreen = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <div className="column" style={{ flex: "1" }}>
-        <Sidebar />
-      </div>
+      <Sidebar />
       <div className="column m-4" style={{ flex: "3" }}>
         <h2 style={{ textAlign: "center" }}>Client Data</h2>
         <hr />
@@ -22,20 +20,17 @@ const ViewClientDataScreen = () => {
         <div className="row d-flex flex-row justify-content-center">
           <Link
             to={`/banker/viewloans/${id}`}
-            className="btn btn-primary btn-rounded col-3 m-2"
-          >
+            className="btn btn-primary btn-rounded col-3 m-2">
             Loans
           </Link>
           <Link
             to={`/banker/viewcreditcards/${id}`}
-            className="btn btn-primary btn-rounded col-3 m-2"
-          >
+            className="btn btn-primary btn-rounded col-3 m-2">
             Credit Card
           </Link>
           <Link
             to={`/banker/viewClientReports/${id}`}
-            className="btn btn-primary btn-rounded col-3 m-2"
-          >
+            className="btn btn-primary btn-rounded col-3 m-2">
             Reports
           </Link>
         </div>
