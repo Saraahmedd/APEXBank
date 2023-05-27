@@ -68,7 +68,7 @@ const AdminHomeScreen = () => {
 
   return (
     <>
-      <div className="row ">
+      <div className="row">
         <AdminSidebar></AdminSidebar>
         <div className="col-9 p-4">
           <h1 className="p-4">Welcome, Admin</h1>
@@ -119,7 +119,8 @@ const AdminHomeScreen = () => {
                   data={[
                     { label: "Name", value: "Ahmed Mohsen" },
                     { label: "ID", value: "7394" },
-                  ]}></CardComponent>
+                  ]}
+                ></CardComponent>
               </div>
               <div className="col-12">
                 <CardComponent
@@ -128,7 +129,8 @@ const AdminHomeScreen = () => {
                     { label: "New issues", value: "34 " },
                     { label: "unresolved issues", value: "7394" },
                     { label: "total issues", value: "10000" },
-                  ]}></CardComponent>
+                  ]}
+                ></CardComponent>
               </div>
             </div>
             <div className="col-5">
@@ -142,7 +144,8 @@ const AdminHomeScreen = () => {
                     <button
                       type="button"
                       class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(1)}>
+                      onClick={() => removeCard(1)}
+                    >
                       done
                     </button>
                   </div>
@@ -158,7 +161,8 @@ const AdminHomeScreen = () => {
                     <button
                       type="button"
                       class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(2)}>
+                      onClick={() => removeCard(2)}
+                    >
                       done
                     </button>
                   </div>
@@ -172,7 +176,8 @@ const AdminHomeScreen = () => {
                     <button
                       type="button"
                       class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(3)}>
+                      onClick={() => removeCard(3)}
+                    >
                       done
                     </button>
                   </div>

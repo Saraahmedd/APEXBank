@@ -12,7 +12,8 @@ const Inbox = () => {
                 className="tab-pane fade active show"
                 id="inbox"
                 aria-labelledby="inbox-tab"
-                role="tabpanel">
+                role="tabpanel"
+              >
                 <div>
                   <div className="row p-4 no-gutters align-items-center">
                     <div className="col-sm-12 col-md-6">
@@ -21,7 +22,7 @@ const Inbox = () => {
                       </h3>
                     </div>
                   </div>
-                  <div className="table-responsive">
+                  <div className="table-responsive rounded">
                     <table className="table email-table no-wrap table-hover v-middle mb-0 font-14">
                       <tbody>
                         <tr>
@@ -34,7 +35,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst1">
+                                for="cst1"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -74,7 +76,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst2">
+                                for="cst2"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -114,7 +117,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst3">
+                                for="cst3"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -152,7 +156,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst4">
+                                for="cst4"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -190,7 +195,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst5">
+                                for="cst5"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -228,7 +234,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst6">
+                                for="cst6"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -266,7 +273,8 @@ const Inbox = () => {
                               />
                               <label
                                 className="custom-control-label"
-                                for="cst7">
+                                for="cst7"
+                              >
                                 &nbsp;
                               </label>
                             </div>
@@ -304,7 +312,8 @@ const Inbox = () => {
                 className="tab-pane fade"
                 id="sent"
                 aria-labelledby="sent-tab"
-                role="tabpanel">
+                role="tabpanel"
+              >
                 <div className="row p-3 text-dark">
                   <div className="col-md-6">
                     <h3 className="font-light">Lets check profile</h3>
@@ -324,7 +333,8 @@ const Inbox = () => {
                 className="tab-pane fade"
                 id="spam"
                 aria-labelledby="spam-tab"
-                role="tabpanel">
+                role="tabpanel"
+              >
                 <div className="row p-3 text-dark">
                   <div className="col-md-6">
                     <h3 className="font-light">
@@ -346,7 +356,8 @@ const Inbox = () => {
                 className="tab-pane fade"
                 id="delete"
                 aria-labelledby="delete-tab"
-                role="tabpanel">
+                role="tabpanel"
+              >
                 <div className="row p-3 text-dark">
                   <div className="col-md-6">
                     <h3 className="font-light">Just do Settings</h3>

@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
+import { useState, useEffect } from "react";
 
 const ViewLoanDataScreen = () => {
   const { id } = useParams();
@@ -78,7 +79,39 @@ const ViewLoanDataScreen = () => {
     },
   ];
 
-  const client = clients.find((client) => client.id === parseInt(id));
+  const [client, setClient] = useState(
+    clients.find((client) => client.id === parseInt(id))
+  );
+
+  const [loanUpdated, setLoanUpdated] = useState(false);
+
+  const handleGrant = (loanId) => {
+    updateLoanStatus(loanId);
+  };
+
+  const updateLoanStatus = (loanId) => {
+    const updatedClient = { ...client };
+    const loanIndex = updatedClient.loans.findIndex(
+      (loan) => loan.id === loanId
+    );
+    if (loanIndex !== -1) {
+      updatedClient.loans[loanIndex].status = "Active";
+      setClient(updatedClient);
+      setLoanUpdated(true);
+    }
+  };
+
+  useEffect(() => {
+    if (loanUpdated) {
+    }
+  }, [loanUpdated]);
+
+  const removeCard = (number) => {
+    if (document.getElementById(`card ${number}`)) {
+      console.log("ALOOOOOI");
+      document.getElementById(`card ${number}`).classList.add("d-none");
+    }
+  };
 
   return (
     <>
@@ -133,7 +166,7 @@ const ViewLoanDataScreen = () => {
             {client.loans
               .filter((loan) => loan.status === "Requested")
               .map((loan) => (
-                <Card className="mb-3" key={loan.id}>
+                <Card className="mb-3" key={loan.id} id={`card ${loan.id}`}>
                   <Card.Header className="card-header">
                     <strong>Type:</strong> {loan.type}
                   </Card.Header>
@@ -151,10 +184,18 @@ const ViewLoanDataScreen = () => {
                       <strong>Borrower:</strong> {loan.borrower}
                     </div>
                     <hr />
-                    <button type="submit" className="btn btn-primary m-2">
+                    <button
+                      type="submit"
+                      className="btn btn-primary m-2"
+                      onClick={(e) => handleGrant(loan.id)}
+                    >
                       Grant
                     </button>
-                    <button type="submit" className="btn btn-primary m-2">
+                    <button
+                      type="submit"
+                      className="btn btn-primary m-2"
+                      onClick={(e) => removeCard(loan.id)}
+                    >
                       Reject
                     </button>
                   </Card.Body>

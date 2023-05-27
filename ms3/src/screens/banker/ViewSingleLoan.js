@@ -10,7 +10,7 @@ const ViewSingleLoan = () => {
       <div className="row bg-light">
         <Sidebar></Sidebar>
         <div className="col-8">
-          <h1 className="py-3">Loan For Mr. Ahmed Mohsen</h1>
+          <h1 className="py-3">Loan Details</h1>
           <div className="my-4">
             <h2>Upcoming Deadlines</h2>
             <table class="table table-striped">

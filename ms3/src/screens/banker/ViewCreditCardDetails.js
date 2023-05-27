@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import "../../components/styles/UserDetails.css";
 import Footer from "../../components/footer"; // Custom CSS file for additional styling
+import { useState, useEffect } from "react";
 
 const ViewCreditCardDetails = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const ViewCreditCardDetails = () => {
         },
         {
           id: 2,
-          status: "Inactive",
+          status: "Requested",
           creditLimit: "$8,000",
           isReplacement: "replacement",
         },
@@ -51,7 +52,7 @@ const ViewCreditCardDetails = () => {
           cardNumber: "4567 8901 2345 6789",
           expiryDate: "12/23",
           issueDate: "07/18",
-          status: "Inactive",
+          status: "Requested",
           creditLimit: "$8,000",
           balance: "$0",
           rewardPoints: 2500,
@@ -66,7 +67,99 @@ const ViewCreditCardDetails = () => {
   ];
 
   // Find the client based on the id parameter
-  const selectedClient = clients.find((client) => client.id === Number(id));
+  const [selectedClient, setClient] = useState(
+    clients.find((client) => client.id === parseInt(id))
+  );
+
+  const [cardUpdated, setCardUpdated] = useState(false);
+
+  const handleGrant = (ccId) => {
+    updateCardStatus(ccId);
+  };
+
+  const updateCardStatus = (ccId) => {
+    const updatedClient = { ...selectedClient };
+    const Index = updatedClient.creditCards.findIndex(
+      (card) => card.id === ccId
+    );
+    if (Index !== -1) {
+      updatedClient.creditCards[Index].status = "Active";
+      setClient(updatedClient);
+      setCardUpdated(true);
+    }
+  };
+
+  useEffect(() => {
+    if (cardUpdated) {
+    }
+  }, [cardUpdated]);
+
+  const removeCard = (number) => {
+    if (document.getElementById(`card ${number}`)) {
+      console.log("ALOOOOOI");
+      document.getElementById(`card ${number}`).classList.add("d-none");
+    }
+  };
+
+  const handleDeactivate = (ccId) => {
+    deactivateCard(ccId);
+  };
+
+  const deactivateCard = (ccId) => {
+    const updatedClient = { ...selectedClient };
+    const Index = updatedClient.creditCards.findIndex(
+      (card) => card.id === ccId
+    );
+    if (Index !== -1) {
+      updatedClient.creditCards[Index].status = "Inactive";
+      setClient(updatedClient);
+      setCardUpdated(true);
+      //Activate-btn  --  showDetails
+      if (
+        document.getElementById(`Activate-btn ${ccId}`) &&
+        document.getElementById(`showDetails ${ccId}`) &&
+        document.getElementById(`Deactivate-btn ${ccId}`)
+      ) {
+        document
+          .getElementById(`Activate-btn ${ccId}`)
+          .classList.remove("d-none");
+        document.getElementById(`showDetails ${ccId}`).classList.add("d-none");
+        document
+          .getElementById(`Deactivate-btn ${ccId}`)
+          .classList.add("d-none");
+      }
+    }
+  };
+
+  const handleActivate = (ccId) => {
+    activateCard(ccId);
+  };
+
+  const activateCard = (ccId) => {
+    const updatedClient = { ...selectedClient };
+    const Index = updatedClient.creditCards.findIndex(
+      (card) => card.id === ccId
+    );
+    if (Index !== -1) {
+      updatedClient.creditCards[Index].status = "Active";
+      setClient(updatedClient);
+      setCardUpdated(true);
+      //Activate-btn  --  showDetails
+      if (
+        document.getElementById(`Activate-btn ${ccId}`) &&
+        document.getElementById(`showDetails ${ccId}`) &&
+        document.getElementById(`Deactivate-btn ${ccId}`)
+      ) {
+        document.getElementById(`Activate-btn ${ccId}`).classList.add("d-none");
+        document
+          .getElementById(`showDetails ${ccId}`)
+          .classList.remove("d-none");
+        document
+          .getElementById(`Deactivate-btn ${ccId}`)
+          .classList.remove("d-none");
+      }
+    }
+  };
 
   return (
     <>
@@ -81,7 +174,10 @@ const ViewCreditCardDetails = () => {
               <h4>Active Credit Cards</h4>
               {selectedClient.creditCards.length > 0 ? (
                 selectedClient.creditCards
-                  .filter((card) => card.status === "Active")
+                  .filter(
+                    (card) =>
+                      card.status === "Active" || card.status === "Inactive"
+                  )
                   .map((card) => (
                     <Card className="mb-3" key={card.id}>
                       <Card.Header
@@ -91,6 +187,15 @@ const ViewCreditCardDetails = () => {
                         <strong>Credit Card Number:</strong> {card.cardNumber}
                       </Card.Header>
                       <Card.Body>
+                        <Card.Text
+                          style={{
+                            fontSize: "17px",
+                            color:
+                              card.status === "Active" ? "#00AA22" : "#b33022",
+                          }}
+                        >
+                          <strong>Status:</strong> {card.status}
+                        </Card.Text>
                         <Card.Text>
                           <strong>Issue Date:</strong> {card.issueDate}
                         </Card.Text>
@@ -106,7 +211,25 @@ const ViewCreditCardDetails = () => {
                         <Card.Text>
                           <strong>Reward Points:</strong> {card.rewardPoints}
                         </Card.Text>
-                        <button type="submit" className="btn btn-primary mt-3">
+                        <button
+                          className="btn btn-primary btn-rounded col-3 m-2"
+                          id={`Deactivate-btn ${card.id}`}
+                          onClick={(e) => handleDeactivate(card.id)}
+                        >
+                          Deactivate card
+                        </button>
+                        <button
+                          className=" btn btn-primary btn-rounded col-3 m-2 d-none"
+                          id={`Activate-btn ${card.id}`}
+                          onClick={(e) => handleActivate(card.id)}
+                        >
+                          Activate Card
+                        </button>
+                        <button
+                          type="submit"
+                          className="btn btn-primary btn-rounded col-3 m-2"
+                          id={`showDetails ${card.id}`}
+                        >
                           <a
                             className="text-light text-decoration-none"
                             href="/banker/viewsingleCC"
@@ -123,9 +246,9 @@ const ViewCreditCardDetails = () => {
               <h4>Requested Credit Cards</h4>
               {selectedClient.creditCards.length > 0 ? (
                 selectedClient.creditCards
-                  .filter((card) => card.status === "Inactive")
+                  .filter((card) => card.status === "Requested")
                   .map((card) => (
-                    <Card className="mb-3" key={card.id}>
+                    <Card className="mb-3" key={card.id} id={`card ${card.id}`}>
                       <Card.Header
                         className="card-header"
                         style={{ size: "18px" }}
@@ -133,16 +256,27 @@ const ViewCreditCardDetails = () => {
                         <strong>Pending Credit Card Request</strong>
                       </Card.Header>
                       <Card.Body>
+                        <Card.Text
+                          style={{ fontSize: "17px", color: "#d99c2b" }}
+                        >
+                          <strong>Status:</strong> {card.status}
+                        </Card.Text>
                         <Card.Text>
                           <strong>Credit Limit:</strong> {card.creditLimit}
                         </Card.Text>
                         <Card.Text>
                           <strong>Card Type:</strong> {card.isReplacement}
                         </Card.Text>
-                        <button className="btn btn-primary btn-rounded col-3 m-2">
+                        <button
+                          className="btn btn-primary btn-rounded col-3 m-2"
+                          onClick={(e) => handleGrant(card.id)}
+                        >
                           Approve
                         </button>
-                        <button className="btn btn-primary btn-rounded col-3 m-2">
+                        <button
+                          className="btn btn-primary btn-rounded col-3 m-2"
+                          onClick={(e) => removeCard(card.id)}
+                        >
                           Reject
                         </button>
                       </Card.Body>

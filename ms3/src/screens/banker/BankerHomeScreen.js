@@ -134,9 +134,12 @@ const BankerHomeScreen = () => {
             </div>
             <div className="col-5 bg-secondary"></div>
           </div>
+          <hr />
+          <div class="h2">To-do List</div>
           <div className="col-11 mt-2">
             <div class="card" id="card 1">
-              <div class="card-header h1">To do</div>
+              {/* <div class="card-header h1">To do</div> */}
+
               <div class="card-body row">
                 <h5 class="card-title col-6">
                   Admit/reject credit card requests
@@ -154,7 +157,7 @@ const BankerHomeScreen = () => {
           </div>
           <div className="col-11 mt-2">
             <div class="card" id="card 2">
-              <div class="card-header h1">To do</div>
+              {/* <div class="card-header h1">To do</div> */}
               <div class="card-body row">
                 <h5 class="card-title col-6">
                   Admit/reject credit loan requests
@@ -172,7 +175,7 @@ const BankerHomeScreen = () => {
           </div>
           <div className="col-11 mt-2">
             <div class="card" id="card 3">
-              <div class="card-header h1">To do</div>
+              {/* <div class="card-header h1">To do</div> */}
               <div class="card-body row">
                 <h5 class="card-title col-6">resolve business reports</h5>
                 <div className="col-4"></div>
