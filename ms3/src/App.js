@@ -27,6 +27,7 @@ import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
 import Home from "./screens/client/Home";
 import SingleLoanScreen from "./screens/client/SingleLoanScreen";
+import SingleCardScreen from "./screens/client/SingleCardScreen";
 
 
 function App() {
@@ -77,6 +78,9 @@ function App() {
             {" "}
           </Route>
           <Route path="/loan" element={<SingleLoanScreen />}>
+            {" "}
+          </Route>
+          <Route path="/card" element={<SingleCardScreen />}>
             {" "}
           </Route>
           {/* <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route> */}

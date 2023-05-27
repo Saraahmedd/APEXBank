@@ -21,6 +21,10 @@
     cursor: pointer;
 }
 
+.bg-lightgray {
+    background-color: #f3f3f3 !important;
+}
+
 .page-block {
     height: 500px;
 }

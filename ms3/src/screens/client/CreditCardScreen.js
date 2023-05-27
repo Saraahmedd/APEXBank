@@ -12,21 +12,24 @@ const CreditCardScreen = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const [hoveredCard, setHoveredCard] = useState(0);
   const [cards, setCards] = useState([
     {
+      id: 1,
       type: 'TRAVEL PLATINUM',
       cardNumber: '5317 3774 2846 2309',
       remaining: 15000,
       limit: 20000
     },
     {
+      id: 2,
       type: 'CASHBACK TITANIUM',
       cardNumber: '5317 3774 2846 1182',
       remaining: 147250,
       limit: 150000
     },
     {
+      id: 3,
       type: 'TRAVEL GOLD',
       cardNumber: '5317 3774 2846 2451',
       remaining: 30000,
@@ -51,7 +54,12 @@ const CreditCardScreen = () => {
               {
                 cards.map((card, index) => {
                   return (
-                    <Card style={{ width: '18rem', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
+                    <Card
+                      className={"cursor-pointer " + (hoveredCard === card.id ? 'bg-lightgray' : '')}
+                      onMouseOver={() => setHoveredCard(card.id)}
+                      onMouseLeave={() => setHoveredCard(0)}
+                      onClick={() => window.location.href = "http://localhost:3000/card?id=" + card.id}
+                      style={{ width: '18rem', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
                       <Card.Body>
                         <Card.Title>
                           <div className='d-flex flex-fill'>
@@ -73,10 +81,15 @@ const CreditCardScreen = () => {
                   );
                 })
               }
-              <Card className="" style={{ width: '18rem', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
+              <Card
+                className={"cursor-pointer " + (hoveredCard === -1 ? 'bg-lightgray' : '')}
+                onMouseOver={() => setHoveredCard(-1)}
+                onMouseLeave={() => setHoveredCard(0)}
+                onClick={() => window.location.href = "http://localhost:3000/CreditCardApplication"}
+                style={{ width: '18rem', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
                 <Card.Body className='d-flex flex-column align-items-center justify-content-center'>
-                    <PlusLg className="text-primary" size={72} />
-                    <span className='text-primary mt-1'>Apply For a New Credit Card</span>
+                  <PlusLg className="text-primary" size={72} />
+                  <span className='text-primary mt-1'>Apply For a New Credit Card</span>
                 </Card.Body>
               </Card>
             </Row>

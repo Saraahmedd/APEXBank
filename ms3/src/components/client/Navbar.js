@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Container, Row, Col, Nav, NavDropdown, Navbar, Form, OverlayTrigger, Popover } from 'react-bootstrap'
 import '../../styles/Client.css';
 import { BellFill, PersonCircle } from "react-bootstrap-icons";
+import { Link } from 'react-router-dom';
 
 const ClientNavbar = ({ loggedIn = false }) => {
     const popover = (
@@ -43,9 +44,9 @@ const ClientNavbar = ({ loggedIn = false }) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex flex-fill align-items-center">
-                            <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Home</Nav.Link>
-                            <Nav.Link href="#link" className="fw-semibold fs-5 text-primary">About</Nav.Link>
-                            <Nav.Link href="#link" className="fw-semibold fs-5 text-primary">Contact</Nav.Link>
+                            <Link to="/" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Home</Nav.Link></Link>
+                            <Link to="/about" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">About</Nav.Link></Link>
+                            <Link to="/contact" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">Contact</Nav.Link></Link>
                             <div className='flex-fill'></div>
                             {!loggedIn &&
                                 <>
@@ -56,12 +57,12 @@ const ClientNavbar = ({ loggedIn = false }) => {
                             {loggedIn &&
                                 <>
                                     {/* <p className="fw-semibold fs-6 m-0 p-0">Logged in as Omar</p> */}
-                                    <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Accounts & Statements</Nav.Link>
-                                    <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Bills</Nav.Link>
-                                    <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Points & Cashback</Nav.Link>
-                                    <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Loans</Nav.Link>
-                                    <Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Credit Cards</Nav.Link>
-                                    <PersonCircle className="ms-3" size={36} />
+                                    <Link to="/bankaccounts" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Accounts & Statements</Nav.Link></Link>
+                                    <Link to="/bills" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Bills</Nav.Link></Link>
+                                    <Link to="/points" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Points & Cashback</Nav.Link></Link>
+                                    <Link to="/loans" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Loans</Nav.Link></Link>
+                                    <Link to="/creditcard" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Credit Cards</Nav.Link></Link>
+                                    <Link to="/portal" className="text-decoration-none"><PersonCircle className="ms-3" size={36} /></Link>
 
                                     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
                                         <BellFill className="text-warning ms-3 cursor-pointer" size={24} />
