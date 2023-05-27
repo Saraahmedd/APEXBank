@@ -84,7 +84,7 @@ const LoansScreen = () => {
                         <td>{loan.startDate}</td>
                         <td>{loan.endDate}</td>
                         <td>{(loan.amountPaid * 100 / loan.loanedAmount).toFixed(2)}%</td>
-                        <td className='text-center'><ArrowRightCircleFill className='text-primary cursor-pointer' size={24} /></td>
+                        <td className='text-center'><ArrowRightCircleFill onClick={() => {window.location.href="http://localhost:3000/loan?id=" + loan.loanNumber;}} className='text-primary cursor-pointer' size={24} /></td>
                       </tr>
                     );
                   })
