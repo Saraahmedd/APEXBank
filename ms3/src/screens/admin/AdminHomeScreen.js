@@ -61,7 +61,6 @@ const AdminHomeScreen = () => {
 
   const removeCard = (number) => {
     if (document.getElementById(`card ${number}`)) {
-      console.log("ALOOOOOI");
       document.getElementById(`card ${number}`).classList.add("d-none");
     }
   };
@@ -115,22 +114,20 @@ const AdminHomeScreen = () => {
             <div className="col-6 flex-col">
               <div className="col-12">
                 <CardComponent
-                  title="admin information"
+                  title="Admin Information"
                   data={[
                     { label: "Name", value: "Ahmed Mohsen" },
                     { label: "ID", value: "7394" },
-                  ]}
-                ></CardComponent>
+                  ]}></CardComponent>
               </div>
               <div className="col-12">
                 <CardComponent
-                  title="Technical issues summary"
+                  title="Technical Issues Summary"
                   data={[
                     { label: "New issues", value: "34 " },
-                    { label: "unresolved issues", value: "7394" },
-                    { label: "total issues", value: "10000" },
-                  ]}
-                ></CardComponent>
+                    { label: "Unresolved issues", value: "7394" },
+                    { label: "Total issues", value: "10000" },
+                  ]}></CardComponent>
               </div>
             </div>
             <div className="col-5">
@@ -139,14 +136,13 @@ const AdminHomeScreen = () => {
                   <div class="card-header h1">To do</div>
                   <div class="card-body row">
                     <h5 class="card-title col-9">
-                      Admit/reject credit card requests
+                      Admit/Reject credit card requests
                     </h5>
                     <button
                       type="button"
                       class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(1)}
-                    >
-                      done
+                      onClick={() => removeCard(1)}>
+                      Done
                     </button>
                   </div>
                 </div>
@@ -156,14 +152,13 @@ const AdminHomeScreen = () => {
                   <div class="card-header h1">To do</div>
                   <div class="card-body row">
                     <h5 class="card-title col-9">
-                      Admit/reject credit loan requests
+                      Admit/Reject credit loan requests
                     </h5>
                     <button
                       type="button"
                       class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(2)}
-                    >
-                      done
+                      onClick={() => removeCard(2)}>
+                      Done
                     </button>
                   </div>
                 </div>
@@ -172,13 +167,12 @@ const AdminHomeScreen = () => {
                 <div class="card" id="card 3">
                   <div class="card-header h1">To do</div>
                   <div class="card-body row">
-                    <h5 class="card-title col-9">resolve business reports</h5>
+                    <h5 class="card-title col-9">Resolve business reports</h5>
                     <button
                       type="button"
                       class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(3)}
-                    >
-                      done
+                      onClick={() => removeCard(3)}>
+                      Done
                     </button>
                   </div>
                 </div>

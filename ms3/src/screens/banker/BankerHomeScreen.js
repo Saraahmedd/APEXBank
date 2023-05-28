@@ -67,7 +67,7 @@ const BankerHomeScreen = () => {
   };
   return (
     <>
-      <div className="row bg-light ">
+      <div className="row bg-white ">
         <Sidebar></Sidebar>
         <div className="col-9 p-4">
           <h1 className="p-4">Welcome, Banker</h1>
@@ -118,8 +118,7 @@ const BankerHomeScreen = () => {
                   data={[
                     { label: "Name", value: "Ahmed Mohsen" },
                     { label: "ID", value: "7394" },
-                  ]}
-                ></CardComponent>
+                  ]}></CardComponent>
               </div>
               <div className="col-12">
                 <CardComponent
@@ -128,8 +127,7 @@ const BankerHomeScreen = () => {
                     { label: "new Credit Card requests", value: "34 " },
                     { label: "denied credit card requests", value: "7394" },
                     { label: "total credit card requests", value: "10000" },
-                  ]}
-                ></CardComponent>
+                  ]}></CardComponent>
               </div>
             </div>
             <div className="col-5 bg-secondary"></div>
@@ -148,8 +146,7 @@ const BankerHomeScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(1)}
-                >
+                  onClick={() => removeCard(1)}>
                   done
                 </button>
               </div>
@@ -166,8 +163,7 @@ const BankerHomeScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(2)}
-                >
+                  onClick={() => removeCard(2)}>
                   done
                 </button>
               </div>
@@ -182,8 +178,7 @@ const BankerHomeScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(3)}
-                >
+                  onClick={() => removeCard(3)}>
                   done
                 </button>
               </div>

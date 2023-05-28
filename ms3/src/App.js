@@ -28,9 +28,12 @@ import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScre
 import Home from "./screens/client/Home";
 import SingleLoanScreen from "./screens/client/SingleLoanScreen";
 import SingleCardScreen from "./screens/client/SingleCardScreen";
-
+import AdminPrivacyPolicy from "./screens/admin/PrivacyPolicy";
+import AdminTermsAndConditions from "./screens/admin/TermsAndConditions";
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
 import SearchForClient from "./screens/banker/SearchForClient";
+import BankerPrivacyPolicy from "./screens/banker/PrivacyPolicy";
+import BankerTermsAndConditions from "./screens/banker/TermsAndConditions";
 
 function App() {
   return (
@@ -121,6 +124,15 @@ function App() {
             path="/banker/viewsingleloan"
             element={<ViewSingleLoan></ViewSingleLoan>}></Route>
 
+          <Route
+            path="/banker/privacypolicy"
+            element={<BankerPrivacyPolicy></BankerPrivacyPolicy>}></Route>
+
+          <Route
+            path="/banker/termsandconditions"
+            element={
+              <BankerTermsAndConditions></BankerTermsAndConditions>
+            }></Route>
           {/* Admin */}
 
           <Route
@@ -133,6 +145,14 @@ function App() {
             path="/admin/technicalissues"
             element={
               <AdminTechnicalIssuesScreen></AdminTechnicalIssuesScreen>
+            }></Route>
+          <Route
+            path="/admin/privacypolicy"
+            element={<AdminPrivacyPolicy></AdminPrivacyPolicy>}></Route>
+          <Route
+            path="/admin/termsandconditions"
+            element={
+              <AdminTermsAndConditions></AdminTermsAndConditions>
             }></Route>
         </Routes>
       </Router>
