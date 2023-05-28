@@ -10,7 +10,7 @@ import LoanApplicationScree from "./screens/client/LoanApplicationScreen";
 import "./styles/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUpScreen from "./screens/client/SignUpScreen";
-import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
+// import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
 import LoansScreen from "./screens/client/LoansScreen";
 // import LoanScreen from "./screens/client/loanScreen";
 import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
@@ -25,6 +25,7 @@ import ViewSingleLoan from "./screens/banker/ViewSingleLoan";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
+import BankAccountOpeningScreen from "./screens/client/BankAccountOpeningFormScreen";
 import Home from "./screens/client/Home";
 import SingleLoanScreen from "./screens/client/SingleLoanScreen";
 import SingleCardScreen from "./screens/client/SingleCardScreen";
@@ -32,6 +33,8 @@ import AdminPrivacyPolicy from "./screens/admin/AdminPrivacyPolicy";
 import AdminTermsAndConditions from "./screens/admin/AdminTermsAndConditions";
 import About from "./screens/client/About";
 import Contact from "./screens/client/Contact";
+import Footer from "./components/client/Footer"
+import UserProfileScreen from "./screens/client/UserProfileScreen";
 
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
 import SearchForClient from "./screens/banker/SearchForClient";
@@ -87,9 +90,13 @@ function App() {
           <Route path="/register" element={<SignUpScreen />}>
             {" "}
           </Route>
-          <Route path="/bankTransfer" element={<TransferMoneyScreen />}>
+
+           <Route path="/MyProfile" element={<UserProfileScreen />}>
             {" "}
           </Route>
+          {/* <Route path="/bankTransfer" element={<TransferMoneyScreen />}>
+            {" "}
+          </Route> */}
           <Route path="/loans" element={<LoansScreen />}>
             {" "}
           </Route>
@@ -100,6 +107,8 @@ function App() {
             {" "}
           </Route>
           {/* <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route> */}
+          {/* <Route path="/loan" element={<LoanScreen></LoanScreen>}></Route> */}
+           <Route path="/openBankAcc" element={<BankAccountOpeningScreen></BankAccountOpeningScreen>}></Route>
 
           {/* Banker */}
           <Route
@@ -171,6 +180,7 @@ function App() {
             }></Route>
         </Routes>
       </Router>
+      {/* <Footer /> */}
     </>
   );
 }

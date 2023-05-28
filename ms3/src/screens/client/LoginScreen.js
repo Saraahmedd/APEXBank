@@ -8,16 +8,50 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { Button } from 'react-bootstrap';
+import Navbar from '../../components/client/Navbar'
+import Message from '../../components/client/Message';
+import Footer from '../../components/client/Footer';
 const logo = require('../../imgs/lightLogo.png')
 function App() {
-  return (
-   <MDBContainer className="my-5 gradient-form min-vh-100 d-flex align-items-center justify-content-center">
 
+  const [username,setUsername] = React.useState('');
+  const [password,setPassword] = React.useState('');
+  const [message,setMessage] = React.useState("");
+    const [success,setSuccess] = React.useState('');
+
+  const handleSubmit = () => {
+    // Handle form submission
+    // You can perform any necessary logic here
+   
+    if(username === "abdullah@yahoo.com" && password==="pass1234"){
+        window.history.pushState({},"","/")
+      window.location.reload()
+    }
+    else {
+      console.log("herehere")
+      setSuccess(true)
+      setMessage('Incorrect username or password')
+     const timer = setTimeout(() => {
+      setMessage("");
+    }, 5000);
+    }
+
+  };
+  return (
+    <>
+    <Navbar />
+
+   
+   <MDBContainer className="mb-5 gradient-form min-vh-100 d-flex justify-content-center">
+    
       <MDBRow className='m-auto'>
 
         <MDBCol col='6' className="mb-5">
+          
           <div className="d-flex flex-column ms-5">
-
+ {message && <Message className="" variant='danger' showMessage={success} setShowMessage={setSuccess}>
+                 {message}  
+                </Message> }
             <div className="text-center">
               <img src={logo}
                 style={{width: '185px'}} alt="logo" />
@@ -28,14 +62,14 @@ function App() {
 
 
            <label htmlFor="form1">Email address</label>
-<MDBInput wrapperClass="mb-4" id="form1" type="email" />
+<MDBInput wrapperClass="mb-4" id="form1" type="email" value={username} onChange={ (e) =>setUsername(e.target.value)} />
 
 <label htmlFor="form2">Password</label>
-<MDBInput wrapperClass="mb-4" id="form2" type="password" />
+<MDBInput wrapperClass="mb-4" id="form2" type="password" value={password}  onChange={ (e) =>setPassword(e.target.value)}/>
 
 
             <div className="text-center pt-1 mb-5 pb-1">
-              <MDBBtn className="mb-4 w-100 gradient-custom-2">Sign in</MDBBtn>
+              <Button className="mb-4 w-100 gradient-custom-2" onClick={handleSubmit}>Sign in</Button>
               <a className="text-muted" href="#!">Forgot password?</a>
             </div>
 
@@ -69,6 +103,8 @@ function App() {
       </MDBRow>
 
     </MDBContainer>
+    <Footer />
+    </>
   );
 }
 
