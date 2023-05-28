@@ -15,9 +15,9 @@ const LoansScreen = () => {
       loanType: 'PERSONAL',
       loanTerm: '5 YEARS - 7.5%',
       loanedAmount: 600000,
-      nextPaymentDate: '01/07/2023',
-      startDate: '01/05/2023',
-      endDate: '01/05/2028',
+      nextPaymentDate: '01-07-2023',
+      startDate: '01-05-2023',
+      endDate: '01-05-2028',
       amountPaid: 20000
     },
     {
@@ -25,9 +25,9 @@ const LoansScreen = () => {
       loanType: 'CAR',
       loanTerm: '3 YEARS - 6.5%',
       loanedAmount: 720000,
-      nextPaymentDate: '01/07/2023',
-      startDate: '01/03/2023',
-      endDate: '01/03/2026',
+      nextPaymentDate: '01-07-2023',
+      startDate: '01-03-2023',
+      endDate: '01-03-2026',
       amountPaid: 80000
     },
     {
@@ -35,9 +35,9 @@ const LoansScreen = () => {
       loanType: 'PERSONAL',
       loanTerm: '3 YEARS - 6.5%',
       loanedAmount: 600000,
-      nextPaymentDate: '01/07/2023',
-      startDate: '01/03/2021',
-      endDate: '01/03/2024',
+      nextPaymentDate: '01-07-2023',
+      startDate: '01-03-2021',
+      endDate: '01-03-2024',
       amountPaid: 461500
     }
   ]);

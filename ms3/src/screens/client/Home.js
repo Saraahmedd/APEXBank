@@ -21,7 +21,7 @@ const Home = () => {
                                 <h1 className="text-white fw-bold font-big">Unlock Financial Flexibility: Enjoy 0% APR on Select Banking Services.</h1>
                                 <p className="text-light fw-semibold mt-4">
                                     Take control of your financial journey with our exclusive offer. Enjoy 0% APR on qualifying banking services, empowering you to manage your finances with ease and peace of mind.</p>
-                                <Button variant="light" className="rounded-pill get-started-btn px-5">
+                                <Button onClick={() => window.location.href = "http://localhost:3000/register" } variant="light" className="rounded-pill get-started-btn px-5">
                                     <span className="fw-bold fs-5 text-gradient">
                                         Get Started Now
                                     </span>
@@ -39,7 +39,7 @@ const Home = () => {
                     <Row className='w-100'>
                         <Col xs={12} md={6} className="d-flex flex-column align-items-start justify-content-center">
                             <p className='font-big fw-bold text-dark'>Earn 10% cashback on our platinum credit cards for a limited time only</p>
-                            <Button className="bg-gradient rounded-pill fs-4 fw-bold px-5 py-2">Apply Now</Button>
+                            <Button className="bg-gradient rounded-pill fs-4 fw-bold px-5 py-2" onClick={() => window.location.href = "http://localhost:3000/login" }>Apply Now</Button>
                         </Col>
                         <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center">
                             <CreditCardSVG className='w-75' />

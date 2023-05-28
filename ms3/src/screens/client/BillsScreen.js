@@ -10,13 +10,20 @@ import Footer from '../../components/client/Footer';
 const BillsScreen = () => {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+
   const handleShow = () => setShow(true);
 
   const [show2, setShow2] = useState(false);
+  let [chosenBill, setChosenBill] = useState('');
 
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
+  const [amountPaid, setAmountPaid] = useState('');
+
+  const [description, setDescription] = useState('');
+  const [payeeName, setPayeeName] = useState('');
+  const [amount, setAmount] = useState('');
+  const [dueDate, setDueDate] = useState('');
 
 
   const [bills, setBills] = useState([
@@ -26,8 +33,9 @@ const BillsScreen = () => {
       billDescription: 'Telephone Bill for 01005079623',
       payee: 'Vodafone Egypt',
       billedAmt: 380.00,
-      dueDate: '12/06/2023',
-      status: 'UNPAID'
+      dueDate: '12-06-2023',
+      status: 'UNPAID',
+      reminder: false
     },
     {
       billNumber: 801312,
@@ -35,8 +43,9 @@ const BillsScreen = () => {
       billDescription: 'CREDIT CARD BILL FOR 05/23',
       payee: 'APEX BANK',
       billedAmt: 4200.00,
-      dueDate: '01/06/2023',
-      status: 'UNPAID'
+      dueDate: '01-06-2023',
+      status: 'UNPAID',
+      reminder: false
     },
     {
       billNumber: 650134,
@@ -44,10 +53,43 @@ const BillsScreen = () => {
       billDescription: 'LOAN BILL FOR 05/23',
       payee: 'APEX BANK',
       billedAmt: 10000.00,
-      dueDate: '01/06/2023',
-      status: 'UNPAID'
+      dueDate: '01-06-2023',
+      status: 'UNPAID',
+      reminder: false
     }
   ]);
+
+  const handleClose = () => {
+    setShow(false);
+
+    setBills([...bills, {
+      billNumber: Math.floor(Math.random() * 999999),
+      billType: 'UTILITY',
+      billDescription: description,
+      payee: payeeName,
+      billedAmt: amount,
+      dueDate: dueDate,
+      status: 'UNPAID',
+      reminder: false
+    }]);
+    setDescription('');
+    setPayeeName('');
+    setAmount('');
+    setDueDate('');
+  };
+
+  const setReminderOff = (billNumber) => {
+    let newBills = [];
+    for(let bill of bills) {
+      if(bill.billNumber == billNumber) {
+        bill.reminder = !bill.reminder;
+        newBills.push(bill);
+      } else {
+        newBills.push(bill);
+      }
+    }
+    setBills(newBills);
+  };
 
   const [bankAccounts, setBankAccounts] = useState(['100041652181', '100041652184']);
   return (
@@ -90,8 +132,8 @@ const BillsScreen = () => {
                         <td>{bill.billedAmt} EGP</td>
                         <td>{bill.dueDate}</td>
                         <td>{bill.status}</td>
-                        <td className='text-center'><BellFill className="text-warning cursor-pointer" size={24} /></td>
-                        <td className='text-center'><Button className='rounded-pill' onClick={() => setShow2(true)}>Pay Now</Button></td>
+                        <td className='text-center'>{ (bill.billType === "UTILITY" && bill.reminder === false) ? (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-secondary cursor-pointer" size={24} />) : (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-warning cursor-pointer" size={24} />) }</td>
+                        <td className='text-center'><Button className='rounded-pill' onClick={() => {  setChosenBill(bill.billNumber); setShow2(true); }}>Pay Now</Button></td>
                       </tr>
                     );
                   })
@@ -116,12 +158,12 @@ const BillsScreen = () => {
           <Form>
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Bill Description</Form.Label>
-              <Form.Control type="text" placeholder="Description (e.g. Telephone bill)" />
+              <Form.Control onChange={(data) => setDescription(data.target.value)} type="text" placeholder="Description (e.g. Telephone bill)" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billAmount">
               <Form.Label>Bill Amount (EGP)</Form.Label>
-              <Form.Control type="text" placeholder="e.g. 1000.00" />
+              <Form.Control onChange={(data) => setAmount(data.target.value)} type="text" placeholder="e.g. 1000.00" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
@@ -131,12 +173,12 @@ const BillsScreen = () => {
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Payee Company Name</Form.Label>
-              <Form.Control type="text" placeholder="e.g. Vodafone Egypt" />
+              <Form.Control type="text" onChange={(data) => setPayeeName(data.target.value)} placeholder="e.g. Vodafone Egypt" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Due Date</Form.Label>
-              <Form.Control type="date" />
+              <Form.Control onChange={(data) => setDueDate(data.target.value)} type="date" />
             </Form.Group>
 
 
@@ -144,7 +186,7 @@ const BillsScreen = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={() => setShow(false)}>
             Cancel
           </Button>
           <Button variant="primary" onClick={handleClose}>
@@ -175,6 +217,7 @@ const BillsScreen = () => {
               <Form.Control
                 type="text"
                 id="loanAmt"
+                onChange = {(e) => setAmountPaid(e.target.value)}
                 placeholder="e.g. 1000.00"
               />
             </Form.Group>
@@ -182,10 +225,30 @@ const BillsScreen = () => {
           <p>By clicking confirm, you acknowledge the full amount will be immediately deducted from your bank account.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button onClick={handleClose2} variant="secondary">
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={() => {
+            let i = 0;
+            let newBills = [];
+            console.log(chosenBill);
+            for(let bill of bills) {
+              if(bill.billNumber == chosenBill) {
+                if(amountPaid == bill.billedAmt) {
+                  bill.status = "PAID";
+                } else {
+                  const amtLeft = parseFloat(bill.billedAmt) - parseFloat(amountPaid);
+                  bill.status = "PARTIALLY PAID - " + amtLeft + " EGP remaining";
+                }
+                newBills.push(bill);
+              } else {
+                newBills.push(bill);
+              }
+            }
+
+            setBills(newBills);
+            handleClose2();
+          }}>
             Pay Now
           </Button>
         </Modal.Footer>

@@ -65,19 +65,19 @@ const HomeScreen = () => {
                         </thead>
                         <tbody>
                           <tr>
-                            <td>25/05/2023</td>
+                            <td>25-05-2023</td>
                             <td>FT23145YHS41 - Talabat Cairo EG 526805 53180500000</td>
                             <td className="text-danger">-175.50 EGP</td>
                             <td>214,550.50 EGP</td>
                           </tr>
                           <tr>
-                            <td>24/05/2023</td>
+                            <td>24-05-2023</td>
                             <td>FT23145GP244 - CAREEM TEMPORARY HOLD Giza EG NBE01</td>
                             <td className="text-danger">-34.00 EGP</td>
                             <td>214,726.00 EGP</td>
                           </tr>
                           <tr>
-                            <td>21/05/2023</td>
+                            <td>21-05-2023</td>
                             <td>FT23145LCGKW - TRANSFER FROM CIB "PAYMENT"</td>
                             <td className="text-success">+5500.00 EGP</td>
                             <td>214,760.00 EGP</td>
@@ -86,9 +86,9 @@ const HomeScreen = () => {
                       </Table>
 
                       <div className='d-flex w-100 align-items-end'>
-                        <Button variant="outline-primary" className="rounded-pill ms-auto">View More</Button>
+                        <Button variant="outline-primary" onClick={() => {window.location.href="http://localhost:3000/bankaccounttransactions"}} className="rounded-pill ms-auto">View More</Button>
                       </div>
-                      
+
                     </Accordion.Body>
                   </Accordion.Item>
                   <Accordion.Item eventKey="1">
@@ -121,19 +121,19 @@ const HomeScreen = () => {
                         </thead>
                         <tbody>
                           <tr>
-                            <td>13/05/2023</td>
+                            <td>13-05-2023</td>
                             <td>FT67140KLC62 - Nike Cairo EG 526805 53180500000</td>
                             <td className="text-danger">-3750.00 EGP</td>
                             <td>300,213.31 EGP</td>
                           </tr>
                           <tr>
-                            <td>12/05/2023</td>
+                            <td>12-05-2023</td>
                             <td>FT23545XK944 - CAREEM TEMPORARY HOLD Giza EG NBE01</td>
                             <td className="text-danger">-34.00 EGP</td>
                             <td>303,963.31 EGP</td>
                           </tr>
                           <tr>
-                            <td>11/05/2023</td>
+                            <td>11-05-2023</td>
                             <td>FT23145LCGKW - TRANSFER FROM HSBC "PAYMENT"</td>
                             <td className="text-success">+5500.00 EGP</td>
                             <td>303,997.31 EGP</td>
@@ -165,7 +165,7 @@ const HomeScreen = () => {
                   <Card.Title>Unlock Your Rewards!</Card.Title>
                   <Card.Text>
                     Redeem your credit card points today and start enjoying exclusive benefits. Click 'Redeem Now' to access the credit card point redemption page.                  </Card.Text>
-                  <Button variant="primary" className="rounded-pill">Redeem Now</Button>
+                  <Button variant="primary" onClick={() => {window.location.href="http://localhost:3000/creditcard"}} className="rounded-pill">Redeem Now</Button>
                 </Card.Body>
               </Card>
             </Col>

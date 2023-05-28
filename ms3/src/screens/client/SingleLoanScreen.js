@@ -23,9 +23,9 @@ const SingleLoanScreen = () => {
             loanType: 'PERSONAL',
             loanTerm: '5 YEARS - 7.5%',
             loanedAmount: 600000,
-            nextPaymentDate: '01/07/2023',
-            startDate: '01/05/2023',
-            endDate: '01/05/2028',
+            nextPaymentDate: '01-07-2023',
+            startDate: '01-05-2023',
+            endDate: '01-05-2028',
             amountPaid: 20000
         },
         {
@@ -33,9 +33,9 @@ const SingleLoanScreen = () => {
             loanType: 'CAR',
             loanTerm: '3 YEARS - 6.5%',
             loanedAmount: 720000,
-            nextPaymentDate: '01/07/2023',
-            startDate: '01/03/2023',
-            endDate: '01/03/2026',
+            nextPaymentDate: '01-07-2023',
+            startDate: '01-03-2023',
+            endDate: '01-03-2026',
             amountPaid: 80000
         },
         {
@@ -43,9 +43,9 @@ const SingleLoanScreen = () => {
             loanType: 'PERSONAL',
             loanTerm: '3 YEARS - 6.5%',
             loanedAmount: 600000,
-            nextPaymentDate: '01/07/2023',
-            startDate: '01/03/2021',
-            endDate: '01/03/2024',
+            nextPaymentDate: '01-07-2023',
+            startDate: '01-03-2021',
+            endDate: '01-03-2024',
             amountPaid: 461500
         }
     ]);
@@ -53,43 +53,43 @@ const SingleLoanScreen = () => {
     const [payments, setPayments] = useState([
         {
             paymentId: 7890,
-            paymentDate: '01/01/2023',
+            paymentDate: '01-01-2023',
             paidAmount: 10000,
             status: 'PAID',
         },
         {
             paymentId: 6789,
-            paymentDate: '01/02/2023',
+            paymentDate: '01-02-2023',
             paidAmount: 10000,
             status: 'PAID',
         },
         {
             paymentId: 5678,
-            paymentDate: '01/03/2023',
+            paymentDate: '01-03-2023',
             paidAmount: 10000,
             status: 'PAID',
         },
         {
             paymentId: 4567,
-            paymentDate: '01/04/2023',
+            paymentDate: '01-04-2023',
             paidAmount: 10000,
             status: 'PAID',
         },
         {
             paymentId: 3456,
-            paymentDate: '01/05/2023',
+            paymentDate: '01-05-2023',
             paidAmount: 10000,
             status: 'PAID',
         },
         {
             paymentId: 2134,
-            paymentDate: '01/06/2023',
+            paymentDate: '01-06-2023',
             paidAmount: 10000,
             status: 'PAID',
         },
         {
             paymentId: 2345,
-            paymentDate: '01/07/2023',
+            paymentDate: '01-07-2023',
             paidAmount: 10000,
             status: 'AWAITING PAYMENT',
         }

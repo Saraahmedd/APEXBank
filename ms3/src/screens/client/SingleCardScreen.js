@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Accordion, Col, Container, Row, Table, Card, Button, Form, Modal } from 'react-bootstrap'
+import { Accordion, Col, Container, Row, Table, Card, Alert, Button, Form, Modal } from 'react-bootstrap'
 import '../../styles/Client.css';
 import ClientNavbar from '../../components/client/Navbar';
 import { ReactComponent as CreditCardSVG } from '../../imgs/credit_card.svg';
@@ -18,9 +18,26 @@ const SingleCardScreen = () => {
     const cardId = queryParams.get('id');
 
     const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
+    const [show4, setShow4] = useState(false);
+
+
+    const [cardDisabled, setCardDisabled] = useState(false);
+    const [redeem, setRedeem] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
+
+    const handleClose3 = () => setShow3(false);
+    const handleShow3 = () => setShow3(true);
+
+    const handleClose4 = () => setShow4(false);
+    const handleShow4 = () => setShow4(true);
+
 
     const [cards, setCards] = useState([
         {
@@ -139,6 +156,15 @@ const SingleCardScreen = () => {
                         <h1 className="fw-bold font-big text-gradient">Manage Your Card</h1>
                     </div>
 
+                    {cardDisabled && <Alert key='danger' variant='danger'>
+                        Warning: This Credit Card has been locked. {' '}
+                        <Alert.Link onClick={() => setShow2(true)}>Click here to re-enable the card.</Alert.Link>
+                    </Alert>}
+
+                    {redeem && <Alert key='success' variant='success'>
+                        <span className='fw-bold'>Congratulations!</span> You have successfully redeemed 200000 points as cashback! The money will be credited to your account within 3 business days!
+                    </Alert>}
+
                     <div className='d-flex flex-column mt-3'>
                         <Row>
                             <Col md={9}>
@@ -175,7 +201,7 @@ const SingleCardScreen = () => {
                                             <div className='d-flex flex-fill'>
                                                 • • • {cards.filter(card => card.id == cardId)[0].cardNumber.split(' ')[3]}
                                                 <span className="flex-grow-1"></span>
-                                                <Flag className='text-danger' />
+                                                <Flag onClick={() => { setShow4(true) }} className='text-danger cursor-pointer' />
                                                 {/* <SlashCircleFill className='text-secondary' /> */}
                                             </div>
                                         </Card.Title>
@@ -185,19 +211,21 @@ const SingleCardScreen = () => {
                                                 {cards.filter(card => card.id == cardId)[0].remaining} / {cards.filter(card => card.id == cardId)[0].limit} EGP
                                             </span>
                                         </Card.Text>
-                                        <Button variant="outline-secondary rounded-pill">Disable Card</Button>
+                                        <Button onClick={() => cardDisabled ? setShow2(true) : setShow(true)} variant="outline-secondary rounded-pill">{cardDisabled ? 'Enable Card' : 'Disable Card'}</Button>
                                     </Card.Body>
                                 </Card>
-                                <Card className='mt-3'>
-                                    <Card.Img variant="top" src={cashbackPic} />
-                                    <Card.Body>
-                                        <Card.Title>You've Got Points!</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">Points Balance: 200000 Points</Card.Subtitle>
-                                        <Card.Text>
-                                            <Button variant="outline-primary rounded-pill">Redeem</Button>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
+                                {!redeem &&
+                                    <Card className='mt-3'>
+                                        <Card.Img variant="top" src={cashbackPic} />
+                                        <Card.Body>
+                                            <Card.Title>You've Got Points!</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">Points Balance: 200000 Points <span style={{ fontSize: '0.75rem' }}>(=2000EGP)</span></Card.Subtitle>
+                                            <Card.Text>
+                                                <Button onClick={() => setShow3(true)} variant="outline-primary rounded-pill">Redeem</Button>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                }
                             </Col>
                         </Row>
                     </div>
@@ -207,6 +235,91 @@ const SingleCardScreen = () => {
                 <span className='flex-grow-1'></span>
                 <Footer />
             </div>
+
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Disable Card</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Are you sure you want to disable this card?</h4>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => { setCardDisabled(true); setShow(false); }}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+            <Modal show={show2} onHide={handleClose2}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Re-enable Card</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Are you sure you want to re-enable this card?</h4>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose2}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => { setCardDisabled(false); setShow2(false); }}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+            <Modal show={show3} onHide={handleClose3}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Re-enable Card</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Are you sure you want to re-enable this card?</h4>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose3}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => { setRedeem(true); handleClose3(); }}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={show4} onHide={handleClose4}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Report as Stolen/Lost</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor="bankAccChoice">Report Type</Form.Label>
+                            <Form.Select id="bankAccChoice">
+                                <option>I lost my card</option>
+                                <option>I believe my card was stolen</option>
+                            </Form.Select>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="billDescription">
+                            <Form.Label>When did this incident occur?</Form.Label>
+                            <Form.Control type="date" />
+                        </Form.Group>
+                    </Form>
+                    <p className='text-warning'><span className='fw-bold'>Warning: </span>by reporting the card as stolen/lost your card will be disabled.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose4}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => { setCardDisabled(true); handleClose4(); }}>
+                        Confirm Report
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

@@ -28,6 +28,8 @@ import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScre
 import Home from "./screens/client/Home";
 import SingleLoanScreen from "./screens/client/SingleLoanScreen";
 import SingleCardScreen from "./screens/client/SingleCardScreen";
+import About from "./screens/client/About";
+import Contact from "./screens/client/Contact";
 
 
 function App() {
@@ -37,6 +39,14 @@ function App() {
         <Routes>
           {/* Client */}
           <Route path="/" element={<Home />}>
+            {" "}
+          </Route>
+
+
+          <Route path="/contact" element={<Contact />}>
+            {" "}
+          </Route>
+          <Route path="/about" element={<About />}>
             {" "}
           </Route>
           
