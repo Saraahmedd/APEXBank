@@ -1,17 +1,32 @@
-import React from 'react'
-import { Button, Container, Nav, NavDropdown, Navbar, Form, Row, Col } from 'react-bootstrap'
-import '../../styles/Client.css';
-import ClientNavbar from '../../components/client/Navbar';
-import { ReactComponent as CreditCardSVG } from '../../imgs/credit_card.svg';
-import testimonial1 from '../../imgs/testimonial_1.jpeg';
-import testimonial2 from '../../imgs/testimonial_2.jpeg';
-import { MDBCol, MDBContainer, MDBFooter, MDBIcon, MDBRow } from 'mdb-react-ui-kit';
-import Footer from '../../components/client/Footer';
+import React from "react";
+import {
+  Button,
+  Container,
+  Nav,
+  NavDropdown,
+  Navbar,
+  Form,
+  Row,
+  Col,
+} from "react-bootstrap";
+import "../../styles/Client.css";
+import ClientNavbar from "../../components/client/Navbar";
+import { ReactComponent as CreditCardSVG } from "../../imgs/credit_card.svg";
+import testimonial1 from "../../imgs/testimonial_1.jpeg";
+import testimonial2 from "../../imgs/testimonial_2.jpeg";
+import {
+  MDBCol,
+  MDBContainer,
+  MDBFooter,
+  MDBIcon,
+  MDBRow,
+} from "mdb-react-ui-kit";
+import Footer from "../../components/client/Footer";
 const Home = () => {
-    return (
-        <>
-            <div className="min-vh-100">
-                <ClientNavbar loggedIn={false} />
+  return (
+    <>
+      <div className="min-vh-100">
+        <ClientNavbar loggedIn={false} />
 
                 <Container className="my-5 d-flex flex-column rounded-5 px-3">
                     <h1 className="fw-bold font-very-big text-gradient">Hassle-free banking for all.</h1>
@@ -48,34 +63,69 @@ const Home = () => {
                 </Container>
             </Container>
 
-            <Container fluid className="min-vh-100 d-flex flex-column justify-content-center align-items-center">
-                <h1 className='text-center fw-bold text-gradient font-very-big mt-5'>Not Convinced?<br />See Our Client Testimonials</h1>
-                <Container className="d-flex align-items-center justify-content-center flex-column p-5">
-                    <Row className='w-100'>
-                        <Col xs={12} md={6} className="d-flex flex-column align-items-start justify-content-center">
-                            <img src={testimonial1} className="testimonial-img" />
-                        </Col>
-                        <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center">
-                            <h3>"Apex Bank has truly exceeded my expectations. Their commitment to providing exceptional service and unwavering dedication to customer satisfaction is unmatched. From the moment I became a customer, I've experienced nothing but prompt and friendly assistance."<br /><span className='text-muted fs-5'>Ahmed Mohsen, Founder of Beatbox Co</span></h3>
-                        </Col>
+      <Container
+        fluid
+        className="min-vh-100 d-flex flex-column justify-content-center align-items-center">
+        <h1 className="text-center fw-bold text-gradient font-very-big mt-5">
+          Not Convinced?
+          <br />
+          See Our Client Testimonials
+        </h1>
+        <Container className="d-flex align-items-center justify-content-center flex-column p-5">
+          <Row className="w-100">
+            <Col
+              xs={12}
+              md={6}
+              className="d-flex flex-column align-items-start justify-content-center">
+              <img src={testimonial1} className="testimonial-img" />
+            </Col>
+            <Col
+              xs={12}
+              md={6}
+              className="d-flex flex-column align-items-center justify-content-center">
+              <h3>
+                "Apex Bank has truly exceeded my expectations. Their commitment
+                to providing exceptional service and unwavering dedication to
+                customer satisfaction is unmatched. From the moment I became a
+                customer, I've experienced nothing but prompt and friendly
+                assistance."
+                <br />
+                <span className="text-muted fs-5">
+                  Ahmed Mohsen, Founder of Beatbox Co
+                </span>
+              </h3>
+            </Col>
 
-                        <Row className='d-flex flex-row mt-5'>
-                            <Col xs={12} md={6} className="d-flex flex-column align-items-start justify-content-center">
-                                <h3>"I am incredibly grateful for the financial guidance and support I have received from Apex Bank. Their team of knowledgeable professionals has been instrumental in helping me achieve my financial goals." <br /><span className='text-muted fs-5'>Ziad Zilzal, CEO of Spark Energies</span></h3>
-                            </Col>
+            <Row className="d-flex flex-row mt-5">
+              <Col
+                xs={12}
+                md={6}
+                className="d-flex flex-column align-items-start justify-content-center">
+                <h3>
+                  "I am incredibly grateful for the financial guidance and
+                  support I have received from Apex Bank. Their team of
+                  knowledgeable professionals has been instrumental in helping
+                  me achieve my financial goals." <br />
+                  <span className="text-muted fs-5">
+                    Ziad Zilzal, CEO of Spark Energies
+                  </span>
+                </h3>
+              </Col>
 
-                            <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center">
-                                <img src={testimonial2} className="testimonial-img" />
-                            </Col>
-                        </Row>
+              <Col
+                xs={12}
+                md={6}
+                className="d-flex flex-column align-items-center justify-content-center">
+                <img src={testimonial2} className="testimonial-img" />
+              </Col>
+            </Row>
+          </Row>
+        </Container>
+      </Container>
 
-                    </Row>
-                </Container>
-            </Container>
+      <Footer />
+    </>
+  );
+};
 
-            <Footer />
-        </>
-    )
-}
-
-export default Home
+export default Home;

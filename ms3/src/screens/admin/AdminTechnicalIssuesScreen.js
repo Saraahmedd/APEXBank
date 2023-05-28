@@ -1,4 +1,4 @@
-import Sidebar from "../../components/Sidebar";
+import AdminSidebar from "../../components/adminSidebar";
 import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Footer from "../../components/footer";
@@ -19,9 +19,13 @@ const AdminTechnicalIssuesScreen = () => {
     <>
       <div style={{ display: "flex" }}>
         <div className="row bg-light">
-          <Sidebar></Sidebar>
+          <AdminSidebar></AdminSidebar>
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
+          <div className="m-3">
+            <h1 className="mt-3">Technical errors page</h1>
+            <h4 className="mb-5">Make sure to resolve all technical errors</h4>
+          </div>
           <div className="col-11 mt-2">
             <div class="card" id="card 1">
               <div class="card-header h1">Report</div>
@@ -34,8 +38,7 @@ const AdminTechnicalIssuesScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(1)}
-                >
+                  onClick={() => removeCard(1)}>
                   resolved
                 </button>
               </div>
@@ -55,8 +58,7 @@ const AdminTechnicalIssuesScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(2)}
-                >
+                  onClick={() => removeCard(2)}>
                   resolved
                 </button>
               </div>
@@ -76,8 +78,7 @@ const AdminTechnicalIssuesScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(3)}
-                >
+                  onClick={() => removeCard(3)}>
                   resolved
                 </button>
               </div>

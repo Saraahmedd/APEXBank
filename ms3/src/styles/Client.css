@@ -1,40 +1,40 @@
 .downloadApp {
-    height: 50px;
-    background: #faf8f5;
+  height: 50px;
+  background: #faf8f5;
 }
 
 .navbar-styles {
-    border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 .client-navbar {
-    height: 88px;
+  height: 88px;
 }
 
 .bg-buffet {
-    background: url('../imgs/buffet.jpeg');
-    background-size: cover;
-    background-position: center;
+  background: url("../imgs/buffet.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .bg-lightgray {
-    background-color: #f3f3f3 !important;
+  background-color: #f3f3f3 !important;
 }
 
 .page-block {
-    height: 500px;
+  height: 500px;
 }
 
 .bg-gradient {
-    background: #003087 !important;
+  background: #003087 !important;
 }
 
 .text-gradient {
-    color: #003087 !important;
+  color: #003087 !important;
 }
 
 p {
@@ -43,47 +43,47 @@ p {
 }
 
 .font-big {
-    font-size: calc(1.25rem + 1.5vw)!important;
+  font-size: calc(1.25rem + 1.5vw) !important;
 }
 
 .font-very-big {
-    font-size: calc(2rem + 1.5vw)!important;
+  font-size: calc(2rem + 1.5vw) !important;
 }
 
 .banner {
-    height: 60%;
+  height: 60%;
 }
 
 .second-image-borders {
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .get-started-btn {
-    width: fit-content;
+  width: fit-content;
 }
 
 .first-image-borders {
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 }
 
 .testimonial-img {
-    width: 50%;
-    border-radius: 50%;
+  width: 50%;
+  border-radius: 50%;
 }
 
- @media screen and (max-width: 768px) {
-    .first-image-borders {
-        border-top-left-radius: 2rem;
-        border-bottom-left-radius: 0rem;
-        border-top-right-radius: 2rem;
-        border-bottom-right-radius: 0rem;
-    }
-    .second-image-borders {
-        border-top-left-radius: 0rem;
-        border-bottom-left-radius: 2rem;
-        border-top-right-radius: 0rem;
-        border-bottom-right-radius: 2rem;
-    }
+@media screen and (max-width: 768px) {
+  .first-image-borders {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 0rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 0rem;
+  }
+  .second-image-borders {
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 2rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 2rem;
+  }
 }

@@ -15,7 +15,7 @@ const SearchForClient = () => {
         <img
           src={maleAvatar}
           alt="Male avatar"
-          className="rounded-circle"
+          className="rounded-circle col-12"
           style={{
             maxWidth: "250px",
             maxHeight: "250px",
@@ -31,7 +31,7 @@ const SearchForClient = () => {
         <img
           src={femaleAvatar}
           alt="Female avatar"
-          className="rounded-circle"
+          className="rounded-circle col-12"
           style={{
             maxWidth: "250px",
             maxHeight: "250px",
@@ -47,7 +47,7 @@ const SearchForClient = () => {
         <img
           src={maleAvatar}
           alt="Male avatar"
-          className="rounded-circle"
+          className="rounded-circle col-12"
           style={{
             maxWidth: "250px",
             maxHeight: "250px",
@@ -97,11 +97,12 @@ const SearchForClient = () => {
                 <Card
                   className="m-2 user-card col-4"
                   key={client.id}
-                  style={{ alignItems: "center", textAlign: "center" }}
-                >
-                  <Card.Header className="card-header">
+                  style={{ alignItems: "center", textAlign: "center" }}>
+                  <Card.Header className="card-header bg-white row d-flex justify-content-center">
                     {client.icon}
-                    <span className="ms-2" style={{ fontWeight: "bold" }}>
+                    <span
+                      className="ms-2 col-12"
+                      style={{ fontWeight: "bold" }}>
                       {client.name}
                     </span>
                   </Card.Header>
@@ -117,8 +118,7 @@ const SearchForClient = () => {
                     <hr />
                     <Link
                       to={`/banker/viewclientdata/${client.id}`}
-                      className="btn btn-primary"
-                    >
+                      className="btn btn-primary">
                       View Details
                     </Link>
                   </Card.Body>
