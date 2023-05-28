@@ -21,10 +21,12 @@ const SingleCardScreen = () => {
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
     const [show4, setShow4] = useState(false);
+    const [show5, setShow5] = useState(false);
 
 
     const [cardDisabled, setCardDisabled] = useState(false);
     const [redeem, setRedeem] = useState(false);
+    const [cardReplacement, setCardReplacement] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -37,6 +39,10 @@ const SingleCardScreen = () => {
 
     const handleClose4 = () => setShow4(false);
     const handleShow4 = () => setShow4(true);
+
+
+    const handleClose5 = () => setShow5(false);
+    const handleShow5 = () => setShow5(true);
 
 
     const [cards, setCards] = useState([
@@ -156,9 +162,13 @@ const SingleCardScreen = () => {
                         <h1 className="fw-bold font-big text-gradient">Manage Your Card</h1>
                     </div>
 
-                    {cardDisabled && <Alert key='danger' variant='danger'>
+                    {cardDisabled && !cardReplacement && <Alert key='danger' variant='danger'>
                         Warning: This Credit Card has been locked. {' '}
                         <Alert.Link onClick={() => setShow2(true)}>Click here to re-enable the card.</Alert.Link>
+                    </Alert>}
+
+                    {cardReplacement && <Alert key='success' variant='success'>
+                        Thank you! Your replacement has been requested. You will be notified when it is processed.
                     </Alert>}
 
                     {redeem && <Alert key='success' variant='success'>
@@ -213,7 +223,12 @@ const SingleCardScreen = () => {
                                         </Card.Text>
                                         <div className='d-flex flex-row'>
                                             <Button onClick={() => cardDisabled ? setShow2(true) : setShow(true)} variant="outline-secondary rounded-pill">{cardDisabled ? 'Enable Card' : 'Disable Card'}</Button>
-                                            <Button className='ms-1' onClick={() => setShow4(true) } variant="outline-secondary rounded-pill">Report as Lost</Button>
+                                            {!cardDisabled &&
+                                                <Button className='ms-1' onClick={() => setShow4(true)} variant="outline-secondary rounded-pill">Report as Lost</Button>
+                                            }
+                                            {cardDisabled &&
+                                                <Button className='ms-1' onClick={() => setShow5(true)} variant="outline-secondary rounded-pill">Card Replacement</Button>
+                                            }
                                         </div>
 
                                     </Card.Body>
@@ -321,6 +336,25 @@ const SingleCardScreen = () => {
                     </Button>
                     <Button variant="primary" onClick={() => { setCardDisabled(true); handleClose4(); }}>
                         Confirm Report
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+
+            <Modal show={show5} onHide={handleClose5}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Request a Card Replacement</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p className='text-warning'><span className='fw-bold'>Warning: </span>By clicking confirm, your current card will be disabled forever.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose5}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => { setCardDisabled(true); setCardReplacement(true); handleClose5(); }}>
+                        Confirm Replacement Request
                     </Button>
                 </Modal.Footer>
             </Modal>

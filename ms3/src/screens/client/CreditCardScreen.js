@@ -12,6 +12,7 @@ const CreditCardScreen = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const [hoveredCard, setHoveredCard] = useState(0);
   const [cards, setCards] = useState([
     {
