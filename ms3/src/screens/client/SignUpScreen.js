@@ -2,14 +2,28 @@ import React, { useState, useEffect } from 'react';
 import "../../styles/signUp.css";
 import Footer from '../../components/client/Footer';
 import Navbar from '../../components/client/Navbar';
-import {Container} from 'react-bootstrap'
+import {Col, Container, Row} from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap';
+import Message from '../../components/client/Message';
 
 
 const SignUpScreen = () => {
   const [activeForm, setActiveForm] = useState(1);
+  const [message,setMessage] = React.useState("");
+    const [success,setSuccess] = React.useState('');
 
   const handleNextForm = () => {
-    setActiveForm(activeForm + 1);
+    if(activeForm <5)
+      setActiveForm(activeForm + 1);
+    else{
+       setSuccess(true)
+    setMessage('Account Created Successfuly. Redirecting you...')
+     const timer = setTimeout(() => {
+      setMessage("");
+      window.location.replace("/portal")
+    }, 5000);
+    }
+
   };
 
   const handlePrevForm = () => {
@@ -36,7 +50,10 @@ const SignUpScreen = () => {
   return (
     <>
       <Navbar />
-      <Container >
+      <Container>
+         {message && <Message variant='success' showMessage={success} setShowMessage={setSuccess}>
+                 {message}  
+                </Message> }
       <div className="form__container my-4">
         <div className="title__container">
           <h1>Register</h1>
@@ -46,19 +63,19 @@ const SignUpScreen = () => {
           <div className="left__container">
             <div className="side__titles">
               <div className="title__name">
-                <h3>Your name</h3>
+                <h3>Perosnal Info</h3>
                 <p>Enter & press next</p>
               </div>
               <div className="title__name">
-                <h3>Desctibes</h3>
-                <p>select & press next</p>
+                <h3>Credentials</h3>
+                <p>Enter & press next</p>
               </div>
               <div className="title__name">
-                <h3>Services</h3>
-                <p>select & press next</p>
+                <h3>Link Existing Bank Account</h3>
+                <p>Enter & press next</p>
               </div>
               <div className="title__name">
-                <h3>Budget</h3>
+                <h3>User Agreement</h3>
                 <p>Select & press next</p>
               </div>
               <div className="title__name">
@@ -87,112 +104,150 @@ const SignUpScreen = () => {
               </ul>
             </div>
           </div>
-          <div className="right__container">
-            <fieldset id="form1" style={{ display: activeForm === 1 ? "block" : "none" }}>
-              <div className="sub__title__container">
-                <p>Step 1/5</p>
-                <h2>Let's start with your name</h2>
-                <p>Please fill the details below so that we can we can get in contact with you about our product</p>
-              </div>
-              <div className="input__container">
-                <label htmlFor="name">Enter your name</label>
-                <input type="text" />
-                <a className="nxt__btn" onClick={handleNextForm}>Next</a>
-              </div>
-            </fieldset>
-            <fieldset className={`active__form`} id="form2" style={{ display: activeForm === 2 ? "block" : "none" }}>
-              <div className="sub__title__container">
-                <p>Step 2/5</p>
-                <h2>What best describes you?</h2>
-                <p>Please let us know what type of business best describes you as an entrepreneur or businessman.</p>
-              </div>
-              <div className="input__container">
-                <div className="selection newB">
-                  <div className="imoji">
-                    <ion-icon name="happy"></ion-icon>
-                  </div>
-                  <div className="descriptionTitle">
-                    <h3>New Business</h3>
-                    <p>Started trading in the last 12 months</p>
-                  </div>
-                </div>
-                <div className="selection exitB">
-                  <div className="imoji">
-                    <ion-icon name="business"></ion-icon>
-                  </div>
-                  <div className="descriptionTitle">
-                    <h3>Existing Business</h3>
-                    <p>Have been operating beyond 12 months</p>
-                  </div>
-                </div>
-                <div className="buttons">
-                  <a className="prev__btn" onClick={handlePrevForm}>Back</a>
-                  <a className="nxt__btn" onClick={handleNextForm}>Next</a>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset className={`active__form`} id="form3" style={{ display: activeForm === 3 ? "block" : "none" }}>
-              <div className="sub__title__container">
-                <p>Step 3/5</p>
-                <h2>What service are you looking for?</h2>
-                <p>Please let us know what type of business best describes you as an entrepreneur or businessman.</p>
-              </div>
-              <div className="input__container">
-                <div className="selection newB">
-                  <div className="imoji">
-                    <ion-icon name="desktop"></ion-icon>
-                  </div>
-                  <div className="descriptionTitle">
-                    <h3>Website Development</h3>
-                    <p>Development of online websites</p>
-                  </div>
-                </div>
-                <div className="selection exitB">
-                  <div className="imoji">
-                    <ion-icon name="phone-portrait"></ion-icon>
-                  </div>
-                  <div className="descriptionTitle">
-                    <h3>Development of Mobile App</h3>
-                    <p>Development of Android and iOS mobile apps</p>
-                  </div>
-                </div>
-                <div className="buttons">
-                  <a className="prev__btn" onClick={handlePrevForm}>Back</a>
-                  <a className="nxt__btn" onClick={handleNextForm}>Next</a>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset className={`active__form`} id="form4" style={{ display: activeForm === 4 ? "block" : "none" }}>
-              <div className="sub__title__container">
-                <p>Step 4/5</p>
-                <h2>Please select your budget</h2>
-                <p>Please let us know the budget for your project so that we can give the right quote. Thanks!</p>
-              </div>
-              <div className="input__container">
-                <input type="range" min="10000" max="500000" value="250000" className="slider" />
-                <div className="output__value"></div>
-                <div className="buttons">
-                  <a className="prev__btn" onClick={handlePrevForm}>Back</a>
-                  <a className="nxt__btn" onClick={handleNextForm}>Next</a>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset className={`active__form`} id="form5" style={{ display: activeForm === 5 ? "block" : "none" }}>
-              <div className="sub__title__container">
-                <p>Step 5/5</p>
-                <h2>Complete Submission</h2>
-                <p>Thanks for completing the form and for your time. Please enter your email below and submit the form.</p>
-              </div>
-              <div className="input__container">
-                <label htmlFor="Email">Enter your email</label>
-                <input type="text" />
-                <div className="buttons">
-                  <a className="prev__btn" onClick={handlePrevForm}>Back</a>
-                  <a className="nxt__btn" id="submitBtn" onClick={handleNextForm}>Next</a>
-                </div>
-              </div>
-            </fieldset>
-          </div>
+           
+     <Container >
+   
+  <Form id="form1" style={{ display: activeForm === 1 ? "block" : "none" }}>
+    <p>
+      Step 1/5
+    </p>
+      <h3>
+      Personal Information
+    </h3>
+    <hr/>
+    <Row>
+      <Col lg={6}>
+        <Form.Group controlId="formFirstName">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control type="text" placeholder="Enter your first name" />
+        </Form.Group>
+      </Col>
+      <Col lg={6}>
+        <Form.Group controlId="formLastName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="text" placeholder="Enter your last name" />
+        </Form.Group>
+      </Col>
+    </Row>
+    <Row>
+      <Col lg={6}>
+        <Form.Group controlId="formPhoneNumber">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control type="text" placeholder="Enter your phone number" />
+        </Form.Group>
+      </Col>
+      <Col lg={6}>
+        <Form.Group controlId="formAddress">
+          <Form.Label>Address</Form.Label>
+          <Form.Control type="text" placeholder="Enter your address" />
+        </Form.Group>
+      </Col>
+    </Row>
+
+    {/* <Button  variant="secondary" className='m-3' onClick={handlePrevForm}>
+      Back
+    </Button>
+    <Button  className='m-3' onClick={handleNextForm}>
+      Next
+    </Button> */}
+  </Form>
+
+  {/* Rest of the forms */}
+
+
+
+      <Form id="form2" style={{ display: activeForm === 2 ? "block" : "none" }}>
+       
+          <p>Step 2/5</p>
+          <h2>Credentials</h2>
+       <hr></hr>
+        <Form.Group controlId="formUsername">
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="text" placeholder="Enter your username" />
+        </Form.Group>
+        <Form.Group controlId="formPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Enter your password" />
+        </Form.Group>
+       
+          {/* <Button   variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>
+          <Button  className='m-3' onClick={handleNextForm}>Next</Button> */}
+        
+      </Form>
+
+      <Form id="form3" style={{ display: activeForm === 3 ? "block" : "none" }}>
+       
+          <p>Step 3/5</p>
+          <h2>Link existing bank account</h2>
+        <hr></hr>
+        <Form.Group controlId="formBankName">
+          <Form.Label>Bank Name</Form.Label>
+          <Form.Control type="text" placeholder="Enter your bank name" />
+        </Form.Group>
+        <Form.Group controlId="formAccountNumber">
+          <Form.Label>Account Number</Form.Label>
+          <Form.Control type="text" placeholder="Enter your account number" />
+        </Form.Group>
+        <Form.Group controlId="formRoutingNumber">
+          <Form.Label>Routing Number</Form.Label>
+          <Form.Control type="text" placeholder="Enter your routing number" />
+        </Form.Group>
+       
+         {/* <Button  variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>
+          <Button  className='m-3' id="submitBtn" onClick={handleNextForm}>Next</Button> */}
+        
+      </Form>
+
+         <Form id="form3" style={{ display: activeForm === 4 ? "block" : "none" }}>
+       
+          <p>Step 4/5</p>
+          <h2>User Agreement</h2>
+         <hr></hr>
+          <Form.Group controlId="formTerms">
+          <Form.Check type="checkbox" label="I agree to the terms and conditions" />
+        </Form.Group>
+        <Form.Group controlId="formPrivacy">
+          <Form.Check type="checkbox" label="I agree to the privacy policy" />
+        </Form.Group>
+       
+         {/* <Button   variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>
+          <Button  className='m-3' id="submitBtn" onClick={handleNextForm}>Next</Button> */}
+        
+      </Form>
+
+      <Form id="form5" style={{ display: activeForm === 5 ? "block" : "none" }}>
+      
+          <p>Step 5/5</p>
+          <h2>Complete Submission</h2>
+           <hr></hr>
+      
+        <Form.Group controlId="formTerms">
+          <Form.Check type="checkbox" label="Subscribe to our newsletter and receive emails!" />
+        </Form.Group>
+
+       
+          {/* <Button  className='m-3' variant="secondary" onClick={handlePrevForm}>Back</Button>
+          <Button  className='m-3' id="submitBtn" onClick={handleNextForm}>Submit</Button> */}
+        
+      </Form>
+
+     <Row className="justify-content-end" >
+       <Col  xs="auto">
+      {activeForm >1 &&
+        <Button  style={{alignSelf: "flex-end"}} variant="secondary" className='m-3' onClick={handlePrevForm}>
+        Back
+      </Button>}
+      </Col>
+      
+      <Col xs="auto">
+      <Button style={{alignSelf: "flex-end"}}  className='m-3' onClick={handleNextForm}>
+        {activeForm === 5 ? "Submit" : "Next"}
+        
+      </Button>
+      </Col>
+      </Row>
+     
+    </Container>
         </div>
       </div>
      
