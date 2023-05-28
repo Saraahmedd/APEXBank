@@ -58,6 +58,7 @@ const AdminHomeScreen = () => {
       },
     ],
   });
+  const [notification, setNotification] = new useState(false);
 
   const removeCard = (number) => {
     if (document.getElementById(`card ${number}`)) {
@@ -70,6 +71,20 @@ const AdminHomeScreen = () => {
       <div className="row">
         <AdminSidebar></AdminSidebar>
         <div className="col-9 p-4">
+          {notification && (
+            <div
+              class="alert alert-success position-absolute"
+              role="alert"
+              style={{ left: "60%" }}>
+              Notification successfuly posted
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+                onClick={() => setNotification(false)}></button>
+            </div>
+          )}
           <h1 className="p-4">Welcome, Admin</h1>
           <div className="row flex-row">
             {/* <div className="card col-9 col-lg-3 m-1">
@@ -131,50 +146,58 @@ const AdminHomeScreen = () => {
               </div>
             </div>
             <div className="col-5">
-              <div className="col-12 mt-2">
-                <div class="card" id="card 1">
-                  <div class="card-header h1">To do</div>
-                  <div class="card-body row">
-                    <h5 class="card-title col-9">
-                      Admit/Reject credit card requests
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(1)}>
-                      Done
-                    </button>
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Send a new Notification</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    Notification title
+                  </h6>
+                  <div className="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"></input>
                   </div>
-                </div>
-              </div>
-              <div className="col-12 mt-2">
-                <div class="card" id="card 2">
-                  <div class="card-header h1">To do</div>
-                  <div class="card-body row">
-                    <h5 class="card-title col-9">
-                      Admit/Reject credit loan requests
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(2)}>
-                      Done
-                    </button>
+
+                  <h6 className="card-subtitle mt-4 text-muted">
+                    Notification content
+                  </h6>
+                  <div className="input-group">
+                    <textarea
+                      className="form-control"
+                      aria-label="With textarea"></textarea>
                   </div>
-                </div>
-              </div>
-              <div className="col-12 mt-2">
-                <div class="card" id="card 3">
-                  <div class="card-header h1">To do</div>
-                  <div class="card-body row">
-                    <h5 class="card-title col-9">Resolve business reports</h5>
-                    <button
-                      type="button"
-                      class="btn btn-primary col-3 justify-content-end"
-                      onClick={() => removeCard(3)}>
-                      Done
-                    </button>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Post for clients
+                    </label>
                   </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Post for bankers
+                    </label>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="btn btn-primary mt-4"
+                    onClick={() => setNotification(true)}>
+                    Publish notification
+                  </button>
                 </div>
               </div>
             </div>

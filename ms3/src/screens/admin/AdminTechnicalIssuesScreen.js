@@ -2,16 +2,17 @@ import AdminSidebar from "../../components/adminSidebar";
 import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Footer from "../../components/footer";
-import React from "react";
+import React, { useState } from "react";
 
 const AdminTechnicalIssuesScreen = () => {
   const loremText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam condimentum libero, id efficitur quam accumsan eu. Aenean gravida erat id risus aliquet, ac consequat quam malesuada. In hac habitasse platea dictumst. Proin eget feugiat metus. Sed vitae augue mauris. Phasellus posuere tincidunt risus sed faucibus. Nullam aliquam tortor non tincidunt cursus. Suspendisse potenti. Duis facilisis arcu vitae semper vehicula. Vestibulum ac gravida nisi.";
 
+  const [resolve, setResolve] = new useState(false);
   const removeCard = (number) => {
     if (document.getElementById(`card ${number}`)) {
-      console.log("ALOOOOOI");
       document.getElementById(`card ${number}`).classList.add("d-none");
+      setResolve(true);
     }
   };
 
@@ -22,6 +23,20 @@ const AdminTechnicalIssuesScreen = () => {
           <AdminSidebar></AdminSidebar>
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
+          {resolve && (
+            <div
+              class="alert alert-success position-absolute"
+              role="alert"
+              style={{ left: "60%" }}>
+              Error resolved successfuly
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+                onClick={() => setResolve(false)}></button>
+            </div>
+          )}
           <div className="m-3">
             <h1 className="mt-3">Technical errors page</h1>
             <h4 className="mb-5">Make sure to resolve all technical errors</h4>
