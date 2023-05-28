@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import ClientNavbar from '../../components/client/Navbar'
-import { Accordion, Col, Container, Row, Table, Card, Button, Form, Modal } from 'react-bootstrap'
+import { Accordion, Alert, Col, Container, Row, Table, Card, Button, Form, Modal } from 'react-bootstrap'
 import Footer from '../../components/client/Footer';
 import cardpic from '../../imgs/cardApp.jpg';
+import { useLocation } from 'react-router-dom';
 
 const CreditCardApplicationScreen = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
 
+  // Access specific query string parameters
+  const applied = queryParams.get('applied');
 
   return (
     <>
@@ -18,9 +23,12 @@ const CreditCardApplicationScreen = () => {
 
         <Container className="mt-3">
           <h4 className="">Apply for a Credit Card</h4>
+          {applied==1 && <Alert key='success' variant='success' className='mt-2'>
+                        <span className='fw-bold'>Thank you!</span> Your application was received. We will get back to you within 72 hours.
+                    </Alert>}
           <Row>
             <Col md={8} className="">
-              <Form className="mt-3">
+              <Form className="">
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="loanType">Card Type</Form.Label>
                   <Form.Select id="loanType">
@@ -43,7 +51,7 @@ const CreditCardApplicationScreen = () => {
                   <Form.Label>Supporting Documents <a className="text-primary cursor-pointer text-decoration-none" onClick={(e) => { e.preventDefault(); setShow(true) }}>(View Required Documents)</a></Form.Label>
                   <Form.Control multiple type="file" />
                 </Form.Group>
-                <Button className='rounded-pill' variant="primary" type="submit">
+                <Button onClick={(e) => { e.preventDefault(); window.location.href="http://localhost:3000/creditcardapplication?applied=1"; }} className='rounded-pill' variant="primary" type="submit">
                   Submit
                 </Button>
               </Form>
@@ -60,9 +68,6 @@ const CreditCardApplicationScreen = () => {
               </Card>
             </Col>
           </Row>
-
-
-
         </Container>
 
         <Footer className="mt-5" />

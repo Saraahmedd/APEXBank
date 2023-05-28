@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 import ClientNavbar from '../../components/client/Navbar'
-import { Accordion, Col, Container, Row, Table, Card, Button, Form, Modal } from 'react-bootstrap'
+import { Accordion, Alert, Col, Container, Row, Table, Card, Button, Form, Modal } from 'react-bootstrap'
 import Footer from '../../components/client/Footer';
 import cardpic from '../../imgs/loanApp.jpg';
+import { useLocation } from 'react-router-dom';
 
 const LoanApplicationScree = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  // Access specific query string parameters
+  const applied = queryParams.get('applied');
 
 
   return (
@@ -17,7 +23,9 @@ const LoanApplicationScree = () => {
         <ClientNavbar loggedIn={true} />
 
         <Container className="mt-3">
-
+        {applied==1 && <Alert key='success' variant='success' className='mt-2'>
+                        <span className='fw-bold'>Thank you!</span> Your application was received. We will get back to you within 72 hours.
+                    </Alert>}
           <h4>Loan Application Form</h4>
           <Row>
             <Col md={8}>
@@ -53,7 +61,7 @@ const LoanApplicationScree = () => {
                   <Form.Label>Supporting Documents <a className="text-primary cursor-pointer text-decoration-none" onClick={(e) => { e.preventDefault(); setShow(true) }}>(View Required Documents)</a></Form.Label>
                   <Form.Control type="file" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button onClick={(e) => { e.preventDefault(); window.location.href="http://localhost:3000/loanapplication?applied=1"; }} variant="primary" type="submit">
                   Submit
                 </Button>
               </Form>
