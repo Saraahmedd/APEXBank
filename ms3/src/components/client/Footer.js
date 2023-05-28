@@ -43,12 +43,12 @@ const Footer = ({className}) => {
                         <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4'>Online Banking</h6>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <a href='http://localhost:3000/register' className='text-reset'>
                                     Sign Up
                                 </a>
                             </p>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <a href='http://localhost:3000/login' className='text-reset'>
                                     Log In
                                 </a>
                             </p>
@@ -57,17 +57,17 @@ const Footer = ({className}) => {
                         <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <a href='http://localhost:3000/' className='text-reset'>
                                     Home
                                 </a>
                             </p>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <a href='http://localhost:3000/contact' className='text-reset'>
                                     Contact Us
                                 </a>
                             </p>
                             <p>
-                                <a href='#!' className='text-reset'>
+                                <a href='http://localhost:3000/about' className='text-reset'>
                                     About
                                 </a>
                             </p>
@@ -81,10 +81,10 @@ const Footer = ({className}) => {
                             </p>
                             <p>
                                 <MDBIcon icon="envelope" className="me-3" />
-                                info@apexeg.com
+                                info@apexbanking.com
                             </p>
                             <p>
-                                <MDBIcon icon="phone" className="me-3" /> + 20 100 507 9623
+                                <MDBIcon icon="phone" className="me-3" /> + 20 19728
                             </p>
                             <p>
                                 <MDBIcon icon="print" className="me-3" /> + 03 422 60 37

@@ -37,6 +37,11 @@
   color: #003087 !important;
 }
 
+p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
 .font-big {
   font-size: calc(1.25rem + 1.5vw) !important;
 }

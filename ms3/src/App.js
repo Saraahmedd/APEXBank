@@ -30,6 +30,9 @@ import SingleLoanScreen from "./screens/client/SingleLoanScreen";
 import SingleCardScreen from "./screens/client/SingleCardScreen";
 import AdminPrivacyPolicy from "./screens/admin/PrivacyPolicy";
 import AdminTermsAndConditions from "./screens/admin/TermsAndConditions";
+import About from "./screens/client/About";
+import Contact from "./screens/client/Contact";
+
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
 import SearchForClient from "./screens/banker/SearchForClient";
 import BankerPrivacyPolicy from "./screens/banker/PrivacyPolicy";
@@ -42,6 +45,13 @@ function App() {
         <Routes>
           {/* Client */}
           <Route path="/" element={<Home />}>
+            {" "}
+          </Route>
+
+          <Route path="/contact" element={<Contact />}>
+            {" "}
+          </Route>
+          <Route path="/about" element={<About />}>
             {" "}
           </Route>
 

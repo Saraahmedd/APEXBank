@@ -43,7 +43,7 @@ const CreditCardApplicationScreen = () => {
                   <Form.Label>Supporting Documents <a className="text-primary cursor-pointer text-decoration-none" onClick={(e) => { e.preventDefault(); setShow(true) }}>(View Required Documents)</a></Form.Label>
                   <Form.Control multiple type="file" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='rounded-pill' variant="primary" type="submit">
                   Submit
                 </Button>
               </Form>
