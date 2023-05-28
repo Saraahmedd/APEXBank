@@ -57,7 +57,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                     <img
                                         alt=""
                                         src={logo}
-                                        height="50"
+                                        height="80"
                                         className="d-inline-block align-top"
                                     />
 
