@@ -9,6 +9,8 @@ uploads
 uploads/
 
 ms3/node_modules
+package-lock.json
+ms3/package-lock.json
 
 # # testing
 # /coverage
