@@ -26,6 +26,11 @@ const ClientNavbar = ({ loggedIn = false }) => {
                         Loan Payment for loan #32123 due in 1 week<br />
                         <span className="text-muted">22-05-2023</span>
                     </li>
+                    <li className="list-group-item">
+                        <span className="fw-bold">Ticket #142</span><br />
+                        Your issue #142 was resolved, please check your email!<br />
+                        <span className="text-muted">20-05-2023</span>
+                    </li>
                 </ul>
             </Popover.Body>
         </Popover>

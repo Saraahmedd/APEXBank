@@ -200,8 +200,8 @@ const SingleCardScreen = () => {
                                         <Card.Title>
                                             <div className='d-flex flex-fill'>
                                                 • • • {cards.filter(card => card.id == cardId)[0].cardNumber.split(' ')[3]}
-                                                <span className="flex-grow-1"></span>
-                                                <Flag onClick={() => { setShow4(true) }} className='text-danger cursor-pointer' />
+                                                {/* <span className="flex-grow-1"></span> */}
+                                                {/* <Flag onClick={() => { setShow4(true) }} className='text-danger cursor-pointer' /> */}
                                                 {/* <SlashCircleFill className='text-secondary' /> */}
                                             </div>
                                         </Card.Title>
@@ -211,7 +211,11 @@ const SingleCardScreen = () => {
                                                 {cards.filter(card => card.id == cardId)[0].remaining} / {cards.filter(card => card.id == cardId)[0].limit} EGP
                                             </span>
                                         </Card.Text>
-                                        <Button onClick={() => cardDisabled ? setShow2(true) : setShow(true)} variant="outline-secondary rounded-pill">{cardDisabled ? 'Enable Card' : 'Disable Card'}</Button>
+                                        <div className='d-flex flex-row'>
+                                            <Button onClick={() => cardDisabled ? setShow2(true) : setShow(true)} variant="outline-secondary rounded-pill">{cardDisabled ? 'Enable Card' : 'Disable Card'}</Button>
+                                            <Button className='ms-1' onClick={() => setShow4(true) } variant="outline-secondary rounded-pill">Report as Lost</Button>
+                                        </div>
+
                                     </Card.Body>
                                 </Card>
                                 {!redeem &&
