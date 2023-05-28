@@ -7,6 +7,7 @@ import Footer from "../../components/footer";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import Notification from "../../components/notification";
 const ViewClientDataScreen = () => {
   const { id } = useParams();
 
@@ -15,6 +16,7 @@ const ViewClientDataScreen = () => {
       <div className="bg-light" style={{ display: "flex" }}>
         <Sidebar />
         <div className="column m-4" style={{ flex: "3" }}>
+          <Notification></Notification>
           <h2 style={{ textAlign: "center" }}>Client Data</h2>
           <hr />
           <UserDetails userID={id} />
@@ -22,20 +24,17 @@ const ViewClientDataScreen = () => {
           <div className="row d-flex flex-row justify-content-center">
             <Link
               to={`/banker/viewloans/${id}`}
-              className="btn btn-primary btn-rounded col-3 m-2"
-            >
+              className="btn btn-primary btn-rounded col-3 m-2">
               Loans
             </Link>
             <Link
               to={`/banker/viewcreditcards/${id}`}
-              className="btn btn-primary btn-rounded col-3 m-2"
-            >
+              className="btn btn-primary btn-rounded col-3 m-2">
               Credit Card
             </Link>
             <Link
               to={`/banker/viewreports/${id}`}
-              className="btn btn-primary btn-rounded col-3 m-2"
-            >
+              className="btn btn-primary btn-rounded col-3 m-2">
               Reports
             </Link>
           </div>

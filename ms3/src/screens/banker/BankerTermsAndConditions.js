@@ -4,6 +4,7 @@ import Grid from "../../components/grid";
 import Footer from "../../components/footer";
 import React from "react";
 
+import Notification from "../../components/notification";
 const BankerTermsAndConditions = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const BankerTermsAndConditions = () => {
           <Sidebar></Sidebar>
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
+          <Notification></Notification>
           <h2>
             <strong>Terms and Conditions</strong>
           </h2>

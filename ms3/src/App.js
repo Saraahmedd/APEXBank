@@ -28,15 +28,16 @@ import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScre
 import Home from "./screens/client/Home";
 import SingleLoanScreen from "./screens/client/SingleLoanScreen";
 import SingleCardScreen from "./screens/client/SingleCardScreen";
-import AdminPrivacyPolicy from "./screens/admin/PrivacyPolicy";
-import AdminTermsAndConditions from "./screens/admin/TermsAndConditions";
+import AdminPrivacyPolicy from "./screens/admin/AdminPrivacyPolicy";
+import AdminTermsAndConditions from "./screens/admin/AdminTermsAndConditions";
 import About from "./screens/client/About";
 import Contact from "./screens/client/Contact";
 
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
 import SearchForClient from "./screens/banker/SearchForClient";
-import BankerPrivacyPolicy from "./screens/banker/PrivacyPolicy";
-import BankerTermsAndConditions from "./screens/banker/TermsAndConditions";
+import BankerPrivacyPolicy from "./screens/banker/BankerPrivacyPolicy";
+import BankerTermsAndConditions from "./screens/banker/BankerTermsAndConditions";
+import ViewTransaction from "./screens/banker/ViewTransactions";
 
 function App() {
   return (
@@ -133,6 +134,10 @@ function App() {
           <Route
             path="/banker/viewsingleloan"
             element={<ViewSingleLoan></ViewSingleLoan>}></Route>
+
+          <Route
+            path="/banker/viewtransactions"
+            element={<ViewTransaction></ViewTransaction>}></Route>
 
           <Route
             path="/banker/privacypolicy"

@@ -5,6 +5,8 @@ import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 import { useState, useEffect } from "react";
 
+import Notification from "../../components/notification";
+
 const ViewLoanDataScreen = () => {
   const { id } = useParams();
 
@@ -118,6 +120,7 @@ const ViewLoanDataScreen = () => {
       <div className="bg-light" style={{ display: "flex" }}>
         <Sidebar />
         <div className="column m-4" style={{ flex: "3" }}>
+          <Notification></Notification>
           <h2>Loan Details - {client.name}</h2>
           <hr />
           <div className="mb-4">
@@ -152,8 +155,7 @@ const ViewLoanDataScreen = () => {
                     <button type="submit" className="btn btn-primary mt-3">
                       <a
                         className="text-light text-decoration-none"
-                        href="/banker/viewsingleloan"
-                      >
+                        href="/banker/viewsingleloan">
                         show details
                       </a>
                     </button>
@@ -187,15 +189,13 @@ const ViewLoanDataScreen = () => {
                     <button
                       type="submit"
                       className="btn btn-primary m-2"
-                      onClick={(e) => handleGrant(loan.id)}
-                    >
+                      onClick={(e) => handleGrant(loan.id)}>
                       Grant
                     </button>
                     <button
                       type="submit"
                       className="btn btn-primary m-2"
-                      onClick={(e) => removeCard(loan.id)}
-                    >
+                      onClick={(e) => removeCard(loan.id)}>
                       Reject
                     </button>
                   </Card.Body>

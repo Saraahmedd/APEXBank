@@ -2,6 +2,7 @@ import Sidebar from "../../components/Sidebar";
 import CardComponent from "../../components/CardComponent";
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
+import Notification from "../../components/notification";
 import { CDBContainer } from "cdbreact";
 import Grid from "../../components/grid";
 import Footer from "../../components/footer";
@@ -65,11 +66,13 @@ const BankerHomeScreen = () => {
       document.getElementById(`card ${number}`).classList.add("d-none");
     }
   };
+
   return (
     <>
       <div className="row bg-white ">
         <Sidebar></Sidebar>
-        <div className="col-9 p-4">
+        <div className="col-9 p-4 position-relative">
+          <Notification></Notification>
           <h1 className="p-4">Welcome, Banker</h1>
           <div className="row flex-row">
             {/* <div className="card col-9 col-lg-3 m-1">

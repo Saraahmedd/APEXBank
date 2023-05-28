@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
+import { OverlayTrigger, Popover } from "react-bootstrap";
+import { BellFill, PersonCircle } from "react-bootstrap-icons";
 import {
   CDBSidebar,
   CDBSidebarContent,
-  CDBSidebarFooter,
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
@@ -31,6 +32,7 @@ const Sidebar = () => {
         break;
     }
   });
+
   return (
     <div className="col-3 min-vh-100 ">
       <CDBSidebar textColor="#fff" className=" bg-light pb-5">

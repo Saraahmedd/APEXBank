@@ -4,12 +4,15 @@ import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 
+import Notification from "../../components/notification";
+
 const ViewSingleLoan = () => {
   return (
     <>
       <div className="row bg-light">
         <Sidebar></Sidebar>
         <div className="col-8">
+          <Notification></Notification>
           <h1 className="py-3">Loan Details</h1>
           <div className="my-4">
             <h2>Upcoming Deadlines</h2>

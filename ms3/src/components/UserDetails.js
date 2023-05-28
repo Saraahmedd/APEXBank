@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import "./styles/UserDetails.css";
 import CardComponent from "./CardComponent.js";
+import BankCardComponent from "./bankCardComponent.js";
 
 const UserDetails = ({ userID }) => {
   const basicInfoFields = [
@@ -38,29 +39,42 @@ const UserDetails = ({ userID }) => {
 
   const bankAccounts = [
     [
-      { label: "Account 1", value: "1426 3784 5263 0583" },
-      { label: "Account 2", value: "9495 52637 1497 8936" },
+      {
+        label: "Account 1",
+        value: "1426 3784 5263 0583",
+      },
+      {
+        label: "Account 2",
+        value: "9495 52637 1497 8936",
+      },
     ],
-    [{ label: "Account 1", value: "6472 8596 7495 7394" }],
-    [{ label: "Account 1", value: "7349 6372 6378 9376" }],
+    [
+      {
+        label: "Account 1",
+        value: "6472 8596 7495 7394",
+      },
+    ],
+    [
+      {
+        label: "Account 1",
+        value: "7349 6372 6378 9376",
+      },
+    ],
   ];
 
   return (
     <div className=" col-12" style={{ width: "100%" }}>
       <CardComponent
         title="Basic Information"
-        data={basicInfoFields[userID]}
-      ></CardComponent>
+        data={basicInfoFields[userID]}></CardComponent>
 
       <CardComponent
         title="Address Information"
-        data={addressFields}
-      ></CardComponent>
+        data={addressFields}></CardComponent>
 
-      <CardComponent
+      <BankCardComponent
         title="Bank Accounts"
-        data={bankAccounts[userID]}
-      ></CardComponent>
+        data={bankAccounts[userID]}></BankCardComponent>
     </div>
   );
 };

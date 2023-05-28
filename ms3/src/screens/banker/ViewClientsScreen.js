@@ -5,6 +5,7 @@ import { BsPerson } from "react-icons/bs";
 import { IoMdPerson } from "react-icons/io";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
+import Notification from "../../components/notification";
 const maleAvatar = require("../../imgs/maleAvatar.png");
 const femaleAvatar = require("../../imgs/femaleAvatar.png");
 
@@ -34,6 +35,7 @@ const ViewClientsScreen = () => {
           <Sidebar />
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
+          <Notification></Notification>
           <h2>Clients</h2>
           <hr />
           <div className="row">

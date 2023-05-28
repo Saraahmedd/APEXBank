@@ -6,6 +6,8 @@ import Footer from "../../components/footer";
 import maleAvatar from "../../imgs/maleAvatar.png";
 import femaleAvatar from "../../imgs/femaleAvatar.png";
 
+import Notification from "../../components/notification";
+
 const SearchForClient = () => {
   const clients = [
     {
@@ -81,6 +83,7 @@ const SearchForClient = () => {
       <div className="bg-light" style={{ display: "flex" }}>
         <Sidebar />
         <div className="column m-4" style={{ flex: "3" }}>
+          <Notification></Notification>
           <h2>Clients</h2>
           <hr />
           <input
@@ -112,7 +115,9 @@ const SearchForClient = () => {
                         Bank Accounts:
                       </span>
                       {client.bankAccounts.map((account, index) => (
-                        <div key={index}>{account}</div>
+                        <>
+                          <div key={index}>{account}</div>
+                        </>
                       ))}
                     </div>
                     <hr />

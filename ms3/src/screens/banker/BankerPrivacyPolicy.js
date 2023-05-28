@@ -4,6 +4,8 @@ import Grid from "../../components/grid";
 import Footer from "../../components/footer";
 import React from "react";
 
+import Notification from "../../components/notification";
+
 const BankerPrivacyPolicy = () => {
   return (
     <>
@@ -12,6 +14,7 @@ const BankerPrivacyPolicy = () => {
           <Sidebar></Sidebar>
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
+          <Notification></Notification>
           <h1>Privacy Policy for Apex bank</h1>
 
           <p>
