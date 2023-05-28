@@ -105,7 +105,7 @@ const SignUpScreen = () => {
               </div>
             </div>
 
-            <Container className='d-flex flex-column' style={{ height: '50vh' }}>
+            <Container className='d-flex flex-column' style={{ height: '40vh' }}>
 
               <Form id="form1" style={{ display: activeForm === 1 ? "block" : "none" }}>
                 <p>

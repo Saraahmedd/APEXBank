@@ -18,7 +18,7 @@ const UserProfileScreen = () => {
   };
   return (
 <>
-      <Navbar />
+      <Navbar  loggedIn={true} />
     <div class="container">
        {message && <Message variant='success' showMessage={success} setShowMessage={setSuccess}>
                  {message}  

@@ -102,7 +102,7 @@ const BankAccountsScreen = () => {
   return (
     <div className="text-center min-vh-100">
       
-      <Navbar />
+      <Navbar  loggedIn={true}/>
       <Container className=' min-vh-100' >
         <BankTransferModal show={show} handleClose={handleClose} handleShow={handleShow} />
       <CloseBankAccountModal show={show2} handleClose={handleClose2} handleShow={handleShow2} />

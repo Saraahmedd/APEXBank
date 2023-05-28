@@ -40,7 +40,7 @@ const SingleAccountScreen = () => {
 
   return (
     <div className="text-center">
-      <Navbar />
+      <Navbar  loggedIn={true} />
       <div className="container mt-5">
         <h2>Bank Account Details</h2>
         <Card>

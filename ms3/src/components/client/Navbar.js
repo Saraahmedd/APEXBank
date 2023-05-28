@@ -79,7 +79,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                 {loggedIn &&
                                     <>
                                         {/* <p className="fw-semibold fs-6 m-0 p-0">Logged in as Omar</p> */}
-                                        <Link to="/bankaccounts" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">My Accounts</Nav.Link></Link>
+                                        <Link to="/bankAccount" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">My Accounts</Nav.Link></Link>
                                         <Link to="/bills" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Bills</Nav.Link></Link>
                                         <Link to="/loans" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Loans</Nav.Link></Link>
                                         <Link to="/creditcard" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Credit Cards</Nav.Link></Link>

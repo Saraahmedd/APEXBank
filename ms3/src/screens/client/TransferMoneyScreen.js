@@ -12,7 +12,7 @@ const BankTransferScreen = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar  loggedIn={true} />
       <Container className="min-vh-100">
         <br />
         <Row className="justify-content-center">
@@ -20,7 +20,7 @@ const BankTransferScreen = () => {
             <div className="text-center">
               <h2 className="mb-4">Bank Transfer</h2>
             </div>
-            <div className="card p-4 rounded shadow"> {/* Use a card component for styling */}
+            <div className="cardd p-4 rounded shadow"> {/* Use a card component for styling */}
               <Form>
                 <Form.Group controlId="formAccountNumber">
                   <Form.Label>Account Number</Form.Label>

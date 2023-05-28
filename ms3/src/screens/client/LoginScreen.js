@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 import Navbar from '../../components/client/Navbar'
 import Message from '../../components/client/Message';
 import Footer from '../../components/client/Footer';
-const logo = require('../../imgs/lightLogo.png')
+const logo = require('../../imgs/logo_transparent.png')
 function App() {
 
   const [username,setUsername] = React.useState('');
@@ -24,7 +24,7 @@ function App() {
     // You can perform any necessary logic here
    
     if(username === "abdullah@yahoo.com" && password==="pass1234"){
-        window.history.pushState({},"","/")
+        window.history.pushState({},"","/portal")
       window.location.reload()
     }
     else {
@@ -44,7 +44,7 @@ function App() {
    
    <MDBContainer className="mb-5 gradient-form min-vh-100 d-flex justify-content-center">
     
-      <MDBRow className='m-auto'>
+      <MDBRow className='m-auto border-1 border-primary'>
 
         <MDBCol col='6' className="mb-5">
           
@@ -55,7 +55,7 @@ function App() {
             <div className="text-center">
               <img src={logo}
                 style={{width: '185px'}} alt="logo" />
-              <h4 className="mt-1 mb-5 pb-1">Blue Horizon Bank</h4>
+              <h4 className="mt-1 mb-5 pb-1">Apex Bank</h4>
             </div>
 
             <p>Please login to your account</p>

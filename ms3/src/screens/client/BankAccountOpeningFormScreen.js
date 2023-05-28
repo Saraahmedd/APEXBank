@@ -21,7 +21,7 @@ const BankAccountScreen = () => {
     setShow(true);}
   return (
     <>
-    <Navbar/>
+    <Navbar loggedIn={true}/>
     <SuccessModal link={"/bankAccounts"} modal={show} toggleShow={handleClose} title={"Success"} message={"Thank you for opening your bank account with us! \n We will redirect you to your bank accounts' page."}/>
     <Container className='min-vh-100  justify-content-center'>
      
