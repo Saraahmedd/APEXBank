@@ -5,15 +5,33 @@ import Modal from 'react-bootstrap/Modal';
 import { Container, Row, Col } from 'react-bootstrap';
 import { MDBInput } from 'mdbreact';
 import { FaChevronDown, FaDollarSign } from 'react-icons/fa'; // Import additional icon
+import Message from './Message';
 
 function BankTransferModal( {show, handleClose, handleShow} ) {
 
      const availableAmount = 5000;
   const currentAmount = 10000;
+    const [message,setMessage] = useState("");
+  const [success,setSuccess] = useState('');
+
+  const handleSubmit = () => {
+    // Handle form submission
+    // You can perform any necessary logic here
+    setSuccess(true)
+    setMessage('Account Closed Successfully')
+     const timer = setTimeout(() => {
+      setMessage("");
+    }, 5000);
+    
+    handleClose();
+
+  };
 
   return (
     <>
-    
+     {message && <Message variant='success' showMessage={success} setShowMessage={setSuccess}>
+                 {message}  
+                </Message> }
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -86,7 +104,7 @@ function BankTransferModal( {show, handleClose, handleShow} ) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Transfer Funds
           </Button>
         </Modal.Footer>

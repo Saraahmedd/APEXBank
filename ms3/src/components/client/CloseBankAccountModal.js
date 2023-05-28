@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { FaChevronDown, FaDollarSign } from 'react-icons/fa';
 import { MDBInput } from 'mdbreact';
+import Message from './Message';
 
 function CloseBankAccountModal({ show, handleClose, handleShow }) {
   const [reason, setReason] = useState('');
@@ -12,15 +13,27 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [message,setMessage] = useState("");
+  const [success,setSuccess] = useState('');
 
   const handleSubmit = () => {
     // Handle form submission
     // You can perform any necessary logic here
+    setSuccess(true)
+    setMessage('Account Closed Successfully')
+     const timer = setTimeout(() => {
+      setMessage("");
+    }, 5000);
     handleClose();
+
   };
 
   return (
     <>
+    {message && <Message variant='success' showMessage={success} setShowMessage={setSuccess}>
+                 {message}  
+                </Message> }
+   
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Close Bank Account</Modal.Title>

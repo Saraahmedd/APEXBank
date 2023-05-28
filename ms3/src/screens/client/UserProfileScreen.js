@@ -1,13 +1,28 @@
 import React from 'react'
 import Footer from '../../components/client/Footer'
 import Navbar from '../../components/client/Navbar'
+import Message from '../../components/client/Message';
 
 const UserProfileScreen = () => {
+	const [message,setMessage] = React.useState("");
+    const [success,setSuccess] = React.useState('');
+	const handleSubmit = () => {
+    // Handle form submission
+    // You can perform any necessary logic here
+    setSuccess(true)
+    setMessage('Account Updated Successfuly')
+     const timer = setTimeout(() => {
+      setMessage("");
+    }, 5000);
+
+  };
   return (
 <>
       <Navbar />
     <div class="container">
-      
+       {message && <Message variant='success' showMessage={success} setShowMessage={setSuccess}>
+                 {message}  
+                </Message> }
 <div class="row gutters">
 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
@@ -93,7 +108,7 @@ const UserProfileScreen = () => {
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right my-5">
 					<button type="button"clas id="submit" name="submit" class="btn btn-secondary mx-3">Cancel</button>
-					<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+					<button type="button" id="submit" name="submit" onClick={handleSubmit} class="btn btn-primary">Update</button>
 				</div>
 			</div>
 		</div>

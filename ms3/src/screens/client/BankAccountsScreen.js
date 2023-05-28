@@ -41,6 +41,8 @@ const BankAccountsScreen = () => {
 
   const handleApplyNewAccount = () => {
     // Handle logic to apply for a new bank account
+    window.history.pushState({},"","/openBankAcc")
+    window.location.reload();
     console.log('Apply for a new bank account');
   };
 
@@ -67,8 +69,8 @@ const BankAccountsScreen = () => {
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item onClick={handleShow}>Transfer Funds</Dropdown.Item>
-          <Dropdown.Item>View Transactions</Dropdown.Item>
-          <Dropdown.Item>Edit Account Details</Dropdown.Item>
+          <Dropdown.Item  onClick={ () => {window.history.pushState({},"","/bankAccount/transaction");window.location.reload()}} >View Transactions</Dropdown.Item>
+          {/* <Dropdown.Item>Edit Account Details</Dropdown.Item> */}
         </Dropdown.Menu>
       </Dropdown>
     );
@@ -99,10 +101,11 @@ const BankAccountsScreen = () => {
 
   return (
     <div className="text-center min-vh-100">
-      <BankTransferModal show={show} handleClose={handleClose} handleShow={handleShow} />
-      <CloseBankAccountModal show={show2} handleClose={handleClose2} handleShow={handleShow2} />
+      
       <Navbar />
       <Container className=' min-vh-100' >
+        <BankTransferModal show={show} handleClose={handleClose} handleShow={handleShow} />
+      <CloseBankAccountModal show={show2} handleClose={handleClose2} handleShow={handleShow2} />
         <h1 className="mb-4">Bank Account Management</h1>
         <Button variant="primary" onClick={handleApplyNewAccount} className="mb-4">
           Apply for a New Bank Account
