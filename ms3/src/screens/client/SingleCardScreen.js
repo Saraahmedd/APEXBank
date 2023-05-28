@@ -275,10 +275,10 @@ const SingleCardScreen = () => {
 
             <Modal show={show3} onHide={handleClose3}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Re-enable Card</Modal.Title>
+                    <Modal.Title>Redeem Points</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>Are you sure you want to re-enable this card?</h4>
+                    <h4>Are you sure you want to redeem 20,000 points? 2000 EGP will be credited to your account.</h4>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose3}>
