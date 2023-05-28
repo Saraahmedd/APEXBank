@@ -44,7 +44,6 @@ function App() {
             {" "}
           </Route>
 
-<<<<<<< HEAD
 
           <Route path="/contact" element={<Contact />}>
             {" "}
@@ -53,8 +52,6 @@ function App() {
             {" "}
           </Route>
           
-=======
->>>>>>> 6b38fae8323d86ddafe8fe5c5675e4eb7ea6fd36
           <Route path="/login" element={<LoginScreen />}>
             {" "}
           </Route>
