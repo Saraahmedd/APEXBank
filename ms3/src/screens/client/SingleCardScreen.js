@@ -8,7 +8,7 @@ import testimonial2 from '../../imgs/testimonial_2.jpeg';
 import { FlagFill, Flag, Coin, PlusLg, SlashCircleFill } from "react-bootstrap-icons";
 import Footer from '../../components/client/Footer';
 import { useLocation } from 'react-router-dom';
-
+import cashbackPic from '../../imgs/cashback.jpg'
 
 const SingleCardScreen = () => {
     const location = useLocation();
@@ -105,9 +105,26 @@ const SingleCardScreen = () => {
         {
             reference: "TXN123123123",
             date: "2023-06-03",
-            value: 95.75,
+            value: 234.75,
             description: "Concert ticket purchase for XYZ Band"
-        }
+        },
+        {
+            reference: "TXN125123123",
+            date: "2023-06-02",
+            value: 455.75,
+            description: "Gasoline purchase at Mobil"
+        },
+        {
+            reference: "TXN126123123",
+            date: "2023-06-01",
+            value: 75.75,
+            description: "Talabat Cairo purchase"
+        }, {
+            reference: "TXN127123123",
+            date: "2023-05-31",
+            value: 4232.5,
+            description: "Nike Cairo Festival City Purchase"
+        },
     ];
 
 
@@ -124,7 +141,7 @@ const SingleCardScreen = () => {
 
                     <div className='d-flex flex-column mt-3'>
                         <Row>
-                            <Col md={8}>
+                            <Col md={9}>
                                 <Table striped bordered hover>
                                     <thead>
                                         <tr>
@@ -151,8 +168,8 @@ const SingleCardScreen = () => {
                                     </tbody>
                                 </Table>
                             </Col>
-                            <Col md={4}>
-                                <Card style={{ width: '18rem', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
+                            <Col md={3}>
+                                <Card style={{}}>
                                     <Card.Body>
                                         <Card.Title>
                                             <div className='d-flex flex-fill'>
@@ -169,6 +186,16 @@ const SingleCardScreen = () => {
                                             </span>
                                         </Card.Text>
                                         <Button variant="outline-secondary rounded-pill">Disable Card</Button>
+                                    </Card.Body>
+                                </Card>
+                                <Card className='mt-3'>
+                                    <Card.Img variant="top" src={cashbackPic} />
+                                    <Card.Body>
+                                        <Card.Title>You've Got Points!</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">Points Balance: 200000 Points</Card.Subtitle>
+                                        <Card.Text>
+                                            <Button variant="outline-primary rounded-pill">Redeem</Button>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </Col>
