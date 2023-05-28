@@ -14,17 +14,17 @@ const ClientNavbar = ({ loggedIn = false }) => {
                     <li className="list-group-item">
                         <span className="fw-bold">Announcement</span><br />
                         Exciting news! Update our mobile banking app for a better, more secure experience. Discover new features and enhanced functionality today.<br />
-                        <span className="text-muted">26/05/2023</span>
+                        <span className="text-muted">26-05-2023</span>
                     </li>
                     <li className="list-group-item">
                         <span className="fw-bold">Transaction</span><br />
                         Spent 175.50 EGP at Talabat Cairo EG<br />
-                        <span className="text-muted">25/05/2023</span>
+                        <span className="text-muted">25-05-2023</span>
                     </li>
                     <li className="list-group-item">
                         <span className="fw-bold">Reminder</span><br />
                         Loan Payment for loan #32123 due in 1 week<br />
-                        <span className="text-muted">22/05/2023</span>
+                        <span className="text-muted">22-05-2023</span>
                     </li>
                 </ul>
             </Popover.Body>
@@ -67,8 +67,8 @@ const ClientNavbar = ({ loggedIn = false }) => {
                             <div className='d-flex flex-row justify-content-end align-items-center' style={{flex: 1}}>
                                 {!loggedIn &&
                                     <>
-                                        <Button variant="outline-primary" className="px-4 rounded-pill">Log In</Button>
-                                        <Button variant="primary" className="ms-lg-2 mt-2 mt-lg-0 px-4 rounded-pill">Sign Up</Button>
+                                        <Button variant="outline-primary" onClick={() => {window.location.href="http://localhost:3000/login"}} className="px-4 rounded-pill">Log In</Button>
+                                        <Button variant="primary" onClick={() => {window.location.href="http://localhost:3000/register"}} className="ms-lg-2 mt-2 mt-lg-0 px-4 rounded-pill">Sign Up</Button>
                                     </>
                                 }
                                 {loggedIn &&
