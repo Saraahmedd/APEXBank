@@ -1,10 +1,10 @@
-import Sidebar from "../../components/Sidebar";
+import React from "react";
 import Datatable from "../../components/table";
 import Grid from "../../components/grid";
+import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
-import React from "react";
 
-const AdminTechnicalIssuesScreen = () => {
+const ViewCreditCardReports = () => {
   const loremText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam condimentum libero, id efficitur quam accumsan eu. Aenean gravida erat id risus aliquet, ac consequat quam malesuada. In hac habitasse platea dictumst. Proin eget feugiat metus. Sed vitae augue mauris. Phasellus posuere tincidunt risus sed faucibus. Nullam aliquam tortor non tincidunt cursus. Suspendisse potenti. Duis facilisis arcu vitae semper vehicula. Vestibulum ac gravida nisi.";
 
@@ -26,9 +26,7 @@ const AdminTechnicalIssuesScreen = () => {
             <div class="card" id="card 1">
               <div class="card-header h1">Report</div>
               <div class="card-body row">
-                <h5 class="card-title col-12">
-                  I'm unable to log into my account.
-                </h5>
+                <h5 class="card-title col-6">Stolen credit card</h5>
                 <p>{loremText}</p>
                 <div className="col-10"></div>
                 <button
@@ -45,10 +43,7 @@ const AdminTechnicalIssuesScreen = () => {
             <div class="card" id="card 2">
               <div class="card-header h1">Report</div>
               <div class="card-body row">
-                <h5 class="card-title col-12">
-                  I've been charged twice for the same transaction on my online
-                  statement.
-                </h5>
+                <h5 class="card-title col-6">Poor customer service</h5>
                 <p>{loremText}</p>
                 <p></p>
                 <div className="col-10"></div>
@@ -66,10 +61,8 @@ const AdminTechnicalIssuesScreen = () => {
             <div class="card" id="card 3">
               <div class="card-header h1">Report</div>
               <div class="card-body row">
-                <h5 class="card-title col-12">
-                  I tried to transfer funds to another account, but the
-                  transaction failed, and the money was not returned to my
-                  account.
+                <h5 class="card-title col-6">
+                  Unsatisfactory customer service
                 </h5>
                 <p>{loremText}</p>
                 <div className="col-10"></div>
@@ -91,4 +84,4 @@ const AdminTechnicalIssuesScreen = () => {
   );
 };
 
-export default AdminTechnicalIssuesScreen;
+export default ViewCreditCardReports;

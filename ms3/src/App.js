@@ -1,4 +1,3 @@
-
 // import logo from './imgs/logo.svg';
 import BankAccountTransactionsScreen from "./screens/client//BankAccountTransactionsScreen";
 import BankAccountsScreen from "./screens/client/BankAccountsScreen";
@@ -15,13 +14,14 @@ import TransferMoneyScreen from "./screens/client/TransferMoneyScreen";
 import LoansScreen from "./screens/client/LoansScreen";
 // import LoanScreen from "./screens/client/loanScreen";
 import BankerLoginScreen from "./screens/banker/BankerLoginScreen";
+import BankerHomeScreen from "./screens/banker/BankerHomeScreen";
 import ViewClientDataScreen from "./screens/banker/ViewClientDataScreen";
 import ViewClientTransactionsScreen from "./screens/banker/ViewCllientTransactionsScreen";
-import ViewCreditCardReports from "./screens/banker/ViewCreditCardReports";
-import ViewCreditCardRequests from "./screens/banker/ViewCreditCardRequests";
-import ViewLoanReqeuestsScreen from "./screens/banker/viewLoanReqeuestsScreen";
-import ViewSingleCCRequestScreen from "./screens/banker/ViewSingleCCRequestScreen";
-import ViewSingleLoanRequest from "./screens/banker/ViewSingleLoanRequest";
+import ViewReports from "./screens/banker/ViewReports";
+import ViewCreditCardDetails from "./screens/banker/ViewCreditCardDetails";
+import ViewLoanDataScreen from "./screens/banker/ViewLoanDataScreen";
+import ViewSingleCC from "./screens/banker/ViewSingleCC";
+import ViewSingleLoan from "./screens/banker/ViewSingleLoan";
 import AdminHomeScreen from "./screens/admin/AdminHomeScreen";
 import AdminLoginScreen from "./screens/admin/AdminLoginScreen";
 import AdminTechnicalIssuesScreen from "./screens/admin/AdminTechnicalIssuesScreen";
@@ -31,6 +31,8 @@ import SingleCardScreen from "./screens/client/SingleCardScreen";
 import About from "./screens/client/About";
 import Contact from "./screens/client/Contact";
 
+import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
+import SearchForClient from "./screens/banker/SearchForClient";
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
             {" "}
           </Route>
 
+<<<<<<< HEAD
 
           <Route path="/contact" element={<Contact />}>
             {" "}
@@ -50,6 +53,8 @@ function App() {
             {" "}
           </Route>
           
+=======
+>>>>>>> 6b38fae8323d86ddafe8fe5c5675e4eb7ea6fd36
           <Route path="/login" element={<LoginScreen />}>
             {" "}
           </Route>
@@ -100,7 +105,13 @@ function App() {
             path="/banker/login"
             element={<BankerLoginScreen></BankerLoginScreen>}></Route>
           <Route
-            path="/banker/viewclientdata"
+            path="/banker/homescreen"
+            element={<BankerHomeScreen></BankerHomeScreen>}></Route>
+          <Route
+            path="/banker/viewclients"
+            element={<SearchForClient></SearchForClient>}></Route>
+          <Route
+            path="/banker/viewclientdata/:id"
             element={<ViewClientDataScreen></ViewClientDataScreen>}></Route>
           <Route
             path="/banker/viewclienttransactions"
@@ -108,24 +119,20 @@ function App() {
               <ViewClientTransactionsScreen></ViewClientTransactionsScreen>
             }></Route>
           <Route
-            path="/banker/viewcreditcardreports"
-            element={<ViewCreditCardReports></ViewCreditCardReports>}></Route>
+            path="/banker/viewcreditcards/:id"
+            element={<ViewCreditCardDetails></ViewCreditCardDetails>}></Route>
           <Route
-            path="/banker/viewcreditcardrequests"
-            element={<ViewCreditCardRequests></ViewCreditCardRequests>}></Route>
+            path="/banker/viewloans/:id"
+            element={<ViewLoanDataScreen></ViewLoanDataScreen>}></Route>
           <Route
-            path="/banker/viewloanrequests"
-            element={
-              <ViewLoanReqeuestsScreen></ViewLoanReqeuestsScreen>
-            }></Route>
+            path="/banker/viewreports/:id"
+            element={<ViewReports></ViewReports>}></Route>
           <Route
             path="/banker/viewsingleCC"
-            element={
-              <ViewSingleCCRequestScreen></ViewSingleCCRequestScreen>
-            }></Route>
+            element={<ViewSingleCC></ViewSingleCC>}></Route>
           <Route
             path="/banker/viewsingleloan"
-            element={<ViewSingleLoanRequest></ViewSingleLoanRequest>}></Route>
+            element={<ViewSingleLoan></ViewSingleLoan>}></Route>
 
           {/* Admin */}
 

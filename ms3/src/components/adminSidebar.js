@@ -8,9 +8,9 @@ import {
   CDBSidebarMenuItem,
 } from "cdbreact";
 import { NavLink } from "react-router-dom";
-const Sidebar = () => {
+const AdminSidebar = () => {
   return (
-    <div className="col-3 min-vh-100 ">
+    <div className="col-3 min-vh-100 p-0 m-0">
       <CDBSidebar textColor="#fff" className="bg-primary pb-5">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <h4 className="text-decoration-none" style={{ color: "inherit" }}>
@@ -21,31 +21,23 @@ const Sidebar = () => {
           <CDBSidebarMenu>
             <NavLink
               exact
-              to="/banker/homescreen"
-              activeClassName="activeClicked"
-            >
-              <CDBSidebarMenuItem icon="columns">Home</CDBSidebarMenuItem>
+              to="/admin/homescreen"
+              activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="columns">Homescreen</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
-              to="/banker/viewclients"
-              activeClassName="activeClicked"
-            >
-              <CDBSidebarMenuItem icon="table">Clients</CDBSidebarMenuItem>
-            </NavLink>
-            {/* <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
-            </NavLink> */}
-            {/* <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">
-                Analytics
+              to="/admin/technicalissues"
+              activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="table">
+                technical issues
               </CDBSidebarMenuItem>
-            </NavLink> */}
+            </NavLink>
+
             <NavLink
               exact
               to="/termsandconditions"
-              activeClassName="activeClicked"
-            >
+              activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="book">
                 terms and conditions
               </CDBSidebarMenuItem>
@@ -64,4 +56,4 @@ const Sidebar = () => {
     </div>
   );
 };
-export default Sidebar;
+export default AdminSidebar;

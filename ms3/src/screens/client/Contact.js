@@ -12,7 +12,11 @@ const Contact = () => {
     return (
         <>
             <div className="min-vh-100 d-flex flex-column">
+<<<<<<< HEAD
                 <ClientNavbar loggedIn={false} />
+=======
+                <ClientNavbar loggedIn={true} />
+>>>>>>> 6b38fae8323d86ddafe8fe5c5675e4eb7ea6fd36
 
                 <Container className="my-5 d-flex flex-column rounded-5 px-3">
 
