@@ -5,7 +5,7 @@ import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 import { useState, useEffect } from "react";
 import Message from "../../components/client/Message";
-
+import DownloadButton from "../../components/download";
 import Notification from "../../components/notification2";
 
 const ViewLoanDataScreen = () => {
@@ -217,6 +217,7 @@ const ViewLoanDataScreen = () => {
                       onClick={(e) => removeCard(loan.id)}>
                       Reject
                     </button>
+                    <DownloadButton></DownloadButton>
                   </Card.Body>
                 </Card>
               ))}
