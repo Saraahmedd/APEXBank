@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 code {
@@ -36,4 +37,10 @@ code {
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
   }
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  height: 60%;
 }
