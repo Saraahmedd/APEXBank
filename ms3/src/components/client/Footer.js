@@ -9,7 +9,7 @@ const Footer = () => {
      const [showModal, setShowModal] = React.useState(false);
      const [message,setMessage] = React.useState("");
      const [success,setSuccess] = React.useState('');
-
+     
         const handleOpenModal = () => {
             setShowModal(true);
         };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Row, Col, Container, Dropdown } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
 import Navbar from '../../components/client/Navbar'
@@ -17,6 +17,14 @@ const BankAccountsScreen = () => {
     { id: 6, name: 'Checking Account', balance: 10000, thisMonthTransaction: 2000, type: "personal" },
     { id: 7, name: 'Investment Account', balance: 25000, thisMonthTransaction: 2000, type: "personal" },
   ];
+
+  const [disabled,setDisabled] = useState(false);
+  const [disabled2,setDisabled2] = useState(false);
+  const [disabled3,setDisabled3] = useState(false);
+  const [disabled4,setDisabled4] = useState(false);
+  const [disabled5,setDisabled5] = useState(false);
+  const [disabled6,setDisabled6] = useState(false);
+
 
   const [show,setShow] = React.useState('');
 

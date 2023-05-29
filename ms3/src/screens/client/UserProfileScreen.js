@@ -53,25 +53,25 @@ const UserProfileScreen = () => {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="fullName">Full Name</label>
-					<input type="text" class="form-control" id="fullName" placeholder="Enter full name" />
+					<input type="text" class="form-control" id="fullName" placeholder="Abdullah Hatem" />
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="eMail">Email</label>
-					<input type="email" class="form-control" id="eMail" placeholder="Enter email ID" />
+					<input type="email" class="form-control" id="eMail" placeholder="abdullah@test.com" />
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="phone">Phone</label>
-					<input type="text" class="form-control" id="phone" placeholder="Enter phone number" />
+					<input type="number" class="form-control" id="phone" placeholder="01099149449" />
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="website">Esm el haga</label>
-					<input type="url" class="form-control" id="website" placeholder="omak" />
+					<label for="phone">Emergency Phone</label>
+					<input type="url" class="form-control" id="website" placeholder="01009880180" />
 				</div>
 			</div>
 		</div>
@@ -82,32 +82,32 @@ const UserProfileScreen = () => {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="Street">Street</label>
-					<input type="name" class="form-control" id="Street" placeholder="Enter Street" />
+					<input type="name" class="form-control" id="Street" placeholder="Othman" />
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="ciTy">City</label>
-					<input type="name" class="form-control" id="ciTy" placeholder="Enter City" />
+					<input type="name" class="form-control" id="ciTy" placeholder="Cairo" />
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="sTate">State</label>
-					<input type="text" class="form-control" id="sTate" placeholder="Enter State" />
+					<input type="text" class="form-control" id="sTate" placeholder="Cairo" />
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<label for="zIp">Zip Code</label>
-					<input type="text" class="form-control" id="zIp" placeholder="Zip Code" />
+					<input type="text" class="form-control" id="zIp" placeholder="0000" />
 				</div>
 			</div>
 		</div>
-		<div class="row gutters">
+		<div class="row gutters justify-content-center">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<div class="text-right my-5">
-					<button type="button"clas id="submit" name="submit" class="btn btn-secondary mx-3">Cancel</button>
+				<div class="text-right my-5 justify-content-center">
+					{/* <button type="button"clas id="submit" name="submit" class="btn btn-secondary mx-3">Cancel</button> */}
 					<button type="button" id="submit" name="submit" onClick={handleSubmit} class="btn btn-primary">Update</button>
 				</div>
 			</div>

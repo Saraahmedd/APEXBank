@@ -3,7 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import { Dropdown, DropdownButton, ButtonGroup } from 'react-bootstrap';
 import SuccessModal from './SuccessModal';
 
-const ReportIssueModal = ({ show, onHide }) => {
+const ForgetPasswordModal = ({ show, onHide }) => {
   const [category, setCategory] = useState('');
   const [otherCategory, setOtherCategory] = useState('');
   const [description, setDescription] = useState('');
@@ -41,40 +41,19 @@ const ReportIssueModal = ({ show, onHide }) => {
 
   return (
     <>
- <SuccessModal link={"/bankAccounts"} modal={show2} toggleShow={handleClose} title={"Success"} message={"Thank you for your feedback. \n We will get back to you."}/>
+ <SuccessModal link={"/bankAccounts"} modal={show2} toggleShow={handleClose} title={"Success"} message={"Password reset link has been sent. \n Please check your email."}/>
     <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
-        <Modal.Title>Report Technical Issue</Modal.Title>
+        <Modal.Title>Reset Password</Modal.Title>
       </Modal.Header>
        <Form onSubmit={handleSubmit}>
       <Modal.Body>
        
-          <Form.Group controlId="categorySelect">
-            <Form.Label>Category *</Form.Label>
-           <Form.Control as="select" className='form-select' required value={category} onChange={handleCategoryChange} defaultValue="">
-              <option value="">Select a category</option>
-              <option value="category1">Category 1</option>
-              <option value="category2">Category 2</option>
-              <option value="other">Other</option>
-            </Form.Control>
-          </Form.Group>
-          {category === 'other' && (
-            <Form.Group controlId="otherCategoryInput">
-              <Form.Label>Please specify *</Form.Label>
-              <Form.Control required
-                type="text"
-                placeholder="Specify other category"
-                value={otherCategory}
-                onChange={handleOtherCategoryChange}
-              />
-            </Form.Group>
-          )}
           <Form.Group controlId="descriptionTextarea">
-            <Form.Label>Description</Form.Label>
-            <Form.Control 
-              as="textarea"
-              rows={5}
-              placeholder="Enter issue description"
+            <Form.Label>Email Address *</Form.Label>
+            <Form.Control  required
+             type='email'
+              placeholder="Enter your email"
               value={description}
               onChange={handleDescriptionChange}
             />
@@ -96,4 +75,4 @@ const ReportIssueModal = ({ show, onHide }) => {
   );
 };
 
-export default ReportIssueModal;
+export default ForgetPasswordModal;

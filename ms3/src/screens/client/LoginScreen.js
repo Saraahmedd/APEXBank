@@ -11,13 +11,22 @@ import { Button } from 'react-bootstrap';
 import Navbar from '../../components/client/Navbar'
 import Message from '../../components/client/Message';
 import Footer from '../../components/client/Footer';
+import ForgetPasswordModal from '../../components/client/ForgetPasswordModal'
 const logo = require('../../imgs/logo_transparent.png')
 function App() {
 
   const [username,setUsername] = React.useState('');
+    const [showModal, setShowModal] = React.useState(false);
   const [password,setPassword] = React.useState('');
   const [message,setMessage] = React.useState("");
     const [success,setSuccess] = React.useState('');
+     const handleOpenModal = () => {
+            setShowModal(true);
+        };
+
+        const handleCloseModal = () => {
+            setShowModal(false);
+        };
 
   const handleSubmit = () => {
     // Handle form submission
@@ -47,6 +56,7 @@ function App() {
       <MDBRow className='m-auto border-1 border-primary'>
 
         <MDBCol col='6' className="mb-5">
+          <ForgetPasswordModal show={showModal} onHide={handleCloseModal} />
           
           <div className="d-flex flex-column ms-5">
  {message && <Message className="" variant='danger' showMessage={success} setShowMessage={setSuccess}>
@@ -70,7 +80,7 @@ function App() {
 
             <div className="text-center pt-1 mb-5 pb-1">
               <Button className="mb-4 w-100 gradient-custom-2" onClick={handleSubmit}>Sign in</Button>
-              <a className="text-muted" href="#!">Forgot password?</a>
+              <a  onClick={handleOpenModal} className="text-muted" href="#!">Forgot password?</a>
             </div>
 
             <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
