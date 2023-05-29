@@ -237,23 +237,24 @@ const ViewCreditCardDetails = () => {
                             fontSize: "17px",
                             color:
                               card.status === "Active" ? "#00AA22" : "#b33022",
+                            margin: "0px",
                           }}
                         >
                           <strong>Status:</strong> {card.status}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Issue Date:</strong> {card.issueDate}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Expiry Date:</strong> {card.expiryDate}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Balance:</strong> {card.balance}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Credit Limit:</strong> {card.creditLimit}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Reward Points:</strong> {card.rewardPoints}
                         </Card.Text>
                         <hr />
@@ -306,14 +307,15 @@ const ViewCreditCardDetails = () => {
                           style={{
                             fontSize: "17px",
                             color: "#d99c2b",
+                            margin: "0px",
                           }}
                         >
                           <strong>Status:</strong> {card.status}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Credit Limit:</strong> {card.creditLimit}
                         </Card.Text>
-                        <Card.Text>
+                        <Card.Text style={{ margin: "0px" }}>
                           <strong>Card Type:</strong> {card.isReplacement}
                         </Card.Text>
                         <hr />
