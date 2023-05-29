@@ -15,6 +15,7 @@ function BankTransferModal( {show, handleClose, handleShow,list,id} ) {
   const [success,setSuccess] = useState('');
   const [amount,setAmount] = useState(0);
   const [variant,setVariant] = useState('');
+  const [transferType,seTransferType] = useState('');
 
   const handleSubmit = (e) => {
     // Handle form submission
@@ -54,57 +55,104 @@ function BankTransferModal( {show, handleClose, handleShow,list,id} ) {
          <Form onSubmit={ (e) => handleSubmit(e)}>
         <Modal.Body>
              
-                <Form.Group controlId="formBank">
-                <Form.Label>Transfer Type*</Form.Label>
-                <Form.Select required as="select">
-                    <option value="bank1">Domestic</option>
-                    <option value="bank2">Local</option>
-                    <option value="bank3">International</option>
-                </Form.Select>
-                </Form.Group>
+             <Form.Group controlId="formBank">
+  <Form.Label>Transfer Type*</Form.Label>
+  <Form.Select required as="select" onChange={(e) => seTransferType(e.target.value)}>
+    <option value="bank1">Domestic</option>
+    <option value="bank2">Internal</option>
+    <option value="bank3">International</option>
+  </Form.Select>
+</Form.Group>
 
-                <Form.Group controlId="formAccountNumber">
-                  <Form.Label>Account Number *</Form.Label>
-                  <MDBInput required type="number" outline />
-                </Form.Group>
+<Form.Group controlId="formAccountNumber">
+  <Form.Label>Account Number*</Form.Label>
+  <MDBInput required type="number" outline />
+</Form.Group>
 
-                 
+<Form.Group controlId="formRecipientName">
+  <Form.Label>Recipient Name*</Form.Label>
+  <MDBInput required type="text" outline />
+</Form.Group>
 
-                <Form.Group controlId="formRecipientName">
-                  <Form.Label>Recipient Name *</Form.Label>
-                  <MDBInput required type="text" outline />
-                </Form.Group>
+<Form.Group controlId="formBank">
+  <Form.Label>Bank*</Form.Label>
+  <MDBInput required type="text" outline />
+</Form.Group>
 
-              
+{/* Additional fields based on transfer type */}
+{transferType === "bank1" && (
+  <div>
+    <Form.Group controlId="formRoutingNumber">
+      <Form.Label>Routing Number/Sort Code*</Form.Label>
+      <MDBInput required type="text" outline />
+    </Form.Group>
 
-                <Form.Group controlId="formBank">
-                <Form.Label>Bank *</Form.Label>
-                <MDBInput required type="text" outline />
-                </Form.Group>
+    <Form.Group controlId="formDescription">
+      <Form.Label>Description/Reference</Form.Label>
+      <MDBInput type="text" outline />
+    </Form.Group>
+  </div>
+)}
 
-                  <Form.Group controlId="formAmount">
-                  <Form.Label>Amount *</Form.Label>
-                  <div className="input-group"> {/* Add input group for icon */}
-                    <div className="input-group-prepend">
-                      <span className="input-group-text icon-container">
-                        <FaDollarSign />
-                      </span>
-                    </div>
-                    <MDBInput required onChange={(e) => setAmount(e.target.value)} type="number" outline />
-                  </div>
-                </Form.Group>
+{transferType === "bank2" && (
+  <div>
+    <Form.Group controlId="formInternalAccountNumber">
+      <Form.Label>Internal Account Number*</Form.Label>
+      <MDBInput required type="text" outline />
+    </Form.Group>
 
-                <Form.Group>
-                  <Form.Label>Available Amount</Form.Label>
-                  <div className="input-group"> {/* Display available amount */}
-                    <div className="input-group-prepend">
-                      <span className="input-group-text icon-container">
-                        <FaDollarSign />
-                      </span>
-                    </div>
-                    <MDBInput type="text" outline value={list[id]?.balance || 5000} disabled />
-                  </div>
-                </Form.Group>
+    <Form.Group controlId="formDescription">
+      <Form.Label>Description/Reference</Form.Label>
+      <MDBInput type="text" outline />
+    </Form.Group>
+  </div>
+)}
+
+{transferType === "bank3" && (
+  <div>
+    {/* Include the IBAN field for international transfers */}
+    <Form.Group controlId="formIBAN">
+      <Form.Label>IBAN (International Bank Account Number)*</Form.Label>
+      <MDBInput required type="text" outline />
+    </Form.Group>
+
+    <Form.Group controlId="formSWIFTCode">
+      <Form.Label>SWIFT/BIC Code</Form.Label>
+      <MDBInput type="text" outline />
+    </Form.Group>
+
+    {/* <Form.Group controlId="formDescription">
+      <Form.Label>Description/Reference</Form.Label>
+      <MDBInput type="text" outline />
+    </Form.Group> */}
+  </div>
+)}
+
+<Form.Group controlId="formAmount">
+  <Form.Label>Amount*</Form.Label>
+  <div className="input-group"> {/* Add input group for icon */}
+    <div className="input-group-prepend">
+      <span className="input-group-text icon-container">
+        <FaDollarSign />
+      </span>
+    </div>
+    <MDBInput required onChange={(e) => setAmount(e.target.value)} type="number" outline />
+  </div>
+</Form.Group>
+
+<Form.Group>
+  <Form.Label>Available Amount</Form.Label>
+  <div className="input-group"> {/* Display available amount */}
+    <div className="input-group-prepend">
+      <span className="input-group-text icon-container">
+        <FaDollarSign />
+      </span>
+    </div>
+    <MDBInput type="text" outline value={list[id]?.balance || 5000} disabled />
+  </div>
+</Form.Group>
+
+
 
             
               
