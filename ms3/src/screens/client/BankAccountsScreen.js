@@ -10,7 +10,7 @@ import CloseBankAccountModal from '../../components/client/CloseBankAccountModal
 const BankAccountsScreen = () => {
   // Dummy data for bank accounts
   // let bankAccounts =
-  const [id,setId] = useState('');
+  const [id,setId] = useState(1);
 
   const [bankAccounts, setBankAccounts] = useState( [
     { id: 1, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "personal" },
@@ -24,7 +24,7 @@ const BankAccountsScreen = () => {
   const [show,setShow] = React.useState('');
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (idp) => {setShow(true); setId(idp-1)}
 
 
     const [show2,setShow2] = React.useState('');
@@ -65,14 +65,14 @@ const BankAccountsScreen = () => {
     );
   };
 
-  const renderAccountActionsDropdown = () => {
+  const renderAccountActionsDropdown = (id) => {
     return (
       <Dropdown>
         <Dropdown.Toggle variant="primary" id="dropdown-account-actions">
           Account Actions
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item onClick={handleShow}>Transfer Funds</Dropdown.Item>
+          <Dropdown.Item onClick={ (e) => { e.preventDefault();handleShow(id)}}>Transfer Funds</Dropdown.Item>
           <Dropdown.Item  onClick={ () => {window.history.pushState({},"","/bankAccount/transaction");window.location.reload()}} >View Transactions</Dropdown.Item>
           {/* <Dropdown.Item>Edit Account Details</Dropdown.Item> */}
         </Dropdown.Menu>
@@ -108,7 +108,7 @@ const BankAccountsScreen = () => {
       
       <Navbar  loggedIn={true}/>
       <Container className=' min-vh-100' >
-        <BankTransferModal show={show} handleClose={handleClose} handleShow={handleShow} />
+        <BankTransferModal  list={bankAccounts} id={id} show={show} handleClose={handleClose} handleShow={handleShow} />
       <CloseBankAccountModal list={bankAccounts} id={id}  show={show2} handleClose={handleClose2} handleShow={handleShow2} />
         <h1 className="mb-4">Bank Account Management</h1>
         <Button variant="primary" onClick={handleApplyNewAccount} className="mb-4">
@@ -125,7 +125,7 @@ const BankAccountsScreen = () => {
                   <Card.Text>
                   <MDBIcon icon="dollar-sign" />   Balance: ${account.balance}
                   </Card.Text>
-                  {renderAccountActionsDropdown()}
+                  {renderAccountActionsDropdown(account.id)}
                   <Button variant="danger" className='my-3' onClick={ (e) => { e.preventDefault(); handleShow2(account.id) }}>
                     <MDBIcon icon="trash" className="me-2" />
                     Delete Account
