@@ -155,7 +155,8 @@ const ViewLoanDataScreen = () => {
                     <button type="submit" className="btn btn-primary mt-3">
                       <a
                         className="text-light text-decoration-none"
-                        href="/banker/viewsingleloan">
+                        href="/banker/viewsingleloan"
+                      >
                         show details
                       </a>
                     </button>
@@ -189,13 +190,15 @@ const ViewLoanDataScreen = () => {
                     <button
                       type="submit"
                       className="btn btn-primary m-2"
-                      onClick={(e) => handleGrant(loan.id)}>
+                      onClick={(e) => handleGrant(loan.id)}
+                    >
                       Grant
                     </button>
                     <button
                       type="submit"
                       className="btn btn-primary m-2"
-                      onClick={(e) => removeCard(loan.id)}>
+                      onClick={(e) => removeCard(loan.id)}
+                    >
                       Reject
                     </button>
                   </Card.Body>

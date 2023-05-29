@@ -32,12 +32,12 @@ import AdminPrivacyPolicy from "./screens/admin/AdminPrivacyPolicy";
 import AdminTermsAndConditions from "./screens/admin/AdminTermsAndConditions";
 import About from "./screens/client/About";
 import Contact from "./screens/client/Contact";
-
 import ViewClientsScreen from "./screens/banker/ViewClientsScreen";
 import SearchForClient from "./screens/banker/SearchForClient";
 import BankerPrivacyPolicy from "./screens/banker/BankerPrivacyPolicy";
 import BankerTermsAndConditions from "./screens/banker/BankerTermsAndConditions";
 import ViewTransaction from "./screens/banker/ViewTransactions";
+import CreateNewAccount from "./screens/admin/CreateNewAccount";
 
 function App() {
   return (
@@ -67,7 +67,8 @@ function App() {
           </Route>
           <Route
             path="/bankAccount/transaction"
-            element={<BankAccountTransactionsScreen />}>
+            element={<BankAccountTransactionsScreen />}
+          >
             {" "}
           </Route>
           <Route path="/bills" element={<BillsScreen />}>
@@ -78,7 +79,8 @@ function App() {
           </Route>
           <Route
             path="/creditCardApplication"
-            element={<CreditCardApplicationScreen />}>
+            element={<CreditCardApplicationScreen />}
+          >
             {" "}
           </Route>
           <Route path="/loanApplication" element={<LoanApplicationScree />}>
@@ -104,71 +106,87 @@ function App() {
           {/* Banker */}
           <Route
             path="/banker/login"
-            element={<BankerLoginScreen></BankerLoginScreen>}></Route>
+            element={<BankerLoginScreen></BankerLoginScreen>}
+          ></Route>
           <Route
             path="/banker/homescreen"
-            element={<BankerHomeScreen></BankerHomeScreen>}></Route>
+            element={<BankerHomeScreen></BankerHomeScreen>}
+          ></Route>
           <Route
             path="/banker/viewclients"
-            element={<SearchForClient></SearchForClient>}></Route>
+            element={<SearchForClient></SearchForClient>}
+          ></Route>
           <Route
             path="/banker/viewclientdata/:id"
-            element={<ViewClientDataScreen></ViewClientDataScreen>}></Route>
+            element={<ViewClientDataScreen></ViewClientDataScreen>}
+          ></Route>
           <Route
             path="/banker/viewclienttransactions"
             element={
               <ViewClientTransactionsScreen></ViewClientTransactionsScreen>
-            }></Route>
+            }
+          ></Route>
           <Route
             path="/banker/viewcreditcards/:id"
-            element={<ViewCreditCardDetails></ViewCreditCardDetails>}></Route>
+            element={<ViewCreditCardDetails></ViewCreditCardDetails>}
+          ></Route>
           <Route
             path="/banker/viewloans/:id"
-            element={<ViewLoanDataScreen></ViewLoanDataScreen>}></Route>
+            element={<ViewLoanDataScreen></ViewLoanDataScreen>}
+          ></Route>
           <Route
             path="/banker/viewreports/:id"
-            element={<ViewReports></ViewReports>}></Route>
+            element={<ViewReports></ViewReports>}
+          ></Route>
           <Route
             path="/banker/viewsingleCC"
-            element={<ViewSingleCC></ViewSingleCC>}></Route>
+            element={<ViewSingleCC></ViewSingleCC>}
+          ></Route>
           <Route
             path="/banker/viewsingleloan"
-            element={<ViewSingleLoan></ViewSingleLoan>}></Route>
+            element={<ViewSingleLoan></ViewSingleLoan>}
+          ></Route>
 
           <Route
             path="/banker/viewtransactions"
-            element={<ViewTransaction></ViewTransaction>}></Route>
+            element={<ViewTransaction></ViewTransaction>}
+          ></Route>
 
           <Route
             path="/banker/privacypolicy"
-            element={<BankerPrivacyPolicy></BankerPrivacyPolicy>}></Route>
+            element={<BankerPrivacyPolicy></BankerPrivacyPolicy>}
+          ></Route>
 
           <Route
             path="/banker/termsandconditions"
-            element={
-              <BankerTermsAndConditions></BankerTermsAndConditions>
-            }></Route>
+            element={<BankerTermsAndConditions></BankerTermsAndConditions>}
+          ></Route>
           {/* Admin */}
 
           <Route
             path="/admin/homescreen"
-            element={<AdminHomeScreen></AdminHomeScreen>}></Route>
+            element={<AdminHomeScreen></AdminHomeScreen>}
+          ></Route>
           <Route
             path="/admin/login"
-            element={<AdminLoginScreen></AdminLoginScreen>}></Route>
+            element={<AdminLoginScreen></AdminLoginScreen>}
+          ></Route>
+          <Route
+            path="/admin/createaccount"
+            element={<CreateNewAccount></CreateNewAccount>}
+          ></Route>
           <Route
             path="/admin/technicalissues"
-            element={
-              <AdminTechnicalIssuesScreen></AdminTechnicalIssuesScreen>
-            }></Route>
+            element={<AdminTechnicalIssuesScreen></AdminTechnicalIssuesScreen>}
+          ></Route>
           <Route
             path="/admin/privacypolicy"
-            element={<AdminPrivacyPolicy></AdminPrivacyPolicy>}></Route>
+            element={<AdminPrivacyPolicy></AdminPrivacyPolicy>}
+          ></Route>
           <Route
             path="/admin/termsandconditions"
-            element={
-              <AdminTermsAndConditions></AdminTermsAndConditions>
-            }></Route>
+            element={<AdminTermsAndConditions></AdminTermsAndConditions>}
+          ></Route>
         </Routes>
       </Router>
     </>
