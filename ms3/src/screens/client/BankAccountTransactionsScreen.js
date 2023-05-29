@@ -173,7 +173,7 @@ const SingleAccountScreen = () => {
         </div>
         <div style={{textAlign:"left"}} >
           <MDBIcon icon="circle" className="me-2 " />
-        <b>  Status: </b><br/>  active
+        <b>  Status: </b><br/>  Active
         </div>
       </div>
       </Col>
