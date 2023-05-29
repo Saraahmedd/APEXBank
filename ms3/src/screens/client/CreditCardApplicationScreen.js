@@ -43,7 +43,7 @@ const CreditCardApplicationScreen = () => {
             <Col md={8} className="">
               <Form noValidate validated={validated} onSubmit={handleSubmit} className="">
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="cardType">Card Type</Form.Label>
+                  <Form.Label htmlFor="cardType">Card Type <span className="text-danger">*</span></Form.Label>
                   <Form.Select id="cardType" required>
                     <option value="">Choose...</option>
                     <option>Rewards</option>
@@ -56,7 +56,7 @@ const CreditCardApplicationScreen = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="spendingLimit">Desired Monthly Spending Limit in EGP</Form.Label>
+                  <Form.Label htmlFor="spendingLimit">Desired Monthly Spending Limit in EGP <span className="text-danger">*</span></Form.Label>
                   <Form.Control
                     type="text"
                     id="spendingLimit"
@@ -80,6 +80,7 @@ const CreditCardApplicationScreen = () => {
                       }}
                     >
                       (View Required Documents)
+                      <span className="text-danger">*</span>
                     </a>
                   </Form.Label>
                   <Form.Control multiple type="file" required />

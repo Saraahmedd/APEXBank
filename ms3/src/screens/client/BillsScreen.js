@@ -42,7 +42,7 @@ const BillsScreen = () => {
     {
       billNumber: 801312,
       billType: 'CREDIT CARD',
-      billDescription: 'CREDIT CARD BILL FOR 05/23',
+      billDescription: 'Credit Card Bill for 05/23',
       payee: 'APEX BANK',
       billedAmt: 4200.00,
       dueDate: '01-06-2023',
@@ -52,7 +52,7 @@ const BillsScreen = () => {
     {
       billNumber: 650134,
       billType: 'LOAN',
-      billDescription: 'LOAN BILL FOR 05/23',
+      billDescription: 'Loan Bill for 05/23',
       payee: 'APEX BANK',
       billedAmt: 10000.00,
       dueDate: '01-06-2023',
@@ -194,7 +194,7 @@ const BillsScreen = () => {
         <Modal.Body>
           <Form noValidate validated={isValidated} onSubmit={handleClose}>
             <Form.Group className="mb-3" controlId="billDescription">
-              <Form.Label>Bill Description</Form.Label>
+              <Form.Label>Bill Description <span className="text-danger">*</span></Form.Label>
               <Form.Control required onChange={(data) => setDescription(data.target.value)} type="text" placeholder="Description (e.g. Telephone bill)" />
               <Form.Control.Feedback type="invalid">
                 A description for the bill is required.
@@ -203,7 +203,7 @@ const BillsScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billAmount">
-              <Form.Label>Bill Amount (EGP)</Form.Label>
+              <Form.Label>Bill Amount (EGP)  <span className="text-danger">*</span></Form.Label>
               <Form.Control required pattern="[0-9]+" onChange={(data) => setAmount(data.target.value)} type="text" placeholder="e.g. 1000.00" />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid number for the desired bill amount.
@@ -212,7 +212,7 @@ const BillsScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
-              <Form.Label>Payee International Bank Addressing Number (IBAN)</Form.Label>
+              <Form.Label>Payee International Bank Addressing Number (IBAN) <span className="text-danger">*</span></Form.Label>
               <Form.Control required type="text" placeholder="e.g. EG380019000500000000263180002" />
               <Form.Control.Feedback type="invalid">
                 Please provide an IBAN for the payee.
@@ -221,7 +221,7 @@ const BillsScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
-              <Form.Label>Payee Company Name</Form.Label>
+              <Form.Label>Payee Company Name <span className="text-danger">*</span></Form.Label>
               <Form.Control required type="text" onChange={(data) => setPayeeName(data.target.value)} placeholder="e.g. Vodafone Egypt" />
               <Form.Control.Feedback type="invalid">
                 Please provide a name for the payee.
@@ -230,7 +230,7 @@ const BillsScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
-              <Form.Label>Due Date</Form.Label>
+              <Form.Label>Due Date <span className="text-danger">*</span></Form.Label>
               <Form.Control required onChange={(data) => setDueDate(data.target.value)} type="date" />
               <Form.Control.Feedback type="invalid">
                 Please choose a due date for the bill.
@@ -259,7 +259,7 @@ const BillsScreen = () => {
         <Modal.Body>
           <Form noValidate validated={isValidated2} onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="bankAccChoice">Choose Bank Account</Form.Label>
+              <Form.Label htmlFor="bankAccChoice">Choose Bank Account <span className="text-danger">*</span></Form.Label>
               <Form.Select required id="bankAccChoice">
                 <option value="">Choose Account...</option>
                 {
@@ -273,7 +273,7 @@ const BillsScreen = () => {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="loanAmt">Amount to Pay in EGP</Form.Label>
+              <Form.Label htmlFor="loanAmt">Amount to Pay in EGP <span className="text-danger">*</span></Form.Label>
               <Form.Control
                 type="text"
                 id="loanAmt"

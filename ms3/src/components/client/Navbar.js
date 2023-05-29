@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container, Row, Col, Nav, NavDropdown, Navbar, Form, OverlayTrigger, Popover } from 'react-bootstrap'
 import '../../styles/Client.css';
-import { BellFill, PersonCircle } from "react-bootstrap-icons";
+import { BellFill, PersonCircle, BoxArrowInRight } from "react-bootstrap-icons";
 import { Link } from 'react-router-dom';
 import logo from '../../imgs/logo.png';
 
@@ -50,12 +50,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex flex-fill align-items-center">
-                            <div className="d-flex flex-row" style={{flex: 1}}>
-                                <Link to="/" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Home</Nav.Link></Link>
-                                <Link to="/about" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">About</Nav.Link></Link>
-                                <Link to="/contact" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">Contact</Nav.Link></Link>
-                            </div>
-                            <div className='d-flex' style={{textAlign: 'center'}}>
+                            <div className="d-flex flex-row justify-content-center align-items-center" style={{ flex: 1 }}>
 
                                 <Navbar.Brand href="/">
 
@@ -67,13 +62,19 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                     />
 
                                 </Navbar.Brand>
+                                <Link to="/" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Home</Nav.Link></Link>
+                                <Link to="/about" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">About</Nav.Link></Link>
+                                <Link to="/contact" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">Contact</Nav.Link></Link>
+                            </div>
+                            <div className='d-flex' style={{ textAlign: 'center' }}>
+
 
                             </div>
-                            <div className='d-flex flex-row justify-content-end align-items-center' style={{flex: 1}}>
+                            <div className='d-flex flex-row justify-content-end align-items-center' style={{ flex: 2 }}>
                                 {!loggedIn &&
                                     <>
-                                        <Button variant="outline-primary" onClick={() => {window.location.href="http://localhost:3000/login"}} className="px-4 rounded-pill">Log In</Button>
-                                        <Button variant="primary" onClick={() => {window.location.href="http://localhost:3000/register"}} className="ms-lg-2 mt-2 mt-lg-0 px-4 rounded-pill">Sign Up</Button>
+                                        <Button variant="outline-primary" onClick={() => { window.location.href = "http://localhost:3000/login" }} className="px-4 rounded-pill">Log In</Button>
+                                        <Button variant="primary" onClick={() => { window.location.href = "http://localhost:3000/register" }} className="ms-lg-2 mt-2 mt-lg-0 px-4 rounded-pill">Sign Up</Button>
                                     </>
                                 }
                                 {loggedIn &&
@@ -83,11 +84,15 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                         <Link to="/bills" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Bills</Nav.Link></Link>
                                         <Link to="/loans" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Loans</Nav.Link></Link>
                                         <Link to="/creditcard" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Credit Cards</Nav.Link></Link>
-                                        <Link to="/portal" className="text-decoration-none"><PersonCircle className="ms-3" size={36} /></Link>
+                                        <Link to="/help" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Help Centre</Nav.Link></Link>
+
 
                                         <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
                                             <BellFill className="text-warning ms-3 cursor-pointer" size={24} />
                                         </OverlayTrigger>
+                                        <Link to="/portal" className="text-decoration-none"><PersonCircle className="ms-3" size={36} /></Link>
+                                        <Link to="/" className="text-decoration-none"><BoxArrowInRight className="ms-3" size={36} /></Link>
+
                                     </>}
                             </div>
 

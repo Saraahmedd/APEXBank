@@ -42,6 +42,7 @@ import BankerPrivacyPolicy from "./screens/banker/BankerPrivacyPolicy";
 import BankerTermsAndConditions from "./screens/banker/BankerTermsAndConditions";
 import ViewTransaction from "./screens/banker/ViewTransactions";
 import CreateNewAccount from "./screens/admin/CreateNewAccount";
+import Help from "./screens/client/help";
 
 function App() {
   return (
@@ -67,6 +68,9 @@ function App() {
             {" "}
           </Route>
           <Route path="/bankAccount" element={<BankAccountsScreen />}>
+            {" "}
+          </Route>
+          <Route path="/help" element={<Help />}>
             {" "}
           </Route>
           <Route

@@ -331,7 +331,7 @@ const SingleCardScreen = () => {
                 <Modal.Body>
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
-                            <Form.Label htmlFor="bankAccChoice">Report Type</Form.Label>
+                            <Form.Label htmlFor="bankAccChoice">Report Type <span className="text-danger">*</span></Form.Label>
                             <Form.Select id="bankAccChoice" required>
                                 <option value="">Choose...</option>
                                 <option>I lost my card</option>
@@ -343,7 +343,7 @@ const SingleCardScreen = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="billDescription">
-                            <Form.Label>When did this incident occur?</Form.Label>
+                            <Form.Label>When did this incident occur? <span className="text-danger">*</span></Form.Label>
                             <Form.Control type="date" required />
                             <Form.Control.Feedback type="invalid">
                                 Please provide a valid date.

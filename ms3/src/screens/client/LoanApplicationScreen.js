@@ -42,7 +42,7 @@ const LoanApplicationScree = () => {
             <Col md={8}>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="loanType">Loan Type</Form.Label>
+                  <Form.Label htmlFor="loanType">Loan Type <span className="text-danger">*</span></Form.Label>
                   <Form.Select id="loanType" required>
                     <option value="">Choose...</option>
                     <option>Personal Loan</option>
@@ -54,7 +54,7 @@ const LoanApplicationScree = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="loanTerm">Preferred Loan Term</Form.Label>
+                  <Form.Label htmlFor="loanTerm">Preferred Loan Term <span className="text-danger">*</span></Form.Label>
                   <Form.Select id="loanTerm" required>
                     <option value="">Choose...</option>
                     <option>1 year - 4.5%</option>
@@ -68,7 +68,7 @@ const LoanApplicationScree = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="loanAmt">Amount Requested in EGP</Form.Label>
+                  <Form.Label htmlFor="loanAmt">Amount Requested in EGP <span className="text-danger">*</span></Form.Label>
                   <Form.Control
                     type="text"
                     id="loanAmt"
@@ -92,6 +92,7 @@ const LoanApplicationScree = () => {
                       }}
                     >
                       (View Required Documents)
+                      <span className="text-danger">*</span>
                     </a>
                   </Form.Label>
                   <Form.Control type="file" required />
