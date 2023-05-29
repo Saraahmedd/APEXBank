@@ -6,7 +6,7 @@ import "../../components/styles/UserDetails.css";
 import Footer from "../../components/footer"; // Custom CSS file for additional styling
 import { useState, useEffect } from "react";
 import Message from "../../components/client/Message";
-
+import DownloadButton from "../../components/download";
 import Notification from "../../components/notification2";
 
 const ViewCreditCardDetails = () => {
@@ -329,6 +329,7 @@ const ViewCreditCardDetails = () => {
                         >
                           Reject
                         </button>
+                        <DownloadButton></DownloadButton>
                       </Card.Body>
                     </Card>
                   ))
