@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -6,7 +6,7 @@ import { FaChevronDown, FaDollarSign } from 'react-icons/fa';
 import { MDBInput } from 'mdbreact';
 import Message from './Message';
 
-function CloseBankAccountModal({ show, handleClose, handleShow }) {
+function CloseBankAccountModal({ show, handleClose, handleShow,id,list }) {
   const [reason, setReason] = useState('');
   const [additionalComments, setAdditionalComments] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -16,17 +16,22 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
   const [message,setMessage] = useState("");
   const [success,setSuccess] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // Handle form submission
     // You can perform any necessary logic here
+    console.log(list)
+    e.preventDefault()
+    list.splice(id,1);
+    console.log(list)
     setSuccess(true)
-    setMessage('Account Closed Successfully')
+
+    setMessage('Account closed successfully')
      const timer = setTimeout(() => {
       setMessage("");
-    }, 5000);
+    }, 6000);
     handleClose();
-
   };
+ 
 
   return (
     <>
@@ -38,12 +43,14 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
         <Modal.Header closeButton>
           <Modal.Title>Close Bank Account</Modal.Title>
         </Modal.Header>
+         <Form onSubmit={ (e) => handleSubmit(e)}>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+         
             <Form.Group controlId="formFirstName">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label> Assocciated First Name *</Form.Label>
               <Form.Control
                 type="text"
+                required
                 placeholder="Enter first name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -51,9 +58,10 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
             </Form.Group>
 
             <Form.Group controlId="formLastName">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label>Assocciated Last Name *</Form.Label>
               <Form.Control
                 type="text"
+                Assocciated
                 placeholder="Enter last name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
@@ -61,19 +69,32 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
             </Form.Group>
 
             <Form.Group controlId="formEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Assocciated Email *</Form.Label>
               <Form.Control
                 type="email"
+                required
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 
-            <Form.Group controlId="formPhone">
-              <Form.Label>Phone Number</Form.Label>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Transfer all funds to*</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
+                required
+                placeholder="Account Number"
+                
+                // onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formPhone">
+              <Form.Label>Assocciated Phone Number *</Form.Label>
+              <Form.Control
+                type="number"
+                required
                 placeholder="Enter phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -81,10 +102,11 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
             </Form.Group>
 
             <Form.Group controlId="formReason">
-              <Form.Label>Reason for Closure</Form.Label>
+              <Form.Label>Reason for Closure *</Form.Label>
               <Form.Select
                 as="select"
                 value={reason}
+                required
                 onChange={(e) => setReason(e.target.value)}
               >
                 <option value="">Select a reason</option>
@@ -104,16 +126,19 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
                 onChange={(e) => setAdditionalComments(e.target.value)}
               />
             </Form.Group>
-          </Form>
+
+            
+         
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="danger"type='submit'>
             Close Account
           </Button>
         </Modal.Footer>
+         </Form>
       </Modal>
     </>
   );

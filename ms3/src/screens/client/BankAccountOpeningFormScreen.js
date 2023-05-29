@@ -11,8 +11,13 @@ import SuccessModal from '../../components/client/SuccessModal';
 const BankAccountScreen = () => {
    const [show,setShow] = React.useState('');
    const [selectedOption, setSelectedOption] = useState('Select Education Level');
+   const [selectedOption2, setSelectedOption2] = useState('Select Category');
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
+  };
+
+    const handleOptionSelect2 = (option) => {
+    setSelectedOption2(option);
   };
 
   const handleClose = () => {setShow(false);window.history.pushState({},"","/bankAccount");window.location.reload();}
@@ -35,13 +40,13 @@ const BankAccountScreen = () => {
             <Col>
             
               <Form.Group controlId="fullName">
-                <Form.Label>Full Name</Form.Label>
+                <Form.Label>Full Name *</Form.Label>
                 <Form.Control type="text" placeholder="Enter your full name" required />
               </Form.Group>
             </Col>
             <Col>
               <Form.Group controlId="dateOfBirth">
-                <Form.Label>Date of Birth</Form.Label>
+                <Form.Label>Date of Birth *</Form.Label>
                 <Form.Control type="date" required />
               </Form.Group>
             </Col>
@@ -49,13 +54,13 @@ const BankAccountScreen = () => {
           <Row>
             <Col>
               <Form.Group controlId="telephoneNumber">
-                <Form.Label>Telephone Number</Form.Label>
-                <Form.Control type="tel" placeholder="Enter your telephone number" required />
-              </Form.Group>
+                <Form.Label>Telephone Number *</Form.Label>
+             <Form.Control type="number" placeholder="Enter your telephone number" required pattern="^[0-9]+$" />
+               </Form.Group>
             </Col>
             <Col>
               <Form.Group controlId="email">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email *</Form.Label>
                 <Form.Control type="email" placeholder="Enter your email" required />
               </Form.Group>
             </Col>
@@ -63,13 +68,13 @@ const BankAccountScreen = () => {
           <Row>
             <Col>
               <Form.Group controlId="address">
-                <Form.Label>Address</Form.Label>
+                <Form.Label>Address *</Form.Label>
                 <Form.Control type="text" placeholder="Enter your address" required />
               </Form.Group>
             </Col>
             <Col>
               <Form.Group controlId="city">
-                <Form.Label>City</Form.Label>
+                <Form.Label>City *</Form.Label>
                 <Form.Control type="text" placeholder="Enter your city" required />
               </Form.Group>
             </Col>
@@ -78,7 +83,7 @@ const BankAccountScreen = () => {
           <Row>
             <Col>
               <Form.Group controlId="postalCode">
-                <Form.Label>Postal Code</Form.Label>
+                <Form.Label>Postal Code *</Form.Label>
                 <Form.Control type="text" placeholder="Enter your postal code" required />
               </Form.Group>
             </Col>
@@ -93,14 +98,14 @@ const BankAccountScreen = () => {
           <Row>
             <Col>
               <Form.Group controlId="nationalId">
-                <Form.Label>National ID</Form.Label>
+                <Form.Label>National ID *</Form.Label>
                 <Form.Control type="text" placeholder="Enter your national ID" required />
               </Form.Group>
             </Col> 
            
             <Col>
               <Form.Group controlId="educationLevel">
-                <Form.Label>Education Level</Form.Label>
+                <Form.Label>Education Level *</Form.Label>
                  <Dropdown isOpen={false} toggle={() => {}}>
                   <DropdownToggle caret  variant="outline-primary">
                     {selectedOption}
@@ -124,7 +129,7 @@ const BankAccountScreen = () => {
          <Row>
             <Col> 
               <Form.Group controlId="idCardUpload">
-                <Form.Label>ID Card Upload</Form.Label>
+                <Form.Label>ID Card Upload *</Form.Label>
                <Form.Control type="file" />
               <Form.Text className="text-muted">
                 Upload a scanned copy of your identification proof.
@@ -132,27 +137,30 @@ const BankAccountScreen = () => {
               </Form.Group>
              </Col>
            </Row> 
-          <Row>
-            <Col>
-              <Form.Group controlId="accountType">
-                <Form.Label>Account Type</Form.Label>
-                <Form.Control type="text" placeholder="Enter the account type" required />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group controlId="category">
-                <Form.Label>Category</Form.Label>
-                <Form.Control type="text" placeholder="Enter the category" required />
-              </Form.Group>
-            </Col>
-          </Row>
+
           <Row>
             <Col>
               <Form.Group controlId="monthlySalary">
-                <Form.Label>Monthly Salary</Form.Label>
-                <Form.Control type="number" placeholder="Enter your monthly salary" required />
+                <Form.Label>Monthly Salary </Form.Label>
+                <Form.Control type="number" placeholder="Enter your monthly salary" />
               </Form.Group>
             </Col>
+            <Col><Form.Group controlId="educationLevel">
+                <Form.Label>Account Type *</Form.Label>
+                 <Dropdown isOpen={false} toggle={() => {}}>
+                  <DropdownToggle caret  variant="outline-primary">
+                    {selectedOption2}
+                  </DropdownToggle>
+                  <DropdownMenu variant="outline-primary">
+                    <DropdownItem onClick={() => handleOptionSelect2('Perosnal')}>Perosnal</DropdownItem>
+                    <DropdownItem onClick={() => handleOptionSelect2("Business")}>Business</DropdownItem>
+                    <DropdownItem onClick={() => handleOptionSelect2("Savings")}>Savings</DropdownItem>
+                    <DropdownItem onClick={() => handleOptionSelect2("Investement")}>Investement</DropdownItem>
+                    <DropdownItem onClick={() => handleOptionSelect2("Investement")}>Checkings</DropdownItem>
+                    <DropdownItem onClick={() => handleOptionSelect2('Others')}>Others</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </Form.Group></Col>
           </Row>
         </section>
         <br />
