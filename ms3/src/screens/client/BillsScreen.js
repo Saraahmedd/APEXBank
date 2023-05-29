@@ -12,6 +12,8 @@ const BillsScreen = () => {
 
 
   const handleShow = () => setShow(true);
+  const [isValidated, setIsValidated] = useState(false);
+  const [isValidated2, setIsValidated2] = useState(false);
 
   const [show2, setShow2] = useState(false);
   let [chosenBill, setChosenBill] = useState('');
@@ -59,29 +61,36 @@ const BillsScreen = () => {
     }
   ]);
 
-  const handleClose = () => {
-    setShow(false);
+  const handleClose = (e) => {
+    e.preventDefault();
 
-    setBills([...bills, {
-      billNumber: Math.floor(Math.random() * 999999),
-      billType: 'UTILITY',
-      billDescription: description,
-      payee: payeeName,
-      billedAmt: amount,
-      dueDate: dueDate,
-      status: 'UNPAID',
-      reminder: false
-    }]);
-    setDescription('');
-    setPayeeName('');
-    setAmount('');
-    setDueDate('');
+    const form = e.currentTarget;
+
+    if (form.checkValidity()) {
+      setBills([...bills, {
+        billNumber: Math.floor(Math.random() * 999999),
+        billType: 'UTILITY',
+        billDescription: description,
+        payee: payeeName,
+        billedAmt: amount,
+        dueDate: dueDate,
+        status: 'UNPAID',
+        reminder: false
+      }]);
+      setDescription('');
+      setPayeeName('');
+      setAmount('');
+      setDueDate('');
+      setShow(false);
+    }
+
+    setIsValidated(true);
   };
 
   const setReminderOff = (billNumber) => {
     let newBills = [];
-    for(let bill of bills) {
-      if(bill.billNumber == billNumber) {
+    for (let bill of bills) {
+      if (bill.billNumber == billNumber) {
         bill.reminder = !bill.reminder;
         newBills.push(bill);
       } else {
@@ -89,6 +98,34 @@ const BillsScreen = () => {
       }
     }
     setBills(newBills);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (form.checkValidity()) {
+      let i = 0;
+      let newBills = [];
+      console.log(chosenBill);
+      for (let bill of bills) {
+        if (bill.billNumber == chosenBill) {
+          if (amountPaid == bill.billedAmt) {
+            bill.status = "PAID";
+          } else {
+            const amtLeft = parseFloat(bill.billedAmt) - parseFloat(amountPaid);
+            bill.status = "PARTIALLY PAID - " + amtLeft + " EGP remaining";
+          }
+          newBills.push(bill);
+        } else {
+          newBills.push(bill);
+        }
+      }
+
+      setBills(newBills);
+      handleClose2();
+    }
+
+    setIsValidated2(true);
   };
 
   const [bankAccounts, setBankAccounts] = useState(['100041652181', '100041652184']);
@@ -132,8 +169,8 @@ const BillsScreen = () => {
                         <td>{bill.billedAmt} EGP</td>
                         <td>{bill.dueDate}</td>
                         <td>{bill.status}</td>
-                        <td className='text-center'>{ (bill.billType === "UTILITY" && bill.reminder === false) ? (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-secondary cursor-pointer" size={24} />) : (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-warning cursor-pointer" size={24} />) }</td>
-                        <td className='text-center'><Button className='rounded-pill' onClick={() => {  setChosenBill(bill.billNumber); setShow2(true); }}>Pay Now</Button></td>
+                        <td className='text-center'>{(bill.billType === "UTILITY" && bill.reminder === false) ? (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-secondary cursor-pointer" size={24} />) : (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-warning cursor-pointer" size={24} />)}</td>
+                        <td className='text-center'><Button className='rounded-pill' onClick={() => { setChosenBill(bill.billNumber); setShow2(true); }}>Pay Now</Button></td>
                       </tr>
                     );
                   })
@@ -150,49 +187,68 @@ const BillsScreen = () => {
       </div>
 
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>New Bill</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form noValidate validated={isValidated} onSubmit={handleClose}>
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Bill Description</Form.Label>
-              <Form.Control onChange={(data) => setDescription(data.target.value)} type="text" placeholder="Description (e.g. Telephone bill)" />
+              <Form.Control required onChange={(data) => setDescription(data.target.value)} type="text" placeholder="Description (e.g. Telephone bill)" />
+              <Form.Control.Feedback type="invalid">
+                A description for the bill is required.
+              </Form.Control.Feedback>
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billAmount">
               <Form.Label>Bill Amount (EGP)</Form.Label>
-              <Form.Control onChange={(data) => setAmount(data.target.value)} type="text" placeholder="e.g. 1000.00" />
+              <Form.Control required pattern="[0-9]+" onChange={(data) => setAmount(data.target.value)} type="text" placeholder="e.g. 1000.00" />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid number for the desired bill amount.
+              </Form.Control.Feedback>
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Payee International Bank Addressing Number (IBAN)</Form.Label>
-              <Form.Control type="text" placeholder="e.g. EG380019000500000000263180002" />
+              <Form.Control required type="text" placeholder="e.g. EG380019000500000000263180002" />
+              <Form.Control.Feedback type="invalid">
+                Please provide an IBAN for the payee.
+              </Form.Control.Feedback>
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Payee Company Name</Form.Label>
-              <Form.Control type="text" onChange={(data) => setPayeeName(data.target.value)} placeholder="e.g. Vodafone Egypt" />
+              <Form.Control required type="text" onChange={(data) => setPayeeName(data.target.value)} placeholder="e.g. Vodafone Egypt" />
+              <Form.Control.Feedback type="invalid">
+                Please provide a name for the payee.
+              </Form.Control.Feedback>
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Due Date</Form.Label>
-              <Form.Control onChange={(data) => setDueDate(data.target.value)} type="date" />
+              <Form.Control required onChange={(data) => setDueDate(data.target.value)} type="date" />
+              <Form.Control.Feedback type="invalid">
+                Please choose a due date for the bill.
+              </Form.Control.Feedback>
+
             </Form.Group>
 
-
-
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShow(false)}>
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit">
+                Add Bill
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Add Bill
-          </Button>
-        </Modal.Footer>
+
       </Modal>
 
 
@@ -201,57 +257,46 @@ const BillsScreen = () => {
           <Modal.Title>Bill Payment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form noValidate validated={isValidated2} onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
               <Form.Label htmlFor="bankAccChoice">Choose Bank Account</Form.Label>
-              <Form.Select id="bankAccChoice">
+              <Form.Select required id="bankAccChoice">
+                <option value="">Choose Account...</option>
                 {
                   bankAccounts.map((acc, index) => {
                     return (<option>{acc}</option>);
                   })
                 }
               </Form.Select>
+              <Form.Control.Feedback type="invalid">
+                Please select an account.
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label htmlFor="loanAmt">Amount to Pay in EGP</Form.Label>
               <Form.Control
                 type="text"
                 id="loanAmt"
-                onChange = {(e) => setAmountPaid(e.target.value)}
+                onChange={(e) => setAmountPaid(e.target.value)}
                 placeholder="e.g. 1000.00"
+                required
+                pattern="[0-9]+"
               />
+              <Form.Control.Feedback type="invalid">
+                Please enter an amount.
+              </Form.Control.Feedback>
             </Form.Group>
+            <p>By clicking confirm, you acknowledge the full amount will be immediately deducted from your bank account.</p>
+            <Modal.Footer>
+              <Button onClick={handleClose2} variant="secondary">
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit">
+                Pay Now
+              </Button>
+            </Modal.Footer>
           </Form>
-          <p>By clicking confirm, you acknowledge the full amount will be immediately deducted from your bank account.</p>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose2} variant="secondary">
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={() => {
-            let i = 0;
-            let newBills = [];
-            console.log(chosenBill);
-            for(let bill of bills) {
-              if(bill.billNumber == chosenBill) {
-                if(amountPaid == bill.billedAmt) {
-                  bill.status = "PAID";
-                } else {
-                  const amtLeft = parseFloat(bill.billedAmt) - parseFloat(amountPaid);
-                  bill.status = "PARTIALLY PAID - " + amtLeft + " EGP remaining";
-                }
-                newBills.push(bill);
-              } else {
-                newBills.push(bill);
-              }
-            }
-
-            setBills(newBills);
-            handleClose2();
-          }}>
-            Pay Now
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   )

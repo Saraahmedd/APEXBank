@@ -12,10 +12,21 @@ const LoanApplicationScree = () => {
   const handleShow = () => setShow(true);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  const [validated, setValidated] = useState(false);
 
   // Access specific query string parameters
   const applied = queryParams.get('applied');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
 
+    if (form.checkValidity()) {
+      // Perform form submission or validation success actions here
+      window.location.href = "http://localhost:3000/loanapplication?applied=1";
+    }
+
+    setValidated(true);
+  };
 
   return (
     <>
@@ -23,29 +34,37 @@ const LoanApplicationScree = () => {
         <ClientNavbar loggedIn={true} />
 
         <Container className="mt-3">
-        {applied==1 && <Alert key='success' variant='success' className='mt-2'>
-                        <span className='fw-bold'>Thank you!</span> Your application was received. We will get back to you within 72 hours.
-                    </Alert>}
+          {applied == 1 && <Alert key='success' variant='success' className='mt-2'>
+            <span className='fw-bold'>Thank you!</span> Your application was received. We will get back to you within 72 hours.
+          </Alert>}
           <h4>Loan Application Form</h4>
           <Row>
             <Col md={8}>
-              <Form>
+              <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="loanType">Loan Type</Form.Label>
-                  <Form.Select id="loanType">
+                  <Form.Select id="loanType" required>
+                    <option value="">Choose...</option>
                     <option>Personal Loan</option>
                     <option>Car Loan</option>
                   </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    Please select a loan type.
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="loanTerm">Preferred Loan Term</Form.Label>
-                  <Form.Select id="loanTerm">
+                  <Form.Select id="loanTerm" required>
+                    <option value="">Choose...</option>
                     <option>1 year - 4.5%</option>
                     <option>2 years - 5.5%</option>
                     <option>3 years - 6.5%</option>
                     <option>5 years - 7.5%</option>
                   </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    Please select a preferred loan term.
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -54,14 +73,34 @@ const LoanApplicationScree = () => {
                     type="text"
                     id="loanAmt"
                     placeholder="e.g. 100,000 EGP"
+                    pattern="[0-9]+"
+                    required
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide the requested loan amount.
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group controlId="formFile" className="mb-3">
-                  <Form.Label>Supporting Documents <a className="text-primary cursor-pointer text-decoration-none" onClick={(e) => { e.preventDefault(); setShow(true) }}>(View Required Documents)</a></Form.Label>
-                  <Form.Control type="file" />
+                  <Form.Label>
+                    Supporting Documents{' '}
+                    <a
+                      className="text-primary cursor-pointer text-decoration-none"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShow(true);
+                      }}
+                    >
+                      (View Required Documents)
+                    </a>
+                  </Form.Label>
+                  <Form.Control type="file" required />
+                  <Form.Control.Feedback type="invalid">
+                    Please upload the required supporting documents.
+                  </Form.Control.Feedback>
                 </Form.Group>
-                <Button onClick={(e) => { e.preventDefault(); window.location.href="http://localhost:3000/loanapplication?applied=1"; }} variant="primary" type="submit">
+
+                <Button variant="primary" type="submit">
                   Submit
                 </Button>
               </Form>

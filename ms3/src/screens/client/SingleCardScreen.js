@@ -22,6 +22,8 @@ const SingleCardScreen = () => {
     const [show3, setShow3] = useState(false);
     const [show4, setShow4] = useState(false);
     const [show5, setShow5] = useState(false);
+    const [validated, setValidated] = useState(false);
+
 
 
     const [cardDisabled, setCardDisabled] = useState(false);
@@ -43,6 +45,19 @@ const SingleCardScreen = () => {
 
     const handleClose5 = () => setShow5(false);
     const handleShow5 = () => setShow5(true);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+    
+        if (form.checkValidity()) {
+          // Perform form submission or validation success actions here
+          setCardDisabled(true);
+          handleClose4();
+        }
+    
+        setValidated(true);
+    }
 
 
     const [cards, setCards] = useState([
@@ -314,30 +329,37 @@ const SingleCardScreen = () => {
                     <Modal.Title>Report as Stolen/Lost</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label htmlFor="bankAccChoice">Report Type</Form.Label>
-                            <Form.Select id="bankAccChoice">
+                            <Form.Select id="bankAccChoice" required>
+                                <option value="">Choose...</option>
                                 <option>I lost my card</option>
                                 <option>I believe my card was stolen</option>
                             </Form.Select>
+                            <Form.Control.Feedback type="invalid">
+                                Please select a report type.
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="billDescription">
                             <Form.Label>When did this incident occur?</Form.Label>
-                            <Form.Control type="date" />
+                            <Form.Control type="date" required />
+                            <Form.Control.Feedback type="invalid">
+                                Please provide a valid date.
+                            </Form.Control.Feedback>
                         </Form.Group>
+
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose4}>
+                                Cancel
+                            </Button>
+                            <Button variant="primary" type="submit">
+                                Confirm Report
+                            </Button>
+                        </Modal.Footer>
                     </Form>
-                    <p className='text-warning'><span className='fw-bold'>Warning: </span>by reporting the card as stolen/lost your card will be disabled.</p>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose4}>
-                        Cancel
-                    </Button>
-                    <Button variant="primary" onClick={() => { setCardDisabled(true); handleClose4(); }}>
-                        Confirm Report
-                    </Button>
-                </Modal.Footer>
             </Modal>
 
 
