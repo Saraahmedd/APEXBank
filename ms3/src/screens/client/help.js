@@ -141,14 +141,14 @@ const Help = () => {
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
-                                <Button
+                                {/* <Button
                                     variant={isRefreshing ? 'dark' : 'primary'}
                                     className="mt-3 rounded-pill"
                                     onClick={handleRefreshClick}
                                     disabled={isRefreshing}
                                 >
                                     {isRefreshing ? 'Refreshing...' : 'Refresh Accounts'}
-                                </Button>
+                                </Button> */}
                             </Container>
                         </Col>
                         <Col md={3}>

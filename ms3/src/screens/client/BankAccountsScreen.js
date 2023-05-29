@@ -110,7 +110,7 @@ const BankAccountsScreen = () => {
       <Container className=' min-vh-100' >
         <BankTransferModal  list={bankAccounts} id={id} show={show} handleClose={handleClose} handleShow={handleShow} />
       <CloseBankAccountModal list={bankAccounts} id={id}  show={show2} handleClose={handleClose2} handleShow={handleShow2} />
-        <h1 className="mb-4">Bank Account Management</h1>
+        <h1 className="mb-4" style={{color: "#003087"}}>Bank Account Management</h1>
         <Button variant="primary" onClick={handleApplyNewAccount} className="mb-4">
           Apply for a New Bank Account
         </Button>
