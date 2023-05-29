@@ -5,6 +5,7 @@ import { Line } from "react-chartjs-2";
 import { CDBContainer } from "cdbreact";
 import Footer from "../../components/footer";
 import Inbox from "../../components/Inbox";
+import Message from "../../components/client/Message";
 
 const AdminHomeScreen = () => {
   // const chartData = {
@@ -72,18 +73,25 @@ const AdminHomeScreen = () => {
         <AdminSidebar></AdminSidebar>
         <div className="col-9 p-4">
           {notification && (
-            <div
-              class="alert alert-success position-absolute"
-              role="alert"
-              style={{ left: "60%" }}>
-              Announcement successfuly posted
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-                onClick={() => setNotification(false)}></button>
-            </div>
+            // <div
+            //   class="alert alert-success position-absolute"
+            //   role="alert"
+            //   style={{ left: "60%" }}
+            // >
+            //   Notification successfuly posted
+            //   <button
+            //     type="button"
+            //     class="btn-close"
+            //     data-bs-dismiss="alert"
+            //     aria-label="Close"
+            //     onClick={() => setNotification(false)}
+            //   ></button>
+            // </div>
+            <Message
+              variant="success"
+              children="Notification posted successfully!"
+              showMessage={notification}
+              setShowMessage={setNotification}></Message>
           )}
           <h1 className="p-4">Welcome, Admin</h1>
           <div className="row flex-row">
@@ -148,7 +156,7 @@ const AdminHomeScreen = () => {
             <div className="col-5">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Post a new announcement</h5>
+                  <h5 className="card-title">Post a new Announcement</h5>
                   <h6 className="card-subtitle mb-2 text-muted">
                     Announcement title
                   </h6>

@@ -14,7 +14,7 @@ const PersonalDocsStep = () => {
   return (
      
       <MDBCardBody className='p-5 shadow-5 text-center'>
-      <h2 className="fw-bold mb-5">PerosnalDocumets </h2>
+      <h2 className="fw-bold mb-5">Personal Documents </h2>
       <MDBRow>
         <MDBCol col='6'>
           <Form>

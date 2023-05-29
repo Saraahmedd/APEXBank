@@ -41,45 +41,65 @@ const AdminSidebar = () => {
             <NavLink
               exact
               to="/admin/homescreen"
-              activeClassName="activeClicked">
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem
                 id="home"
                 className="text-primary a"
-                icon="columns">
+                icon="columns"
+              >
                 Homescreen
               </CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
               to="/admin/technicalissues"
-              activeClassName="activeClicked">
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem
                 id="technicalissues"
                 className="text-primary a"
-                icon="table">
+                icon="table"
+              >
                 Technical Issues
               </CDBSidebarMenuItem>
             </NavLink>
-
+            <NavLink
+              exact
+              to="/admin/createaccount"
+              activeClassName="activeClicked"
+            >
+              <CDBSidebarMenuItem
+                id="technicalissues"
+                className="text-primary a"
+                icon="table"
+              >
+                Create Account
+              </CDBSidebarMenuItem>
+            </NavLink>
             <NavLink
               exact
               to="/admin/termsandconditions"
-              activeClassName="activeClicked">
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem
                 id="termsandconditions"
                 className="text-primary a"
-                icon="book">
+                icon="book"
+              >
                 Terms and Conditions
               </CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
               to="/admin/privacypolicy"
-              activeClassName="activeClicked">
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem
                 id="privacypolicy"
                 className="text-primary a"
-                icon="sign">
+                icon="sign"
+              >
                 Privacy Policy
               </CDBSidebarMenuItem>
             </NavLink>
