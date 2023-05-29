@@ -76,7 +76,7 @@ const AdminHomeScreen = () => {
               class="alert alert-success position-absolute"
               role="alert"
               style={{ left: "60%" }}>
-              Notification successfuly posted
+              Announcement successfuly posted
               <button
                 type="button"
                 class="btn-close"
@@ -148,9 +148,9 @@ const AdminHomeScreen = () => {
             <div className="col-5">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Send a new Notification</h5>
+                  <h5 className="card-title">Post a new announcement</h5>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    Notification title
+                    Announcement title
                   </h6>
                   <div className="input-group">
                     <input
@@ -162,7 +162,7 @@ const AdminHomeScreen = () => {
                   </div>
 
                   <h6 className="card-subtitle mt-4 text-muted">
-                    Notification content
+                    Announcement content
                   </h6>
                   <div className="input-group">
                     <textarea

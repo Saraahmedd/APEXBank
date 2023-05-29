@@ -71,7 +71,7 @@ const BankerHomeScreen = () => {
     <>
       <div className="row bg-white ">
         <Sidebar></Sidebar>
-        <div className="col-9 p-4 position-relative">
+        <div className="col-9 p-4">
           <Notification></Notification>
           <h1 className="p-4">Welcome, Banker</h1>
           <div className="row flex-row">
