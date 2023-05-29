@@ -7,7 +7,7 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from "cdbreact";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "./styles/sidebar.css";
 import logo from "../imgs/logo_transparent.png";
@@ -27,9 +27,12 @@ const AdminSidebar = () => {
       case "http://localhost:3000/admin/termsandconditions":
         document.getElementById("termsandconditions").classList.add("fw-bold");
         break;
+      case "http://localhost:3000/admin/createaccount":
+        document.getElementById("create").classList.add("fw-bold");
+        break;
     }
   });
-
+  const navigate = useNavigate();
   return (
     <div className="col-3 min-vh-100 p-0 m-0">
       <CDBSidebar textColor="#fff" className="bg-light pb-5">
@@ -38,6 +41,14 @@ const AdminSidebar = () => {
         </CDBSidebarHeader>
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
+            <NavLink exact to={navigate(-1)} activeClassName="activeClicked">
+              <CDBSidebarMenuItem
+                id=""
+                icon="arrow-left"
+                className="text-primary a">
+                Back
+              </CDBSidebarMenuItem>
+            </NavLink>
             <NavLink
               exact
               to="/admin/homescreen"
@@ -65,7 +76,7 @@ const AdminSidebar = () => {
               to="/admin/createaccount"
               activeClassName="activeClicked">
               <CDBSidebarMenuItem
-                id="technicalissues"
+                id="create"
                 className="text-primary a"
                 icon="table">
                 Create Account

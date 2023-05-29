@@ -2,6 +2,7 @@ import React, { Button } from "react";
 import { useEffect } from "react";
 import { OverlayTrigger, Popover } from "react-bootstrap";
 import { BellFill, PersonCircle } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -41,6 +42,12 @@ const Sidebar = () => {
         break;
     }
   });
+  const navigate = useNavigate();
+  const history = navigate(-1);
+
+  // const handleGoBack = () => {
+  //   navigate(-1); // Navigate back by one step
+  // };
 
   return (
     <div className="col-3 min-vh-100 ">
@@ -48,8 +55,16 @@ const Sidebar = () => {
         <CDBSidebarHeader className=" d-flex justify-content-center">
           <img src={logo} height="100" className="p-0" />
         </CDBSidebarHeader>
-        <CDBSidebarContent className="sidebar-content text-primary">
+        <CDBSidebarContent className="sidebar-content text-primary d-flex justify-content-center">
           <CDBSidebarMenu>
+            <NavLink exact to={history} activeClassName="activeClicked">
+              <CDBSidebarMenuItem
+                id=""
+                icon="arrow-left"
+                className="text-primary a">
+                Back
+              </CDBSidebarMenuItem>
+            </NavLink>
             <NavLink
               exact
               to="/banker/homescreen"
