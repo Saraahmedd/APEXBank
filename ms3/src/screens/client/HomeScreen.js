@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import ClientNavbar from '../../components/client/Navbar'
-import { Accordion, Col, Container, Row, Table, Card, Button } from 'react-bootstrap'
-import Footer from '../../components/client/Footer'
+import React, { useState } from 'react';
+import ClientNavbar from '../../components/client/Navbar';
+import { Accordion, Col, Container, Row, Table, Card, Button } from 'react-bootstrap';
+import Footer from '../../components/client/Footer';
 import cardpic from '../../imgs/cardpic.jpg';
 
 const HomeScreen = () => {
@@ -14,9 +14,8 @@ const HomeScreen = () => {
     setTimeout(() => {
       setIsRefreshing(false);
     }, 1000);
-
-
   };
+
   return (
     <>
       <div className="min-vh-100 d-flex flex-column">
@@ -38,22 +37,25 @@ const HomeScreen = () => {
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>
                       <table className='w-100'>
-                        <tr>
-                          <th>Account Number</th>
-                          <th>Account Type</th>
-                          <th>Balance</th>
-                          <th>Last Transaction</th>
-                        </tr>
-                        <tr>
-                          <td>100041652181</td>
-                          <td>Savings</td>
-                          <td>214,550.50 USD</td>
-                          <td>May 25, 2023</td>
-                        </tr>
+                        <thead>
+                          <tr>
+                            <th>Account Number</th>
+                            <th>Account Type</th>
+                            <th>Balance</th>
+                            <th>Last Transaction</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>100041652181</td>
+                            <td>Savings</td>
+                            <td>214,550.50 USD</td>
+                            <td>May 25, 2023</td>
+                          </tr>
+                        </tbody>
                       </table>
                     </Accordion.Header>
                     <Accordion.Body>
-
                       <Table striped bordered hover>
                         <thead>
                           <tr>
@@ -86,30 +88,41 @@ const HomeScreen = () => {
                       </Table>
 
                       <div className='d-flex w-100 align-items-end'>
-                        <Button variant="outline-primary" onClick={() => {window.location.href="http://localhost:3000/bankaccount/transaction"}} className="rounded-pill ms-auto">View More</Button>
+                        <Button
+                          variant="outline-primary"
+                          onClick={() => {
+                            window.location.href = "http://localhost:3000/bankaccount/transaction";
+                          }}
+                          className="rounded-pill ms-auto"
+                          aria-label="View More Transactions"
+                        >
+                          View More
+                        </Button>
                       </div>
-
                     </Accordion.Body>
                   </Accordion.Item>
                   <Accordion.Item eventKey="1">
                     <Accordion.Header>
                       <table className='w-100'>
-                        <tr>
-                          <th>Account Number</th>
-                          <th>Account Type</th>
-                          <th>Balance</th>
-                          <th>Last Transaction</th>
-                        </tr>
-                        <tr>
-                          <td>100041652184</td>
-                          <td>Current</td>
-                          <td>300,213.31 USD</td>
-                          <td>May 13, 2023</td>
-                        </tr>
+                        <thead>
+                          <tr>
+                            <th>Account Number</th>
+                            <th>Account Type</th>
+                            <th>Balance</th>
+                            <th>Last Transaction</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>100041652184</td>
+                            <td>Current</td>
+                            <td>300,213.31 USD</td>
+                            <td>May 13, 2023</td>
+                          </tr>
+                        </tbody>
                       </table>
                     </Accordion.Header>
                     <Accordion.Body>
-
                       <Table striped bordered hover>
                         <thead>
                           <tr>
@@ -142,9 +155,17 @@ const HomeScreen = () => {
                       </Table>
 
                       <div className='d-flex w-100 align-items-end'>
-                        <Button variant="outline-primary" onClick={() => window.location.href="http://localhost:3000/bankAccount/transaction"} className="rounded-pill ms-auto">View More</Button>
+                        <Button
+                          variant="outline-primary"
+                          onClick={() => {
+                            window.location.href = "http://localhost:3000/bankAccount/transaction";
+                          }}
+                          className="rounded-pill ms-auto"
+                          aria-label="View More Transactions"
+                        >
+                          View More
+                        </Button>
                       </div>
-
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
@@ -153,6 +174,7 @@ const HomeScreen = () => {
                   className="mt-3 rounded-pill"
                   onClick={handleRefreshClick}
                   disabled={isRefreshing}
+                  aria-label={isRefreshing ? 'Refreshing...' : 'Refresh Accounts'}
                 >
                   {isRefreshing ? 'Refreshing...' : 'Refresh Accounts'}
                 </Button>
@@ -160,25 +182,33 @@ const HomeScreen = () => {
             </Col>
             <Col md={3}>
               <Card style={{ width: '100%' }}>
-                <Card.Img variant="top" src={cardpic} />
+                <Card.Img variant="top" src={cardpic} alt="Card" />
                 <Card.Body>
                   <Card.Title>Unlock Your Rewards!</Card.Title>
                   <Card.Text>
-                    Redeem your credit card points today and start enjoying exclusive benefits. Click 'Redeem Now' to access the credit card point redemption page.                  </Card.Text>
-                  <Button variant="primary" onClick={() => {window.location.href="http://localhost:3000/creditcard"}} className="rounded-pill">Redeem Now</Button>
+                    Redeem your credit card points today and start enjoying exclusive benefits. Click 'Redeem Now' to access the credit card point redemption page.
+                  </Card.Text>
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      window.location.href = "http://localhost:3000/creditcard";
+                    }}
+                    className="rounded-pill"
+                    aria-label="Redeem Now"
+                  >
+                    Redeem Now
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
         </Container>
 
-
         <div className="flex-grow-1"></div>
         <Footer className="mt-3" />
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

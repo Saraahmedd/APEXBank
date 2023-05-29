@@ -63,16 +63,17 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                 <Navbar.Brand href={loggedIn ? "/portal" : "/"}>
 
                                     <img
-                                        alt=""
+                                        alt="Logo"
                                         src={logo}
                                         height="80"
                                         className="d-inline-block align-top"
+                                        aria-label="Logo"
                                     />
 
                                 </Navbar.Brand>
-                                <Link to="/" className="text-decoration-none"><Nav.Link href="#home" className="fw-semibold fs-5 text-primary">Home</Nav.Link></Link>
-                                <Link to="/about" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">About</Nav.Link></Link>
-                                <Link to="/contact" className="text-decoration-none"><Nav.Link href="#link" className="fw-semibold fs-5 text-primary">Contact</Nav.Link></Link>
+                                <Link to="/" className="text-decoration-none"><Nav.Link className="fw-semibold fs-5 text-primary">Home</Nav.Link></Link>
+                                <Link to="/about" className="text-decoration-none"><Nav.Link className="fw-semibold fs-5 text-primary">About</Nav.Link></Link>
+                                <Link to="/contact" className="text-decoration-none"><Nav.Link className="fw-semibold fs-5 text-primary">Contact</Nav.Link></Link>
                             </div>
                             <div className='d-flex' style={{ textAlign: 'center' }}>
 
