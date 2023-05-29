@@ -68,7 +68,7 @@ const HomeScreen = () => {
                         <tbody>
                           <tr>
                             <td>25-05-2023</td>
-                            <td>FT23145YHS41 - Talabat Cairo EG 526805 53180500000</td>
+                            <td>FT23145YHS41 - Omar's Bakery Cairo EG 526805 53180500000</td>
                             <td className="text-danger">-175.50 USD</td>
                             <td>214,550.50 USD</td>
                           </tr>
@@ -80,7 +80,7 @@ const HomeScreen = () => {
                           </tr>
                           <tr>
                             <td>21-05-2023</td>
-                            <td>FT23145LCGKW - TRANSFER FROM CIB "PAYMENT"</td>
+                            <td>FT23145LCGKW - TRANSFER FROM CIB "PAYMENT" FROM OMAR TAMER</td>
                             <td className="text-success">+5500.00 USD</td>
                             <td>214,760.00 USD</td>
                           </tr>
