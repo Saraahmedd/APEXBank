@@ -13,12 +13,12 @@ const BankAccountsScreen = () => {
   const [id,setId] = useState(1);
 
   const [bankAccounts, setBankAccounts] = useState( [
-    { id: 1, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "personal" },
-    { id: 2, name: 'Checking Account', balance: 10000, thisMonthTransaction: 2000, type: "personal" },
-    { id: 3, name: 'Investment Account', balance: 25000, thisMonthTransaction: 2000, type: "personal" },
-      { id: 5, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "personal" },
-    { id: 6, name: 'Checking Account', balance: 10000, thisMonthTransaction: 2000, type: "personal" },
-    { id: 7, name: 'Investment Account', balance: 0, thisMonthTransaction: 2000, type: "personal" },
+    { id: 1, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "Saving" },
+    { id: 2, name: 'Personal Account', balance: 10000, thisMonthTransaction: 2000, type: "Personal" },
+    { id: 3, name: 'Investment Account', balance: 25000, thisMonthTransaction: 2000, type: "Investment" },
+      { id: 5, name: 'Savings Account', balance: 5000, thisMonthTransaction: 2000, type: "Saving" },
+    { id: 6, name: 'Checking Account', balance: 10000, thisMonthTransaction: 2000, type: "Checking" },
+    { id: 7, name: 'Investment Account', balance: 0, thisMonthTransaction: 2000, type: "Investment" },
   ])
 
   const [show,setShow] = React.useState('');

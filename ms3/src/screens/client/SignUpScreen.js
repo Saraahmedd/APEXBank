@@ -11,12 +11,54 @@ const SignUpScreen = () => {
   const [activeForm, setActiveForm] = useState(1);
   const [message, setMessage] = React.useState("");
   const [success, setSuccess] = React.useState('');
+  
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [address, setAddress] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [accountNumber, setAccountNumber] = useState('');
+  const [routingNumber, setRoutingNumber] = useState('');
+  const [termsChecked, setTermsChecked] = useState(false);
+  const [privacyChecked, setPrivacyChecked] = useState(false);
+  const [newsletterChecked, setNewsletterChecked] = useState(false);
+  const [variant,setVariant] = useState("success");
 
   const handleNextForm = () => {
-    if (activeForm < 5)
+     if (activeForm === 1 && (!firstName || !lastName || !phoneNumber || !address)) {
+      setSuccess(true)
+      setMessage('Please fill in all fields.')
+       setVariant("danger")
+      return;
+    }
+    if (activeForm === 2 && (!username || !password)) {
+       setSuccess(true)
+      setMessage('Please fill in all fields.')
+       setVariant("danger")
+      return;
+    }
+    if (activeForm === 3 &&  ( (accountNumber && !routingNumber) || (!accountNumber && routingNumber)) ){
+      setSuccess(true)
+      setMessage('Please fill in all fields or none of them.')
+       setVariant("danger")
+      return;
+    }
+    if (activeForm === 4 && (!termsChecked || !privacyChecked)) {
+       setSuccess(true)
+       setVariant("danger")
+      setMessage('Please agree to the terms and conditions and privacy policy.')
+      return;
+    }
+
+    if (activeForm < 5){
       setActiveForm(activeForm + 1);
+      setSuccess(false)
+      setMessage("")
+    }
     else {
       setSuccess(true)
+      setVariant("success")
       setMessage('Account Created Successfuly. Redirecting you...')
       const timer = setTimeout(() => {
         setMessage("");
@@ -51,13 +93,13 @@ const SignUpScreen = () => {
     <>
       <Navbar />
       <Container>
-        {message && <Message variant='success' showMessage={success} setShowMessage={setSuccess}>
+        {message && <Message variant={variant} showMessage={success} setShowMessage={setSuccess}>
           {message}
         </Message>}
         <div className="form__container my-4">
           <div className="title__container">
             <h1>Register</h1>
-            <p>Follow the 4 simple steps to create your profile</p>
+            <p>Follow the 5 simple steps to create your profile</p>
           </div>
           <div className="body__container">
             <div className="left__container">
@@ -118,28 +160,28 @@ const SignUpScreen = () => {
                 <Row>
                   <Col lg={6}>
                     <Form.Group controlId="formFirstName">
-                      <Form.Label>First Name</Form.Label>
-                      <Form.Control type="text" placeholder="Enter your first name" />
+                      <Form.Label>First Name *</Form.Label>
+                      <Form.Control  onChange={(e) => setFirstName(e.target.value)} type="text" placeholder="Enter your first name" />
                     </Form.Group>
                   </Col>
                   <Col lg={6}>
                     <Form.Group controlId="formLastName">
-                      <Form.Label>Last Name</Form.Label>
-                      <Form.Control type="text" placeholder="Enter your last name" />
+                      <Form.Label>Last Name *</Form.Label>
+                      <Form.Control type="text" onChange={(e) => setLastName(e.target.value)} placeholder="Enter your last name" />
                     </Form.Group>
                   </Col>
                 </Row>
                 <Row>
                   <Col lg={6}>
                     <Form.Group controlId="formPhoneNumber">
-                      <Form.Label>Phone Number</Form.Label>
-                      <Form.Control type="text" placeholder="Enter your phone number" />
+                      <Form.Label>Phone Number *</Form.Label>
+                      <Form.Control onChange={(e) => setPhoneNumber(e.target.value)} type="number" placeholder="Enter your phone number" />
                     </Form.Group>
                   </Col>
                   <Col lg={6}>
                     <Form.Group controlId="formAddress">
-                      <Form.Label>Address</Form.Label>
-                      <Form.Control type="text" placeholder="Enter your address" />
+                      <Form.Label>Address *</Form.Label>
+                      <Form.Control onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Enter your address" />
                     </Form.Group>
                   </Col>
                 </Row>
@@ -162,12 +204,12 @@ const SignUpScreen = () => {
                 <h2>Credentials</h2>
                 <hr></hr>
                 <Form.Group controlId="formUsername">
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your username" />
+                  <Form.Label>Username *</Form.Label>
+                  <Form.Control  onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Enter your username" />
                 </Form.Group>
                 <Form.Group controlId="formPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Enter your password" />
+                  <Form.Label>Password *</Form.Label>
+                  <Form.Control  onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter your password" />
                 </Form.Group>
 
                 {/* <Button   variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>
@@ -178,19 +220,19 @@ const SignUpScreen = () => {
               <Form id="form3" style={{ display: activeForm === 3 ? "block" : "none" }}>
 
                 <p>Step 3/5</p>
-                <h2>Link existing bank account</h2>
+                <h2>Link existing bank account (Optional)</h2>
                 <hr></hr>
-                <Form.Group controlId="formBankName">
-                  <Form.Label>Bank Name</Form.Label>
+                {/* <Form.Group controlId="formBankName">
+                  <Form.Label>Bank Name *</Form.Label>
                   <Form.Control type="text" placeholder="Enter your bank name" />
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group controlId="formAccountNumber">
-                  <Form.Label>Account Number</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your account number" />
+                  <Form.Label>  Account Number </Form.Label>
+                  <Form.Control  onChange={(e) => setAccountNumber(e.target.value)} type="number" placeholder="Enter your account number" />
                 </Form.Group>
                 <Form.Group controlId="formRoutingNumber">
-                  <Form.Label>Routing Number</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your routing number" />
+                  <Form.Label> Account PIN</Form.Label>
+                  <Form.Control  onChange={(e) => setRoutingNumber(e.target.value)}  type="password" placeholder="Enter your account PIN" />
                 </Form.Group>
 
                 {/* <Button  variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>
@@ -201,13 +243,13 @@ const SignUpScreen = () => {
               <Form id="form3" style={{ display: activeForm === 4 ? "block" : "none" }}>
 
                 <p>Step 4/5</p>
-                <h2>User Agreement</h2>
+                <h2>User Agreement *</h2>
                 <hr></hr>
                 <Form.Group controlId="formTerms">
-                  <Form.Check type="checkbox" label="I agree to the terms and conditions" />
+                  <Form.Check  onChange={(e) => setTermsChecked(e.target.checked)} type="checkbox" label="I agree to the terms and conditions" />
                 </Form.Group>
                 <Form.Group controlId="formPrivacy">
-                  <Form.Check type="checkbox" label="I agree to the privacy policy" />
+                  <Form.Check type="checkbox"  onChange={(e) => setPrivacyChecked(e.target.checked)} label="I agree to the privacy policy" />
                 </Form.Group>
 
                 {/* <Button   variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>
