@@ -36,26 +36,43 @@ export default function () {
     // const bankerId = document.getElementById("bankerId").value;
     // const bankerDept = document.getElementById("bankerDept").value;
     // const adminId = document.getElementById("adminId").value;
+    const isValidEmail = (value) => {
+      // Use HTML5 email validation by checking the validity of the input element
+      const emailInput = document.createElement("input");
+      emailInput.type = "email";
+      emailInput.value = value;
+      return emailInput.checkValidity();
+    };
 
     if (!email || !password) {
       setWarning("Missing fields! Please fill out the full form");
       setSuccess(false);
     } else {
+      if (!isValidEmail(email)) {
+        setWarning("Please enter a valid email address");
+        setSuccess(false);
+        return;
+      }
       // Perform account creation logic based on the selected accountType
       if (accountType === "banker") {
         if (
           !document.getElementById("bankerId").value ||
-          !document.getElementById("bankerDept").value
+          !document.getElementById("bankerDept").value ||
+          isNaN(document.getElementById("bankerDept").value * 1) ||
+          isNaN(document.getElementById("bankerId").value * 1)
         ) {
-          setWarning("Missing fields! Please fill out the form");
+          setWarning("Missing fields! Please fill out the IDs correctly");
           setSuccess(false);
         } else {
           setWarning("");
           setSuccess(true);
         }
       } else if (accountType === "admin") {
-        if (!document.getElementById("adminId").value) {
-          setWarning("Missing fields! Please fill out the full form");
+        if (
+          !document.getElementById("adminId").value ||
+          isNaN(document.getElementById("adminId").value * 1)
+        ) {
+          setWarning("Missing fields! Please fill  adminID correctly");
           setSuccess(false);
         } else {
           setWarning("");
@@ -76,6 +93,20 @@ export default function () {
             <form className="Auth-form">
               <div className="Auth-form-content">
                 <h3 className="Auth-form-title">Create Account</h3>
+                {warning && (
+                  <Message
+                    variant="danger"
+                    children={warning}
+                    showMessage={warning}
+                    setShowMessage={setWarning}></Message>
+                )}
+                {success && (
+                  <Message
+                    variant="success"
+                    children="Account successfully created!"
+                    showMessage={success}
+                    setShowMessage={setSuccess}></Message>
+                )}
                 <div className="form-group mt-3">
                   <label>Email address</label>
                   <input
@@ -163,20 +194,6 @@ export default function () {
                 {warning}
               </div>
             )} */}
-                {warning && (
-                  <Message
-                    variant="danger"
-                    children={warning}
-                    showMessage={warning}
-                    setShowMessage={setWarning}></Message>
-                )}
-                {success && (
-                  <Message
-                    variant="success"
-                    children="Account successfully created!"
-                    showMessage={success}
-                    setShowMessage={setSuccess}></Message>
-                )}
                 <div className="d-grid gap-2 mt-3">
                   <button
                     type="button"

@@ -10,7 +10,7 @@ export default function () {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     if (email === "hazem" && password === "1234") {
-      navigate("/admin/homescreen");
+      navigate("/banker/homescreen");
     } else if (email === "hazem") {
       setWarning("Incorrect email");
     } else if (password === "1234") {

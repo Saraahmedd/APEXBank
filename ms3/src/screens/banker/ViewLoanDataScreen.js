@@ -6,7 +6,7 @@ import Footer from "../../components/footer";
 import { useState, useEffect } from "react";
 import Message from "../../components/client/Message";
 
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 
 const ViewLoanDataScreen = () => {
   const { id } = useParams();
@@ -131,16 +131,14 @@ const ViewLoanDataScreen = () => {
               variant="success"
               children="Loan Granted Successfully!"
               showMessage={granted}
-              setShowMessage={setGranted}
-            ></Message>
+              setShowMessage={setGranted}></Message>
           )}{" "}
           {rejected && (
             <Message
               variant="danger"
               children="Loan Rejected!"
               showMessage={rejected}
-              setShowMessage={setRejected}
-            ></Message>
+              setShowMessage={setRejected}></Message>
           )}
           <h2>Loan Details - {client.name}</h2>
           <hr />
@@ -176,8 +174,7 @@ const ViewLoanDataScreen = () => {
                     <button type="submit" className="btn btn-primary mt-3">
                       <a
                         className="text-light text-decoration-none"
-                        href="/banker/viewsingleloan"
-                      >
+                        href="/banker/viewsingleloan">
                         show details
                       </a>
                     </button>
@@ -211,15 +208,13 @@ const ViewLoanDataScreen = () => {
                     <button
                       type="submit"
                       className="btn btn-primary m-2"
-                      onClick={(e) => handleGrant(loan.id)}
-                    >
+                      onClick={(e) => handleGrant(loan.id)}>
                       Grant
                     </button>
                     <button
                       type="submit"
                       className="btn btn-primary m-2"
-                      onClick={(e) => removeCard(loan.id)}
-                    >
+                      onClick={(e) => removeCard(loan.id)}>
                       Reject
                     </button>
                   </Card.Body>

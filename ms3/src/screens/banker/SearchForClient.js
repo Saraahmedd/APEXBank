@@ -6,7 +6,7 @@ import Footer from "../../components/footer";
 import maleAvatar from "../../imgs/maleAvatar.png";
 import femaleAvatar from "../../imgs/femaleAvatar.png";
 
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 
 const SearchForClient = () => {
   const clients = [
@@ -67,13 +67,15 @@ const SearchForClient = () => {
     const value = e.target.value;
     setSearchTerm(value);
     const results = clients.filter((client) => {
-      const nameMatch = client.name.toLowerCase().includes(value.toLowerCase());
       const accountMatch = client.bankAccounts.some((account) =>
         account.includes(value)
       );
-      return nameMatch || accountMatch;
+      return accountMatch;
     });
     setSearchResults(results);
+    if (value === "") {
+      setSearchResults([]);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -105,14 +107,12 @@ const SearchForClient = () => {
                 <Card
                   className="m-2 user-card col-4"
                   key={client.id}
-                  style={{ alignItems: "center", textAlign: "center" }}
-                >
+                  style={{ alignItems: "center", textAlign: "center" }}>
                   <Card.Header className="card-header bg-white row d-flex justify-content-center">
                     {client.icon}
                     <span
                       className="ms-2 col-12"
-                      style={{ fontWeight: "bold" }}
-                    >
+                      style={{ fontWeight: "bold" }}>
                       {client.name}
                     </span>
                   </Card.Header>
@@ -130,8 +130,7 @@ const SearchForClient = () => {
                     <hr />
                     <Link
                       to={`/banker/viewclientdata/${client.id}`}
-                      className="btn btn-primary"
-                    >
+                      className="btn btn-primary">
                       View Details
                     </Link>
                   </Card.Body>

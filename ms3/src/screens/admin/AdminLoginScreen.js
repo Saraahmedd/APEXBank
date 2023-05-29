@@ -11,7 +11,7 @@ export default function () {
     const password = document.getElementById("password").value;
     if (email === "hazem" && password === "1234") {
       navigate("/admin/homescreen");
-    } else if (email === "hazem") {
+    } else if (email === "hazem@gmail.com") {
       setWarning("incorrect email");
     } else if (password === "1234") {
       setWarning("incorrect password");

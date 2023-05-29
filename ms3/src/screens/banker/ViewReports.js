@@ -3,7 +3,7 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 import Message from "../../components/client/Message";
 
 const ViewCreditCardReports = () => {
@@ -34,8 +34,7 @@ const ViewCreditCardReports = () => {
               variant="success"
               children="Report resolved successfully!"
               showMessage={resolve}
-              setShowMessage={setResolve}
-            ></Message>
+              setShowMessage={setResolve}></Message>
           )}
           <h1 className="pt-4 px-4">Reports by client</h1>
           <div className="col-11 mt-5">
@@ -47,8 +46,7 @@ const ViewCreditCardReports = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(1)}
-                >
+                  onClick={() => removeCard(1)}>
                   resolved
                 </button>
               </div>
@@ -64,8 +62,7 @@ const ViewCreditCardReports = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(2)}
-                >
+                  onClick={() => removeCard(2)}>
                   resolved
                 </button>
               </div>
@@ -80,8 +77,7 @@ const ViewCreditCardReports = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(3)}
-                >
+                  onClick={() => removeCard(3)}>
                   resolved
                 </button>
               </div>
