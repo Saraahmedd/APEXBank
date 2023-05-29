@@ -12,6 +12,7 @@ const BillsScreen = () => {
 
 
   const handleShow = () => setShow(true);
+  const [isValidated, setIsValidated] = useState(false);
 
   const [show2, setShow2] = useState(false);
   let [chosenBill, setChosenBill] = useState('');
@@ -59,29 +60,36 @@ const BillsScreen = () => {
     }
   ]);
 
-  const handleClose = () => {
-    setShow(false);
+  const handleClose = (e) => {
+    e.preventDefault();
 
-    setBills([...bills, {
-      billNumber: Math.floor(Math.random() * 999999),
-      billType: 'UTILITY',
-      billDescription: description,
-      payee: payeeName,
-      billedAmt: amount,
-      dueDate: dueDate,
-      status: 'UNPAID',
-      reminder: false
-    }]);
-    setDescription('');
-    setPayeeName('');
-    setAmount('');
-    setDueDate('');
+    const form = e.currentTarget;
+
+    if (form.checkValidity()) {
+      setBills([...bills, {
+        billNumber: Math.floor(Math.random() * 999999),
+        billType: 'UTILITY',
+        billDescription: description,
+        payee: payeeName,
+        billedAmt: amount,
+        dueDate: dueDate,
+        status: 'UNPAID',
+        reminder: false
+      }]);
+      setDescription('');
+      setPayeeName('');
+      setAmount('');
+      setDueDate('');
+      setShow(false);
+    }
+
+    setIsValidated(true);
   };
 
   const setReminderOff = (billNumber) => {
     let newBills = [];
-    for(let bill of bills) {
-      if(bill.billNumber == billNumber) {
+    for (let bill of bills) {
+      if (bill.billNumber == billNumber) {
         bill.reminder = !bill.reminder;
         newBills.push(bill);
       } else {
@@ -132,8 +140,8 @@ const BillsScreen = () => {
                         <td>{bill.billedAmt} EGP</td>
                         <td>{bill.dueDate}</td>
                         <td>{bill.status}</td>
-                        <td className='text-center'>{ (bill.billType === "UTILITY" && bill.reminder === false) ? (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-secondary cursor-pointer" size={24} />) : (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-warning cursor-pointer" size={24} />) }</td>
-                        <td className='text-center'><Button className='rounded-pill' onClick={() => {  setChosenBill(bill.billNumber); setShow2(true); }}>Pay Now</Button></td>
+                        <td className='text-center'>{(bill.billType === "UTILITY" && bill.reminder === false) ? (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-secondary cursor-pointer" size={24} />) : (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-warning cursor-pointer" size={24} />)}</td>
+                        <td className='text-center'><Button className='rounded-pill' onClick={() => { setChosenBill(bill.billNumber); setShow2(true); }}>Pay Now</Button></td>
                       </tr>
                     );
                   })
@@ -150,49 +158,48 @@ const BillsScreen = () => {
       </div>
 
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>New Bill</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form noValidate validated={isValidated} onSubmit={handleClose}>
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Bill Description</Form.Label>
-              <Form.Control onChange={(data) => setDescription(data.target.value)} type="text" placeholder="Description (e.g. Telephone bill)" />
+              <Form.Control required onChange={(data) => setDescription(data.target.value)} type="text" placeholder="Description (e.g. Telephone bill)" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billAmount">
               <Form.Label>Bill Amount (EGP)</Form.Label>
-              <Form.Control onChange={(data) => setAmount(data.target.value)} type="text" placeholder="e.g. 1000.00" />
+              <Form.Control required onChange={(data) => setAmount(data.target.value)} type="text" placeholder="e.g. 1000.00" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Payee International Bank Addressing Number (IBAN)</Form.Label>
-              <Form.Control type="text" placeholder="e.g. EG380019000500000000263180002" />
+              <Form.Control required type="text" placeholder="e.g. EG380019000500000000263180002" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Payee Company Name</Form.Label>
-              <Form.Control type="text" onChange={(data) => setPayeeName(data.target.value)} placeholder="e.g. Vodafone Egypt" />
+              <Form.Control required type="text" onChange={(data) => setPayeeName(data.target.value)} placeholder="e.g. Vodafone Egypt" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="billDescription">
               <Form.Label>Due Date</Form.Label>
-              <Form.Control onChange={(data) => setDueDate(data.target.value)} type="date" />
+              <Form.Control required onChange={(data) => setDueDate(data.target.value)} type="date" />
             </Form.Group>
 
-
-
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShow(false)}>
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit">
+                Add Bill
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Add Bill
-          </Button>
-        </Modal.Footer>
+
       </Modal>
 
 
@@ -217,7 +224,7 @@ const BillsScreen = () => {
               <Form.Control
                 type="text"
                 id="loanAmt"
-                onChange = {(e) => setAmountPaid(e.target.value)}
+                onChange={(e) => setAmountPaid(e.target.value)}
                 placeholder="e.g. 1000.00"
               />
             </Form.Group>
@@ -232,9 +239,9 @@ const BillsScreen = () => {
             let i = 0;
             let newBills = [];
             console.log(chosenBill);
-            for(let bill of bills) {
-              if(bill.billNumber == chosenBill) {
-                if(amountPaid == bill.billedAmt) {
+            for (let bill of bills) {
+              if (bill.billNumber == chosenBill) {
+                if (amountPaid == bill.billedAmt) {
                   bill.status = "PAID";
                 } else {
                   const amtLeft = parseFloat(bill.billedAmt) - parseFloat(amountPaid);

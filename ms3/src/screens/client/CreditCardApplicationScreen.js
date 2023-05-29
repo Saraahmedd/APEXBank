@@ -15,6 +15,19 @@ const CreditCardApplicationScreen = () => {
 
   // Access specific query string parameters
   const applied = queryParams.get('applied');
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    if (form.checkValidity()) {
+      // Perform form submission or validation success actions here
+      window.location.href = "http://localhost:3000/creditcardapplication?applied=1";
+    }
+
+    setValidated(true);
+  };
 
   return (
     <>
@@ -23,35 +36,59 @@ const CreditCardApplicationScreen = () => {
 
         <Container className="mt-3">
           <h4 className="">Apply for a Credit Card</h4>
-          {applied==1 && <Alert key='success' variant='success' className='mt-2'>
-                        <span className='fw-bold'>Thank you!</span> Your application was received. We will get back to you within 72 hours.
-                    </Alert>}
+          {applied == 1 && <Alert key='success' variant='success' className='mt-2'>
+            <span className='fw-bold'>Thank you!</span> Your application was received. We will get back to you within 72 hours.
+          </Alert>}
           <Row>
             <Col md={8} className="">
-              <Form className="">
+              <Form noValidate validated={validated} onSubmit={handleSubmit} className="">
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="loanType">Card Type</Form.Label>
-                  <Form.Select id="loanType">
+                  <Form.Label htmlFor="cardType">Card Type</Form.Label>
+                  <Form.Select id="cardType" required>
+                    <option value="">Choose...</option>
                     <option>Rewards</option>
                     <option>Cashback</option>
                     <option>Travel</option>
                   </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    Please select a card type.
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="loanAmt">Desired Monthly Spending Limit in EGP</Form.Label>
+                  <Form.Label htmlFor="spendingLimit">Desired Monthly Spending Limit in EGP</Form.Label>
                   <Form.Control
                     type="text"
-                    id="loanAmt"
+                    id="spendingLimit"
                     placeholder="e.g. 100,000 EGP"
+                    required
+                    pattern="[0-9]+"
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid number for the desired spending limit.
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group controlId="formFile" className="mb-3">
-                  <Form.Label>Supporting Documents <a className="text-primary cursor-pointer text-decoration-none" onClick={(e) => { e.preventDefault(); setShow(true) }}>(View Required Documents)</a></Form.Label>
-                  <Form.Control multiple type="file" />
+                  <Form.Label>
+                    Supporting Documents{' '}
+                    <a
+                      className="text-primary cursor-pointer text-decoration-none"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShow(true);
+                      }}
+                    >
+                      (View Required Documents)
+                    </a>
+                  </Form.Label>
+                  <Form.Control multiple type="file" required />
+                  <Form.Control.Feedback type="invalid">
+                    Please upload the required supporting documents.
+                  </Form.Control.Feedback>
                 </Form.Group>
-                <Button onClick={(e) => { e.preventDefault(); window.location.href="http://localhost:3000/creditcardapplication?applied=1"; }} className='rounded-pill' variant="primary" type="submit">
+
+                <Button variant="primary" type="submit" className="rounded-pill">
                   Submit
                 </Button>
               </Form>
