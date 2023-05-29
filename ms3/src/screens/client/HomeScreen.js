@@ -142,7 +142,7 @@ const HomeScreen = () => {
                       </Table>
 
                       <div className='d-flex w-100 align-items-end'>
-                        <Button variant="outline-primary" className="rounded-pill ms-auto">View More</Button>
+                        <Button variant="outline-primary" onClick={() => window.location.href="http://localhost:3000/bankAccount/transaction"} className="rounded-pill ms-auto">View More</Button>
                       </div>
 
                     </Accordion.Body>
