@@ -2,9 +2,10 @@ import React from 'react';
 import { Card, Col, Pagination, Row, Table } from 'react-bootstrap';
 import { MDBIcon, MDBPagination } from 'mdbreact';
 import Navbar from '../../components/client/Navbar'
-import { Line } from 'react-chartjs-2';
+
 import Footer from '../../components/client/Footer';
 import { MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
+import { Line } from 'react-chartjs-2';
 
 const SingleAccountScreen = () => {
   // Dummy data for the bank account
