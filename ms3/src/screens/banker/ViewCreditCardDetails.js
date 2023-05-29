@@ -184,28 +184,32 @@ const ViewCreditCardDetails = () => {
               variant="success"
               children="Credit-card approved successfully!"
               showMessage={granted}
-              setShowMessage={setGranted}></Message>
+              setShowMessage={setGranted}
+            ></Message>
           )}
           {activated && (
             <Message
               variant="success"
               children="Credit-card activated successfully!"
               showMessage={activated}
-              setShowMessage={setActivated}></Message>
+              setShowMessage={setActivated}
+            ></Message>
           )}{" "}
           {rejected && (
             <Message
               variant="danger"
               children="Credit-card request rejected!"
               showMessage={rejected}
-              setShowMessage={setRejected}></Message>
+              setShowMessage={setRejected}
+            ></Message>
           )}
           {deactivated && (
             <Message
               variant="danger"
               children="Credit-card Deactivated!"
               showMessage={deactivated}
-              setShowMessage={setDeactivated}></Message>
+              setShowMessage={setDeactivated}
+            ></Message>
           )}
           <h2>Credit Cards - {selectedClient.name}</h2>
           <hr />
@@ -223,7 +227,8 @@ const ViewCreditCardDetails = () => {
                     <Card className="mb-3" key={card.id}>
                       <Card.Header
                         className="card-header"
-                        style={{ size: "18px" }}>
+                        style={{ size: "18px" }}
+                      >
                         <strong>Credit Card Number:</strong> {card.cardNumber}
                       </Card.Header>
                       <Card.Body>
@@ -232,7 +237,8 @@ const ViewCreditCardDetails = () => {
                             fontSize: "17px",
                             color:
                               card.status === "Active" ? "#00AA22" : "#b33022",
-                          }}>
+                          }}
+                        >
                           <strong>Status:</strong> {card.status}
                         </Card.Text>
                         <Card.Text>
@@ -250,25 +256,30 @@ const ViewCreditCardDetails = () => {
                         <Card.Text>
                           <strong>Reward Points:</strong> {card.rewardPoints}
                         </Card.Text>
+                        <hr />
                         <button
                           className="btn btn-primary btn-rounded col-3 m-2"
                           id={`Deactivate-btn ${card.id}`}
-                          onClick={(e) => handleDeactivate(card.id)}>
+                          onClick={(e) => handleDeactivate(card.id)}
+                        >
                           Deactivate card
                         </button>
                         <button
                           className=" btn btn-primary btn-rounded col-3 m-2 d-none"
                           id={`Activate-btn ${card.id}`}
-                          onClick={(e) => handleActivate(card.id)}>
+                          onClick={(e) => handleActivate(card.id)}
+                        >
                           Activate Card
                         </button>
                         <button
                           type="submit"
                           className="btn btn-primary btn-rounded col-3 m-2"
-                          id={`showDetails ${card.id}`}>
+                          id={`showDetails ${card.id}`}
+                        >
                           <a
                             className="text-light text-decoration-none"
-                            href="/banker/viewsingleCC">
+                            href="/banker/viewsingleCC"
+                          >
                             show details
                           </a>
                         </button>
@@ -286,12 +297,17 @@ const ViewCreditCardDetails = () => {
                     <Card className="mb-3" key={card.id} id={`card ${card.id}`}>
                       <Card.Header
                         className="card-header"
-                        style={{ size: "18px" }}>
+                        style={{ size: "18px" }}
+                      >
                         <strong>Pending Credit Card Request</strong>
                       </Card.Header>
                       <Card.Body>
                         <Card.Text
-                          style={{ fontSize: "17px", color: "#d99c2b" }}>
+                          style={{
+                            fontSize: "17px",
+                            color: "#d99c2b",
+                          }}
+                        >
                           <strong>Status:</strong> {card.status}
                         </Card.Text>
                         <Card.Text>
@@ -300,14 +316,17 @@ const ViewCreditCardDetails = () => {
                         <Card.Text>
                           <strong>Card Type:</strong> {card.isReplacement}
                         </Card.Text>
+                        <hr />
                         <button
                           className="btn btn-primary btn-rounded col-3 m-2"
-                          onClick={(e) => handleGrant(card.id)}>
+                          onClick={(e) => handleGrant(card.id)}
+                        >
                           Approve
                         </button>
                         <button
                           className="btn btn-primary btn-rounded col-3 m-2"
-                          onClick={(e) => removeCard(card.id)}>
+                          onClick={(e) => removeCard(card.id)}
+                        >
                           Reject
                         </button>
                       </Card.Body>
