@@ -8,58 +8,7 @@ import Inbox from "../../components/Inbox";
 import Message from "../../components/client/Message";
 
 const AdminHomeScreen = () => {
-  // const chartData = {
-  //   labels: [
-  //     "Jan",
-  //     "Feb",
-  //     "Mar",
-  //     "Apr",
-  //     "May",
-  //     "Jun",
-  //     "Jul",
-  //     "Aug",
-  //     "Sep",
-  //     "Oct",
-  //     "Nov",
-  //     "Dec",
-  //   ],
-  //   datasets: [
-  //     {
-  //       label: "Total Expenses",
-  //       data: [500, 700, 600, 800, 400, 900, 750, 650, 850, 700, 600, 1000],
-  //       fill: false,
-  //       borderColor: "rgba(75,192,192,1)",
-  //       backgroundColor: "rgba(75,192,192,0.4)",
-  //     },
-  //   ],
-  // };
-
-  const [data] = useState({
-    labels: [
-      "Eating",
-      "Drinking",
-      "Sleeping",
-      "Designing",
-      "Coding",
-      "Cycling",
-      "Running",
-    ],
-    datasets: [
-      {
-        label: "My First dataset",
-        backgroundColor: "rgba(194, 116, 161, 0.5)",
-        borderColor: "rgb(194, 116, 161)",
-        data: [65, 59, 90, 81, 56, 55, 40],
-      },
-      {
-        label: "My Second dataset",
-        backgroundColor: "rgba(71, 225, 167, 0.5)",
-        borderColor: "rgb(71, 225, 167)",
-        data: [28, 48, 40, 19, 96, 27, 100],
-      },
-    ],
-  });
-  const [notification, setNotification] = new useState(false);
+  const [notification, setNotification] = new useState(0);
 
   const removeCard = (number) => {
     if (document.getElementById(`card ${number}`)) {
@@ -72,7 +21,7 @@ const AdminHomeScreen = () => {
       <div className="row">
         <AdminSidebar></AdminSidebar>
         <div className="col-9 p-4">
-          {notification && (
+          {notification == 1 && (
             // <div
             //   class="alert alert-success position-absolute"
             //   role="alert"
@@ -93,47 +42,29 @@ const AdminHomeScreen = () => {
               showMessage={notification}
               setShowMessage={setNotification}></Message>
           )}
+          {notification == 2 && (
+            // <div
+            //   class="alert alert-success position-absolute"
+            //   role="alert"
+            //   style={{ left: "60%" }}
+            // >
+            //   Notification successfuly posted
+            //   <button
+            //     type="button"
+            //     class="btn-close"
+            //     data-bs-dismiss="alert"
+            //     aria-label="Close"
+            //     onClick={() => setNotification(false)}
+            //   ></button>
+            // </div>
+            <Message
+              variant="danger"
+              children="missing fields"
+              showMessage={notification}
+              setShowMessage={setNotification}></Message>
+          )}
           <h1 className="p-4">Welcome, Admin</h1>
           <div className="row flex-row">
-            {/* <div className="card col-9 col-lg-3 m-1">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src="https://www.conseilspatrimoineservices.fr/wp-content/uploads/2020/01/gestionnaires-de-patrimoine.svg"
-                  alt="Card image cap"
-                />
-                <h5 className="card-title">View clients</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  View all the details for one client
-                </h6>
-              </div>
-            </div>
-            <div className="card col-9 col-lg-3 m-1">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src="https://www.conseilspatrimoineservices.fr/wp-content/uploads/2020/01/gestionnaires-de-patrimoine.svg"
-                  alt="Card image cap"
-                />
-                <h5 className="card-title">View clients</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  View all the details for one client
-                </h6>
-              </div>
-            </div>
-            <div className="card col-9 col-lg-3 m-1">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src="https://www.conseilspatrimoineservices.fr/wp-content/uploads/2020/01/gestionnaires-de-patrimoine.svg"
-                  alt="Card image cap"
-                />
-                <h5 className="card-title">View clients</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  View all the details for one client
-                </h6>
-              </div>
-            </div> */}
             <div className="col-6 flex-col">
               <div className="col-12">
                 <CardComponent
@@ -164,6 +95,7 @@ const AdminHomeScreen = () => {
                     <input
                       type="text"
                       class="form-control"
+                      id="title"
                       placeholder=""
                       aria-label="Username"
                       aria-describedby="basic-addon1"></input>
@@ -174,6 +106,7 @@ const AdminHomeScreen = () => {
                   </h6>
                   <div className="input-group">
                     <textarea
+                      id="content"
                       className="form-control"
                       aria-label="With textarea"></textarea>
                   </div>
@@ -203,7 +136,16 @@ const AdminHomeScreen = () => {
                   <button
                     type="button"
                     className="btn btn-primary mt-4"
-                    onClick={() => setNotification(true)}>
+                    onClick={() => {
+                      if (
+                        document.getElementById("content").value &&
+                        document.getElementById("title").value
+                      ) {
+                        setNotification(1);
+                      } else {
+                        setNotification(2);
+                      }
+                    }}>
                     Publish notification
                   </button>
                 </div>

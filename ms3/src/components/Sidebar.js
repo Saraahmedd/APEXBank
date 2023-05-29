@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Button } from "react";
 import { useEffect } from "react";
 import { OverlayTrigger, Popover } from "react-bootstrap";
 import { BellFill, PersonCircle } from "react-bootstrap-icons";
@@ -93,7 +93,7 @@ const Sidebar = () => {
                 Privacy Policy
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/admin/login" activeClassName="activeClicked">
+            <NavLink exact to="/banker/login" activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-primary a" icon="user">
                 Logout
               </CDBSidebarMenuItem>

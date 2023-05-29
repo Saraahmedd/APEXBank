@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Footer from "../../components/footer";
-import "../banker/styles/bankerLogin.css";
+// import "../banker/styles/bankerLogin.css";
 import Message from "../../components/client/Message";
+import AdminSidebar from "../../components/adminSidebar";
 
 export default function () {
   const navigate = useNavigate();
@@ -66,124 +67,128 @@ export default function () {
 
   return (
     <>
-      <div className="Auth-form-container bg-light">
-        <form className="Auth-form">
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Create Account</h3>
-            <div className="form-group mt-3">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control mt-1"
-                placeholder="Enter email"
-                id="email"
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Enter password"
-                id="password"
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Account Type:</label>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="accountType"
-                  value="banker"
-                  checked={accountType === "banker"}
-                  onChange={handleAccountTypeChange}
-                />
-                <label className="form-check-label">Banker</label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="accountType"
-                  value="admin"
-                  checked={accountType === "admin"}
-                  onChange={handleAccountTypeChange}
-                />
-                <label className="form-check-label">Admin</label>
-              </div>
-            </div>
-            {accountType === "banker" ? (
-              <div>
+      <div className="row">
+        <div className="col-3">
+          <AdminSidebar></AdminSidebar>
+        </div>
+        <div className="col-9 d-flex justify-content-center p-0">
+          <div className="bg-white pt-4">
+            <form className="Auth-form">
+              <div className="Auth-form-content">
+                <h3 className="Auth-form-title">Create Account</h3>
                 <div className="form-group mt-3">
-                  <label>Banker ID</label>
+                  <label>Email address</label>
                   <input
-                    type="text"
-                    id="bankerId"
+                    type="email"
                     className="form-control mt-1"
-                    placeholder="Enter banker ID"
-                    value={bankerId}
-                    onChange={handleBankerIdChange}
+                    placeholder="Enter email"
+                    id="email"
                   />
                 </div>
                 <div className="form-group mt-3">
-                  <label>Department</label>
+                  <label>Password</label>
                   <input
-                    type="text"
-                    id="bankerDept"
+                    type="password"
                     className="form-control mt-1"
-                    placeholder="Enter department"
-                    value={department}
-                    onChange={handleDepartmentChange}
+                    placeholder="Enter password"
+                    id="password"
                   />
                 </div>
-              </div>
-            ) : (
-              <div className="form-group mt-3">
-                <label>Admin ID</label>
-                <input
-                  type="text"
-                  id="adminId"
-                  className="form-control mt-1"
-                  placeholder="Enter admin ID"
-                  value={adminId}
-                  onChange={handleAdminIdChange}
-                />
-              </div>
-            )}
-            <hr />
-            {/* {warning && (
+                <div className="form-group mt-3">
+                  <label>Account Type:</label>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="accountType"
+                      value="banker"
+                      checked={accountType === "banker"}
+                      onChange={handleAccountTypeChange}
+                    />
+                    <label className="form-check-label">Banker</label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="accountType"
+                      value="admin"
+                      checked={accountType === "admin"}
+                      onChange={handleAccountTypeChange}
+                    />
+                    <label className="form-check-label">Admin</label>
+                  </div>
+                </div>
+                {accountType === "banker" ? (
+                  <div>
+                    <div className="form-group mt-3">
+                      <label>Banker ID</label>
+                      <input
+                        type="text"
+                        id="bankerId"
+                        className="form-control mt-1"
+                        placeholder="Enter banker ID"
+                        value={bankerId}
+                        onChange={handleBankerIdChange}
+                      />
+                    </div>
+                    <div className="form-group mt-3">
+                      <label>Department</label>
+                      <input
+                        type="text"
+                        id="bankerDept"
+                        className="form-control mt-1"
+                        placeholder="Enter department"
+                        value={department}
+                        onChange={handleDepartmentChange}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="form-group mt-3">
+                    <label>Admin ID</label>
+                    <input
+                      type="text"
+                      id="adminId"
+                      className="form-control mt-1"
+                      placeholder="Enter admin ID"
+                      value={adminId}
+                      onChange={handleAdminIdChange}
+                    />
+                  </div>
+                )}
+                <hr />
+                {/* {warning && (
               <div className="alert alert-danger" role="alert" id="warning">
                 {warning}
               </div>
             )} */}
-            {warning && (
-              <Message
-                variant="danger"
-                children={warning}
-                showMessage={warning}
-                setShowMessage={setWarning}
-              ></Message>
-            )}
-            {success && (
-              <Message
-                variant="success"
-                children="Account successfully created!"
-                showMessage={success}
-                setShowMessage={setSuccess}
-              ></Message>
-            )}
-            <div className="d-grid gap-2 mt-3">
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={Submit}
-              >
-                Submit
-              </button>
-            </div>
+                {warning && (
+                  <Message
+                    variant="danger"
+                    children={warning}
+                    showMessage={warning}
+                    setShowMessage={setWarning}></Message>
+                )}
+                {success && (
+                  <Message
+                    variant="success"
+                    children="Account successfully created!"
+                    showMessage={success}
+                    setShowMessage={setSuccess}></Message>
+                )}
+                <div className="d-grid gap-2 mt-3">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={Submit}>
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
       <Footer></Footer>
     </>
