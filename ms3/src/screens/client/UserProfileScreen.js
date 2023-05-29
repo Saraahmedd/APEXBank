@@ -117,8 +117,9 @@ const UserProfileScreen = () => {
 </div>
 </div>
 <br />
-<Footer />
+
 </div>
+<Footer />
 </>
    
   )

@@ -90,7 +90,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                                         <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
                                             <BellFill className="text-warning ms-3 cursor-pointer" size={24} />
                                         </OverlayTrigger>
-                                        <Link to="/portal" className="text-decoration-none"><PersonCircle className="ms-3" size={36} /></Link>
+                                        <Link to="/MyProfile" className="text-decoration-none"><PersonCircle className="ms-3" size={36} /></Link>
                                         <Link to="/" className="text-decoration-none"><BoxArrowInRight className="ms-3" size={36} /></Link>
 
                                     </>}
