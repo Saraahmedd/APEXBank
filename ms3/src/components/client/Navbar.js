@@ -1,11 +1,14 @@
 import React from "react";
 import { Button, Container, Row, Col, Nav, NavDropdown, Navbar, Form, OverlayTrigger, Popover } from 'react-bootstrap'
 import '../../styles/Client.css';
-import { BellFill, PersonCircle, BoxArrowInRight } from "react-bootstrap-icons";
-import { Link } from 'react-router-dom';
+import { BellFill, PersonCircle, BoxArrowInRight, ArrowLeft } from "react-bootstrap-icons";
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../imgs/logo.png';
 
+
 const ClientNavbar = ({ loggedIn = false }) => {
+    let history = useNavigate();
+
     const popover = (
         <Popover id="popover-basic" className="rounded-0">
             <Popover.Header as="h3">Notifications</Popover.Header>
@@ -51,7 +54,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex flex-fill align-items-center">
                             <div className="d-flex flex-row justify-content-center align-items-center" style={{ flex: 1 }}>
-
+                                { loggedIn && <a onClick={() => history(-1)}><ArrowLeft size={24} className="text-primary me-2 cursor-pointer"/></a> }
                                 <Navbar.Brand href={loggedIn ? "/portal" : "/"}>
 
                                     <img
