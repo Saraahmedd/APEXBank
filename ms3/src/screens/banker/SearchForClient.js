@@ -66,7 +66,6 @@ const SearchForClient = () => {
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-
     const results = clients.filter((client) => {
       const nameMatch = client.name.toLowerCase().includes(value.toLowerCase());
       const accountMatch = client.bankAccounts.some((account) =>
@@ -74,8 +73,11 @@ const SearchForClient = () => {
       );
       return nameMatch || accountMatch;
     });
-
     setSearchResults(results);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent form submission and page refresh
   };
 
   return (
@@ -86,13 +88,16 @@ const SearchForClient = () => {
           <Notification></Notification>
           <h2>Clients</h2>
           <hr />
-          <input
-            type="text"
-            placeholder="Search by bank account number"
-            value={searchTerm}
-            onChange={handleSearch}
-            style={{ width: "90%", textAlign: "center" }}
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search by bank account number"
+              value={searchTerm}
+              onChange={handleSearch}
+              style={{ width: "90%", textAlign: "center" }}
+            />
+          </form>
+
           <hr />
           <div className="row flex-row">
             {searchResults.length > 0 ? (
@@ -100,12 +105,14 @@ const SearchForClient = () => {
                 <Card
                   className="m-2 user-card col-4"
                   key={client.id}
-                  style={{ alignItems: "center", textAlign: "center" }}>
+                  style={{ alignItems: "center", textAlign: "center" }}
+                >
                   <Card.Header className="card-header bg-white row d-flex justify-content-center">
                     {client.icon}
                     <span
                       className="ms-2 col-12"
-                      style={{ fontWeight: "bold" }}>
+                      style={{ fontWeight: "bold" }}
+                    >
                       {client.name}
                     </span>
                   </Card.Header>
@@ -123,7 +130,8 @@ const SearchForClient = () => {
                     <hr />
                     <Link
                       to={`/banker/viewclientdata/${client.id}`}
-                      className="btn btn-primary">
+                      className="btn btn-primary"
+                    >
                       View Details
                     </Link>
                   </Card.Body>

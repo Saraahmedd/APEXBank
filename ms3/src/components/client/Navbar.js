@@ -52,7 +52,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                         <Nav className="d-flex flex-fill align-items-center">
                             <div className="d-flex flex-row justify-content-center align-items-center" style={{ flex: 1 }}>
 
-                                <Navbar.Brand href="/">
+                                <Navbar.Brand href={loggedIn ? "/portal" : "/"}>
 
                                     <img
                                         alt=""
