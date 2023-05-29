@@ -42,6 +42,10 @@ p {
     margin-bottom: 20px;
 }
 
+a:hover {
+    color: #06358c !important;
+}
+
 .font-big {
   font-size: calc(1.25rem + 1.5vw) !important;
 }
