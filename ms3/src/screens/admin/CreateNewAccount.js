@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Footer from "../../components/footer";
 import "../banker/styles/bankerLogin.css";
+import Message from "../../components/client/Message";
 
 export default function () {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ export default function () {
   const [bankerId, setBankerId] = useState("");
   const [department, setDepartment] = useState("");
   const [adminId, setAdminId] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleAccountTypeChange = (e) => {
     setAccountType(e.target.value);
@@ -36,6 +38,7 @@ export default function () {
 
     if (!email || !password) {
       setWarning("Missing fields! Please fill out the full form");
+      setSuccess(false);
     } else {
       // Perform account creation logic based on the selected accountType
       if (accountType === "banker") {
@@ -44,14 +47,17 @@ export default function () {
           !document.getElementById("bankerDept").value
         ) {
           setWarning("Missing fields! Please fill out the full form");
+          setSuccess(false);
         } else {
           setWarning("");
         }
       } else if (accountType === "admin") {
         if (!document.getElementById("adminId").value) {
           setWarning("Missing fields! Please fill out the full form");
+          setSuccess(false);
         } else {
           setWarning("");
+          setSuccess(true);
         }
       }
     }
@@ -149,6 +155,14 @@ export default function () {
               <div className="alert alert-danger" role="alert" id="warning">
                 {warning}
               </div>
+            )}
+            {success && (
+              <Message
+                variant="success"
+                children="Account successfully created!"
+                showMessage={success}
+                setShowMessage={setSuccess}
+              ></Message>
             )}
             <div className="d-grid gap-2 mt-3">
               <button

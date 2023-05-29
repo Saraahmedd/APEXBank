@@ -3,6 +3,7 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Footer from "../../components/footer";
 import React, { useState } from "react";
+import Message from "../../components/client/Message";
 
 const AdminTechnicalIssuesScreen = () => {
   const loremText =
@@ -24,18 +25,24 @@ const AdminTechnicalIssuesScreen = () => {
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
           {resolve && (
-            <div
-              class="alert alert-success position-absolute"
-              role="alert"
-              style={{ left: "60%" }}>
-              Error resolved successfuly
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-                onClick={() => setResolve(false)}></button>
-            </div>
+            // <div
+            //   class="alert alert-success position-absolute"
+            //   role="alert"
+            //   style={{ left: "60%" }}>
+            //   Error resolved successfuly
+            //   <button
+            //     type="button"
+            //     class="btn-close"
+            //     data-bs-dismiss="alert"
+            //     aria-label="Close"
+            //     onClick={() => setResolve(false)}></button>
+            // </div>
+            <Message
+              variant="success"
+              children="Report resolved successfully!"
+              showMessage={resolve}
+              setShowMessage={setResolve}
+            ></Message>
           )}
           <div className="m-3">
             <h1 className="mt-3">Technical errors page</h1>
@@ -53,7 +60,8 @@ const AdminTechnicalIssuesScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(1)}>
+                  onClick={() => removeCard(1)}
+                >
                   resolved
                 </button>
               </div>
@@ -73,7 +81,8 @@ const AdminTechnicalIssuesScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(2)}>
+                  onClick={() => removeCard(2)}
+                >
                   resolved
                 </button>
               </div>
@@ -93,7 +102,8 @@ const AdminTechnicalIssuesScreen = () => {
                 <button
                   type="button"
                   class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(3)}>
+                  onClick={() => removeCard(3)}
+                >
                   resolved
                 </button>
               </div>

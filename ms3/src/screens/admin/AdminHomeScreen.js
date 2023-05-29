@@ -5,6 +5,7 @@ import { Line } from "react-chartjs-2";
 import { CDBContainer } from "cdbreact";
 import Footer from "../../components/footer";
 import Inbox from "../../components/Inbox";
+import Message from "../../components/client/Message";
 
 const AdminHomeScreen = () => {
   // const chartData = {
@@ -72,18 +73,26 @@ const AdminHomeScreen = () => {
         <AdminSidebar></AdminSidebar>
         <div className="col-9 p-4">
           {notification && (
-            <div
-              class="alert alert-success position-absolute"
-              role="alert"
-              style={{ left: "60%" }}>
-              Notification successfuly posted
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-                onClick={() => setNotification(false)}></button>
-            </div>
+            // <div
+            //   class="alert alert-success position-absolute"
+            //   role="alert"
+            //   style={{ left: "60%" }}
+            // >
+            //   Notification successfuly posted
+            //   <button
+            //     type="button"
+            //     class="btn-close"
+            //     data-bs-dismiss="alert"
+            //     aria-label="Close"
+            //     onClick={() => setNotification(false)}
+            //   ></button>
+            // </div>
+            <Message
+              variant="success"
+              children="Notification posted successfully!"
+              showMessage={notification}
+              setShowMessage={setNotification}
+            ></Message>
           )}
           <h1 className="p-4">Welcome, Admin</h1>
           <div className="row flex-row">
@@ -133,7 +142,8 @@ const AdminHomeScreen = () => {
                   data={[
                     { label: "Name", value: "Ahmed Mohsen" },
                     { label: "ID", value: "7394" },
-                  ]}></CardComponent>
+                  ]}
+                ></CardComponent>
               </div>
               <div className="col-12">
                 <CardComponent
@@ -142,15 +152,16 @@ const AdminHomeScreen = () => {
                     { label: "New issues", value: "34 " },
                     { label: "Unresolved issues", value: "7394" },
                     { label: "Total issues", value: "10000" },
-                  ]}></CardComponent>
+                  ]}
+                ></CardComponent>
               </div>
             </div>
             <div className="col-5">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Send a new Notification</h5>
+                  <h5 className="card-title">Post a new Announcement</h5>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    Notification title
+                    Announcement title
                   </h6>
                   <div className="input-group">
                     <input
@@ -158,16 +169,18 @@ const AdminHomeScreen = () => {
                       class="form-control"
                       placeholder=""
                       aria-label="Username"
-                      aria-describedby="basic-addon1"></input>
+                      aria-describedby="basic-addon1"
+                    ></input>
                   </div>
 
                   <h6 className="card-subtitle mt-4 text-muted">
-                    Notification content
+                    Announcement content
                   </h6>
                   <div className="input-group">
                     <textarea
                       className="form-control"
-                      aria-label="With textarea"></textarea>
+                      aria-label="With textarea"
+                    ></textarea>
                   </div>
                   <div class="form-check">
                     <input
@@ -195,7 +208,8 @@ const AdminHomeScreen = () => {
                   <button
                     type="button"
                     className="btn btn-primary mt-4"
-                    onClick={() => setNotification(true)}>
+                    onClick={() => setNotification(true)}
+                  >
                     Publish notification
                   </button>
                 </div>

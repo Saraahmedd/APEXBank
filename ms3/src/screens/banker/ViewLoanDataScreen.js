@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 import { useState, useEffect } from "react";
+import Message from "../../components/client/Message";
 
 import Notification from "../../components/notification";
 
@@ -86,6 +87,8 @@ const ViewLoanDataScreen = () => {
   );
 
   const [loanUpdated, setLoanUpdated] = useState(false);
+  const [granted, setGranted] = useState(false);
+  const [rejected, setRejected] = useState(false);
 
   const handleGrant = (loanId) => {
     updateLoanStatus(loanId);
@@ -100,6 +103,7 @@ const ViewLoanDataScreen = () => {
       updatedClient.loans[loanIndex].status = "Active";
       setClient(updatedClient);
       setLoanUpdated(true);
+      setGranted(true);
     }
   };
 
@@ -112,6 +116,7 @@ const ViewLoanDataScreen = () => {
     if (document.getElementById(`card ${number}`)) {
       console.log("ALOOOOOI");
       document.getElementById(`card ${number}`).classList.add("d-none");
+      setRejected(true);
     }
   };
 
@@ -121,6 +126,22 @@ const ViewLoanDataScreen = () => {
         <Sidebar />
         <div className="column m-4" style={{ flex: "3" }}>
           <Notification></Notification>
+          {granted && (
+            <Message
+              variant="success"
+              children="Loan Granted Successfully!"
+              showMessage={granted}
+              setShowMessage={setGranted}
+            ></Message>
+          )}{" "}
+          {rejected && (
+            <Message
+              variant="danger"
+              children="Loan Rejected!"
+              showMessage={rejected}
+              setShowMessage={setRejected}
+            ></Message>
+          )}
           <h2>Loan Details - {client.name}</h2>
           <hr />
           <div className="mb-4">
