@@ -16,9 +16,18 @@ import logo from "../imgs/logo_transparent.png";
 const Sidebar = () => {
   const params = useParams();
   useEffect(() => {
-    console.log(window.location.href);
+    console.log(window.location.href, params.id);
+    console.log("http://localhost:3000//banker/viewclientdata/" + params.id);
     switch (window.location.href) {
       case "http://localhost:3000/banker/viewclients":
+      case "http://localhost:3000/banker/viewclientdata/" + params.id:
+      case "http://localhost:3000/banker/viewclienttransactions":
+      case "http://localhost:3000/banker/viewcreditcards/" + params.id:
+      case "http://localhost:3000/banker/viewloans/" + params.id:
+      case "http://localhost:3000/banker/viewreports/" + params.id:
+      case "http://localhost:3000/banker/viewsingleCC":
+      case "http://localhost:3000/banker/viewsingleloan":
+      case "http://localhost:3000/banker/viewtransactions":
         document.getElementById("viewclients").classList.add("fw-bold");
         break;
       case "http://localhost:3000/banker/homescreen":
