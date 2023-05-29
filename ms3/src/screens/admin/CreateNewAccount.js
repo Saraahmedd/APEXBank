@@ -46,10 +46,11 @@ export default function () {
           !document.getElementById("bankerId").value ||
           !document.getElementById("bankerDept").value
         ) {
-          setWarning("Missing fields! Please fill out the full form");
+          setWarning("Missing fields! Please fill out the form");
           setSuccess(false);
         } else {
           setWarning("");
+          setSuccess(true);
         }
       } else if (accountType === "admin") {
         if (!document.getElementById("adminId").value) {
@@ -151,10 +152,18 @@ export default function () {
               </div>
             )}
             <hr />
-            {warning && (
+            {/* {warning && (
               <div className="alert alert-danger" role="alert" id="warning">
                 {warning}
               </div>
+            )} */}
+            {warning && (
+              <Message
+                variant="danger"
+                children={warning}
+                showMessage={warning}
+                setShowMessage={setWarning}
+              ></Message>
             )}
             {success && (
               <Message
