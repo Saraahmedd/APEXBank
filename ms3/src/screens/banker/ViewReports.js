@@ -41,8 +41,7 @@ const ViewCreditCardReports = () => {
               variant="success"
               children="Report resolved successfully!"
               showMessage={resolve}
-              setShowMessage={setResolve}
-            ></Message>
+              setShowMessage={setResolve}></Message>
           )}
           <h1 className="pt-4 px-4">Reports by client</h1>
           <div className="col-11 mt-5">
@@ -55,15 +54,13 @@ const ViewCreditCardReports = () => {
                     className="form-control"
                     placeholder="Add description..."
                     value={descriptions[1] || ""}
-                    onChange={(e) => handleDescriptionChange(e, 1)}
-                  ></textarea>
+                    onChange={(e) => handleDescriptionChange(e, 1)}></textarea>
                 </div>
                 <div className="col-2 d-flex align-items-center justify-content-end">
                   <button
                     type="button"
                     className="btn btn-primary"
-                    onClick={() => removeCard(1)}
-                  >
+                    onClick={() => removeCard(1)}>
                     Resolve
                   </button>
                 </div>
@@ -80,15 +77,13 @@ const ViewCreditCardReports = () => {
                     className="form-control"
                     placeholder="Add description..."
                     value={descriptions[2] || ""}
-                    onChange={(e) => handleDescriptionChange(e, 2)}
-                  ></textarea>
+                    onChange={(e) => handleDescriptionChange(e, 2)}></textarea>
                 </div>
                 <div className="col-2 d-flex align-items-center justify-content-end">
                   <button
                     type="button"
                     className="btn btn-primary"
-                    onClick={() => removeCard(1)}
-                  >
+                    onClick={() => removeCard(1)}>
                     Resolve
                   </button>
                 </div>
@@ -105,15 +100,13 @@ const ViewCreditCardReports = () => {
                     className="form-control"
                     placeholder="Add description..."
                     value={descriptions[3] || ""}
-                    onChange={(e) => handleDescriptionChange(e, 3)}
-                  ></textarea>
+                    onChange={(e) => handleDescriptionChange(e, 3)}></textarea>
                 </div>
                 <div className="col-2 d-flex align-items-center justify-content-end">
                   <button
                     type="button"
                     className="btn btn-primary"
-                    onClick={() => removeCard(1)}
-                  >
+                    onClick={() => removeCard(1)}>
                     Resolve
                   </button>
                 </div>

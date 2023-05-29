@@ -5,87 +5,93 @@ import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 import { Table } from "react-bootstrap";
 
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 
 const ViewTransaction = () => {
   const transactions = [
     {
-      reference: "TXN123456789",
-      date: "2023-05-25",
-      value: 50.99,
-      description: "Purchase at XYZ Store",
+      id: 1,
+      referenceNumber: "#123456789",
+      date: "2022-05-30",
+      description: "Payment for goods",
+      amount: 100.0,
+      from: "1234 5678 1234 5678",
+      to: "2345 6789 2345 6789",
+      type: "Purchase",
+      status: "Completed",
+      comments: "Transaction successful",
     },
     {
-      reference: "TXN987654321",
-      date: "2023-05-26",
-      value: 25.5,
-      description: "Online payment for subscription",
+      id: 2,
+      referenceNumber: "#987654321",
+      date: "2022-06-01",
+      description: "Salary payment",
+      amount: 5000.0,
+      from: "3456 7890 3456 7890",
+      to: "1234 5678 1234 5678",
+      type: "Income",
+      status: "Pending",
+      comments: "Awaiting approval",
     },
     {
-      reference: "TXN246813579",
-      date: "2023-05-27",
-      value: 120.75,
-      description: "Dinner at ABC Restaurant",
+      id: 3,
+      referenceNumber: "#456789012",
+      date: "2022-06-02",
+      description: "Payment for services",
+      amount: 250.0,
+      from: "1234 5678 9012 3456",
+      to: "1234 5678 1234 5678",
+      type: "Income",
+      status: "Completed",
+      comments: "Transaction successful",
     },
     {
-      reference: "TXN369258147",
-      date: "2023-05-28",
-      value: 80.0,
-      description: "Clothing purchase at DEF Boutique",
+      id: 4,
+      referenceNumber: "#890123456",
+      date: "2022-06-05",
+      description: "Payment for rent",
+      amount: 800.0,
+      from: "1234 5678 1234 5678",
+      to: "1234 1234 5678 5678",
+      type: "Expense",
+      status: "Completed",
+      comments: "Transaction successful",
     },
     {
-      reference: "TXN951753628",
-      date: "2023-05-29",
-      value: 150.25,
-      description: "Electronics purchase at GHI Store",
+      id: 5,
+      referenceNumber: "#234567890",
+      date: "2022-06-07",
+      description: "Payment for subscription",
+      amount: 50.0,
+      from: "1234 5678 1234 5678",
+      to: "1111 2222 3333 4444",
+      type: "Purchase",
+      status: "Pending",
+      comments: "Awaiting approval",
     },
     {
-      reference: "TXN741852963",
-      date: "2023-05-30",
-      value: 200.0,
-      description: "Hotel reservation at JKL Resort",
+      id: 6,
+      referenceNumber: "#678901234",
+      date: "2022-06-10",
+      description: "Payment for services",
+      amount: 300.0,
+      from: "3456 7890 3456 7890",
+      to: "1234 5678 1234 5678",
+      type: "Income",
+      status: "Completed",
+      comments: "Transaction successful",
     },
     {
-      reference: "TXN528496731",
-      date: "2023-05-31",
-      value: 65.99,
-      description: "Grocery shopping at MNO Supermarket",
-    },
-    {
-      reference: "TXN314159265",
-      date: "2023-06-01",
-      value: 75.5,
-      description: "Gasoline purchase at PQR Station",
-    },
-    {
-      reference: "TXN789456123",
-      date: "2023-06-02",
-      value: 300.0,
-      description: "Furniture purchase at STU Home Decor",
-    },
-    {
-      reference: "TXN123123123",
-      date: "2023-06-03",
-      value: 234.75,
-      description: "Concert ticket purchase for XYZ Band",
-    },
-    {
-      reference: "TXN125123123",
-      date: "2023-06-02",
-      value: 455.75,
-      description: "Gasoline purchase at Mobil",
-    },
-    {
-      reference: "TXN126123123",
-      date: "2023-06-01",
-      value: 75.75,
-      description: "Talabat Cairo purchase",
-    },
-    {
-      reference: "TXN127123123",
-      date: "2023-05-31",
-      value: 4232.5,
-      description: "Nike Cairo Festival City Purchase",
+      id: 7,
+      referenceNumber: "#345678901",
+      date: "2022-06-12",
+      description: "Payment for goods",
+      amount: 75.0,
+      from: "1234 5678 1234 5678",
+      to: "2345 6789 2345 6789",
+      type: "Purchase",
+      status: "Completed",
+      comments: "Transaction successful",
     },
   ];
 
@@ -99,57 +105,38 @@ const ViewTransaction = () => {
 
           <div className="my-4">
             <h2>Transactions</h2>
-            <Table striped bordered hover>
+            <Table striped bordered hover responsive>
               <thead>
                 <tr>
-                  <th>Transaction Reference</th>
-                  <th>Transaction Description</th>
-                  <th>Transaction Value</th>
-                  <th>Transaction Date</th>
+                  <th>ID</th>
+                  <th>Reference Number</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Comments</th>
                 </tr>
               </thead>
               <tbody>
-                {transactions.reverse().map((transaction, index) => {
-                  return (
-                    <tr>
-                      <td>{transaction.reference}</td>
-                      <td>{transaction.description}</td>
-                      <td>{transaction.value} USD</td>
-                      <td>{transaction.date}</td>
-                    </tr>
-                  );
-                })}
+                {transactions.map((transaction) => (
+                  <tr key={transaction.id}>
+                    <td>{transaction.id}</td>
+                    <td>{transaction.referenceNumber}</td>
+                    <td>{transaction.date}</td>
+                    <td>{transaction.description}</td>
+                    <td>{transaction.amount}</td>
+                    <td>{transaction.from}</td>
+                    <td>{transaction.to}</td>
+                    <td>{transaction.type}</td>
+                    <td>{transaction.status}</td>
+                    <td>{transaction.comments}</td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    Previous
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    1
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    2
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    3
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    Next
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 
 const ViewCllientTransactionsScreen = () => {
   return (

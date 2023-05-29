@@ -7,7 +7,7 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from "cdbreact";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "./styles/sidebar.css";
 import logo from "../imgs/logo_transparent.png";
@@ -41,14 +41,11 @@ const AdminSidebar = () => {
         </CDBSidebarHeader>
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to={navigate(-1)} activeClassName="activeClicked">
-              <CDBSidebarMenuItem
-                id=""
-                icon="arrow-left"
-                className="text-primary a">
+            <Link to="#" onClick={() => navigate(-1)} className="text-primary">
+              <CDBSidebarMenuItem id="" icon="arrow-left" className="a">
                 Back
               </CDBSidebarMenuItem>
-            </NavLink>
+            </Link>
             <NavLink
               exact
               to="/admin/homescreen"

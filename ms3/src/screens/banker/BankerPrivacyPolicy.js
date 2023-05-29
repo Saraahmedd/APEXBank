@@ -4,7 +4,7 @@ import Grid from "../../components/grid";
 import Footer from "../../components/footer";
 import React from "react";
 
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 
 const BankerPrivacyPolicy = () => {
   return (

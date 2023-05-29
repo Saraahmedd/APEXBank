@@ -5,8 +5,8 @@ import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
 import { useState, useEffect } from "react";
 import Message from "../../components/client/Message";
-
-import Notification from "../../components/notification";
+import DownloadButton from "../../components/download";
+import Notification from "../../components/notification2";
 
 const ViewLoanDataScreen = () => {
   const { id } = useParams();
@@ -202,9 +202,6 @@ const ViewLoanDataScreen = () => {
                       <strong>Interest Rate:</strong> {loan.interestRate}%
                     </div>
                     <div>
-                      <strong>Status:</strong> {loan.status}
-                    </div>
-                    <div>
                       <strong>Borrower:</strong> {loan.borrower}
                     </div>
                     <hr />
@@ -222,6 +219,7 @@ const ViewLoanDataScreen = () => {
                     >
                       Reject
                     </button>
+                    <DownloadButton></DownloadButton>
                   </Card.Body>
                 </Card>
               ))}

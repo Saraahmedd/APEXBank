@@ -10,11 +10,20 @@ const AdminTechnicalIssuesScreen = () => {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam condimentum libero, id efficitur quam accumsan eu. Aenean gravida erat id risus aliquet, ac consequat quam malesuada. In hac habitasse platea dictumst. Proin eget feugiat metus. Sed vitae augue mauris. Phasellus posuere tincidunt risus sed faucibus. Nullam aliquam tortor non tincidunt cursus. Suspendisse potenti. Duis facilisis arcu vitae semper vehicula. Vestibulum ac gravida nisi.";
 
   const [resolve, setResolve] = new useState(false);
+  const [descriptions, setDescriptions] = useState({});
+
   const removeCard = (number) => {
     if (document.getElementById(`card ${number}`)) {
       document.getElementById(`card ${number}`).classList.add("d-none");
       setResolve(true);
     }
+  };
+
+  const handleDescriptionChange = (event, number) => {
+    setDescriptions((prevDescriptions) => ({
+      ...prevDescriptions,
+      [number]: event.target.value,
+    }));
   };
 
   return (
@@ -25,83 +34,96 @@ const AdminTechnicalIssuesScreen = () => {
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
           {resolve && (
-            // <div
-            //   class="alert alert-success position-absolute"
-            //   role="alert"
-            //   style={{ left: "60%" }}>
-            //   Error resolved successfuly
-            //   <button
-            //     type="button"
-            //     class="btn-close"
-            //     data-bs-dismiss="alert"
-            //     aria-label="Close"
-            //     onClick={() => setResolve(false)}></button>
-            // </div>
             <Message
               variant="success"
               children="Report resolved successfully!"
               showMessage={resolve}
-              setShowMessage={setResolve}></Message>
+              setShowMessage={setResolve}
+            ></Message>
           )}
           <div className="m-3">
             <h1 className="mt-3">Technical Issues Page</h1>
             <h4 className="mb-5">Make sure to resolve all technical errors</h4>
           </div>
-          <div className="col-11 mt-2">
-            <div class="card" id="card 1">
-              <div class="card-header h1">Report</div>
+          <div className="col-11 mt-5">
+            <div class="card m-2" id="card 1">
+              <div class="card-header h4">
+                I am unable to log into my account
+              </div>
               <div class="card-body row">
-                <h5 class="card-title col-12">
-                  I'm unable to log into my account.
-                </h5>
                 <p>{loremText}</p>
-                <div className="col-10"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(1)}>
-                  resolved
-                </button>
+                <div className="col-9">
+                  <textarea
+                    className="form-control"
+                    placeholder="Add description..."
+                    value={descriptions[1] || ""}
+                    onChange={(e) => handleDescriptionChange(e, 1)}
+                  ></textarea>
+                </div>
+                <div className="col-2 d-flex align-items-center justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => removeCard(1)}
+                  >
+                    Resolve
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-11 mt-2">
-            <div class="card" id="card 2">
-              <div class="card-header h1">Report</div>
+            <div class="card m-2" id="card 2">
+              <div class="card-header h4">
+                I received a 'Page Not Found' error when clicking on a link
+                within the website.
+              </div>
               <div class="card-body row">
-                <h5 class="card-title col-12">
-                  I've been charged twice for the same transaction on my online
-                  statement.
-                </h5>
                 <p>{loremText}</p>
-                <p></p>
-                <div className="col-10"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(2)}>
-                  resolved
-                </button>
+                <div className="col-9">
+                  <textarea
+                    className="form-control"
+                    placeholder="Add description..."
+                    value={descriptions[2] || ""}
+                    onChange={(e) => handleDescriptionChange(e, 2)}
+                  ></textarea>
+                </div>
+                <div className="col-2 d-flex align-items-center justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => removeCard(1)}
+                  >
+                    Resolve
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-11 mt-2">
-            <div class="card" id="card 3">
-              <div class="card-header h1">Report</div>
-              <div class="card-body row">
-                <h5 class="card-title col-12">
-                  I tried to transfer funds to another account, but the
-                  transaction failed, and the money was not returned to my
-                  account.
-                </h5>
+            <div class="card m-2" id="card 3">
+              <div class="card-header h4">
+                The system's password reset functionality is not working
+              </div>
+              <div class="card-body row ">
                 <p>{loremText}</p>
-                <div className="col-10"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(3)}>
-                  resolved
-                </button>
+                <div className="col-9">
+                  <textarea
+                    className="form-control"
+                    placeholder="Add description..."
+                    value={descriptions[3] || ""}
+                    onChange={(e) => handleDescriptionChange(e, 3)}
+                  ></textarea>
+                </div>
+                <div className="col-2 d-flex align-items-center justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => removeCard(1)}
+                  >
+                    Resolve
+                  </button>
+                </div>
               </div>
             </div>
           </div>

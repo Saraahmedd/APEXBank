@@ -3,10 +3,19 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
+import CardComponent from "../../components/CardComponent";
 
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 
 const ViewSingleLoan = () => {
+  const addressFields = [
+    { label: "Loan type", value: "Car loan" },
+    { label: "Loan term", value: "	5 YEARS - 7.5%" },
+    { label: "Loaned amount", value: "200000" },
+    { label: "Loan start date", value: "01/01/20020" },
+    { label: "Loan end date", value: "01/01/2028" },
+    { label: "Percentage covered", value: "33%" },
+  ];
   return (
     <>
       <div className="row bg-light">
@@ -16,13 +25,17 @@ const ViewSingleLoan = () => {
             {" "}
             <Notification></Notification> Loan Details
           </h1>
-
+          <div className="my-5">
+            <CardComponent
+              title="Loan Information"
+              data={addressFields}></CardComponent>
+          </div>
           <div className="my-4">
             <h2>Upcoming Deadlines</h2>
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Loan amount ID</th>
+                  <th scope="col">Payment ID</th>
                   <th scope="col">amount</th>
                   <th scope="col">Deadline</th>
                 </tr>
@@ -45,38 +58,9 @@ const ViewSingleLoan = () => {
                 </tr>
               </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    Previous
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    1
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    2
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    3
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    Next
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
 
-          <div className="my-4">
+          <div className="my-5">
             <h2>Paid amounts</h2>
             <table class="table table-striped">
               <thead>
@@ -104,35 +88,6 @@ const ViewSingleLoan = () => {
                 </tr>
               </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    Previous
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    1
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    2
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    3
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    Next
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>

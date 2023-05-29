@@ -5,7 +5,7 @@ import { BsPerson } from "react-icons/bs";
 import { IoMdPerson } from "react-icons/io";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
-import Notification from "../../components/notification";
+import Notification from "../../components/notification2";
 const maleAvatar = require("../../imgs/maleAvatar.png");
 const femaleAvatar = require("../../imgs/femaleAvatar.png");
 
