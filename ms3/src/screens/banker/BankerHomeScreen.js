@@ -49,7 +49,7 @@ const BankerHomeScreen = () => {
           <Notification></Notification>
           <h1 className="p-4">Welcome, Banker</h1>
           <div className="row flex-row">
-            <div className="col-6 flex-col">
+            <div className="col-9 flex-col">
               <div className="col-12">
                 <CardComponent
                   title="Banker Information"
@@ -67,12 +67,6 @@ const BankerHomeScreen = () => {
                     { label: "total credit card requests", value: "10000" },
                   ]}></CardComponent>
               </div>
-            </div>
-            <div className="col-5 bg-secondary">
-              {/* <div className="mt-5">
-                <h4>Total Expenses per Month</h4>
-                <Line data={chartData} />
-              </div> */}
             </div>
           </div>
           <hr />

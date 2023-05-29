@@ -1,4 +1,6 @@
-
+a:hover {
+  font-weight: bold;
+}
 
 .App {
   text-align: center;
