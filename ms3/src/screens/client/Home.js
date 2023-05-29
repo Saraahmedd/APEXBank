@@ -107,7 +107,7 @@ const Home = () => {
                   knowledgeable professionals has been instrumental in helping
                   me achieve my financial goals." <br />
                   <span className="text-muted fs-5">
-                    Ziad Zilzal, CEO of Spark Energies
+                    Omar Tamer, CEO of Spark Energies
                   </span>
                 </h3>
               </Col>

@@ -16,12 +16,12 @@ const ClientNavbar = ({ loggedIn = false }) => {
                 <ul className="list-group rounded-0 border-0">
                     <li className="list-group-item">
                         <span className="fw-bold">Announcement</span><br />
-                        Exciting news! Update our mobile banking app for a better, more secure experience. Discover new features and enhanced functionality today.<br />
+                        Update our app for the newest features!<br/>
                         <span className="text-muted">26-05-2023</span>
                     </li>
                     <li className="list-group-item">
                         <span className="fw-bold">Transaction</span><br />
-                        Spent 175.50 EGP at Talabat Cairo EG<br />
+                        Spent 175.50 USD at Talabat Cairo<br />
                         <span className="text-muted">25-05-2023</span>
                     </li>
                     <li className="list-group-item">
@@ -31,7 +31,12 @@ const ClientNavbar = ({ loggedIn = false }) => {
                     </li>
                     <li className="list-group-item">
                         <span className="fw-bold">Ticket #142</span><br />
-                        Your issue #142 was resolved, please check your email!<br />
+                        Your issue #142 was resolved!<br />
+                        <span className="text-muted">20-05-2023</span>
+                    </li>
+                    <li className="list-group-item">
+                        <span className="fw-bold">Ticket #114</span><br />
+                        Your loan application 1212 has been accepted!<br />
                         <span className="text-muted">20-05-2023</span>
                     </li>
                 </ul>
@@ -47,7 +52,7 @@ const ClientNavbar = ({ loggedIn = false }) => {
                     <p className="m-0 ms-3 fw-bold text-primary">Get the App</p>
                 </div>
             </Container>
-            <Navbar bg="white" expand="lg" className="border-bottom border-light client-navbar">
+            <Navbar bg="white" expand="lg" className="mb-2 border-bottom border-light client-navbar">
                 <Container>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

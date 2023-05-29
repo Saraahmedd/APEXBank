@@ -56,11 +56,11 @@ const CreditCardApplicationScreen = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="spendingLimit">Desired Monthly Spending Limit in EGP <span className="text-danger">*</span></Form.Label>
+                  <Form.Label htmlFor="spendingLimit">Desired Monthly Spending Limit in USD <span className="text-danger">*</span></Form.Label>
                   <Form.Control
                     type="text"
                     id="spendingLimit"
-                    placeholder="e.g. 100,000 EGP"
+                    placeholder="e.g. 100,000 USD"
                     required
                     pattern="[0-9]+"
                   />

@@ -68,11 +68,11 @@ const LoanApplicationScree = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="loanAmt">Amount Requested in EGP <span className="text-danger">*</span></Form.Label>
+                  <Form.Label htmlFor="loanAmt">Amount Requested in USD <span className="text-danger">*</span></Form.Label>
                   <Form.Control
                     type="text"
                     id="loanAmt"
-                    placeholder="e.g. 100,000 EGP"
+                    placeholder="e.g. 100,000 USD"
                     pattern="[0-9]+"
                     required
                   />

@@ -6,6 +6,7 @@ import Navbar from '../../components/client/Navbar'
 import Footer from '../../components/client/Footer';
 import { MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
 import { Line } from 'react-chartjs-2';
+import { CategoryScale } from 'chart.js';
 
 const SingleAccountScreen = () => {
   // Dummy data for the bank account
@@ -170,7 +171,7 @@ const SingleAccountScreen = () => {
         <div className="d-flex flex-column">
         <div className="mb-2" style={{textAlign:"left"}} >
           <MDBIcon icon="dollar-sign" className="me-2" />
-         <b> Currency: </b> <br/>  Dollar
+         <b> Currency: </b> <br/>  USD
         </div>
         <div style={{textAlign:"left"}} >
           <MDBIcon icon="circle" className="me-2 " />
@@ -211,7 +212,7 @@ const SingleAccountScreen = () => {
               <td>{transaction.referenceNumber}</td>
               <td>{transaction.date}</td>
               <td>{transaction.description}</td>
-              <td>{transaction.amount}</td>
+              <td>{transaction.amount} USD</td>
               <td>{transaction.from}</td>
               <td>{transaction.to}</td>
               <td>{transaction.type}</td>
@@ -241,10 +242,10 @@ const SingleAccountScreen = () => {
       </MDBPagination>
         </div>
 
-        <div className="mt-5 mb-5">
+        {/* <div className="mt-5 mb-5">
           <h4>Total Expenses per Month</h4>
           <Line data={chartData} />
-        </div>
+        </div> */}
       </div>
       
        <Footer />

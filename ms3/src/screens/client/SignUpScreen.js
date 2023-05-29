@@ -17,7 +17,9 @@ const SignUpScreen = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [routingNumber, setRoutingNumber] = useState('');
   const [termsChecked, setTermsChecked] = useState(false);
@@ -32,9 +34,21 @@ const SignUpScreen = () => {
        setVariant("danger")
       return;
     }
-    if (activeForm === 2 && (!username || !password)) {
+    if (activeForm === 2 && (!username || !password || !password2 || !email)) {
        setSuccess(true)
       setMessage('Please fill in all fields.')
+       setVariant("danger")
+      return;
+    }
+    if (activeForm === 2 && (!email.includes("@") || !email.includes("."))) {
+      setSuccess(true)
+      setMessage('Please enter a valid email.')
+        setVariant("danger")
+      return;
+    }
+    if(activeForm === 2 && !(password === password2)) {
+      setSuccess(true)
+      setMessage('Passwords do not match.')
        setVariant("danger")
       return;
     }
@@ -147,7 +161,7 @@ const SignUpScreen = () => {
               </div>
             </div>
 
-            <Container className='d-flex flex-column' style={{ height: '40vh' }}>
+            <Container className='d-flex flex-column' style={{ height: '50vh' }}>
 
               <Form id="form1" style={{ display: activeForm === 1 ? "block" : "none" }}>
                 <p>
@@ -207,9 +221,18 @@ const SignUpScreen = () => {
                   <Form.Label>Username *</Form.Label>
                   <Form.Control  onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Enter your username" />
                 </Form.Group>
+                <Form.Group controlId="formUsername">
+                  <Form.Label>Email *</Form.Label>
+                  <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your email" />
+                </Form.Group>
                 <Form.Group controlId="formPassword">
                   <Form.Label>Password *</Form.Label>
                   <Form.Control  onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter your password" />
+                </Form.Group>
+
+                <Form.Group controlId="formPassword">
+                  <Form.Label>Confirm Password *</Form.Label>
+                  <Form.Control  onChange={(e) => setPassword2(e.target.value)} type="password" placeholder="Enter your password" />
                 </Form.Group>
 
                 {/* <Button   variant="secondary" className='m-3' onClick={handlePrevForm}>Back</Button>

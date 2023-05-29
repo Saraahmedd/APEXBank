@@ -114,7 +114,7 @@ const ViewTransaction = () => {
                     <tr>
                       <td>{transaction.reference}</td>
                       <td>{transaction.description}</td>
-                      <td>{transaction.value} EGP</td>
+                      <td>{transaction.value} USD</td>
                       <td>{transaction.date}</td>
                     </tr>
                   );

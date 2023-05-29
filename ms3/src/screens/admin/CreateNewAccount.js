@@ -77,7 +77,7 @@ export default function () {
               <div className="Auth-form-content">
                 <h3 className="Auth-form-title">Create Account</h3>
                 <div className="form-group mt-3">
-                  <label>Email address</label>
+                  <label>Email Address</label>
                   <input
                     type="email"
                     className="form-control mt-1"

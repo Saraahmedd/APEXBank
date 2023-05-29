@@ -66,17 +66,16 @@ const CreditCardScreen = () => {
                           <div className='d-flex flex-fill'>
                             • • • {card.cardNumber.split(' ')[3]}
                             <span className="flex-grow-1"></span>
-                            <Flag className='text-danger' />
                             {/* <SlashCircleFill className='text-secondary' /> */}
                           </div>
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">{card.type}</Card.Subtitle>
                         <Card.Text>
                           <span className='text-muted fw-bold fs-6'>
-                            {card.remaining} / {card.limit} EGP
+                            {card.remaining} / {card.limit} USD
                           </span>
                         </Card.Text>
-                        <Button variant="outline-secondary rounded-pill">Disable Card</Button>
+                        <Button variant="outline-secondary rounded-pill">Card Details</Button>
                       </Card.Body>
                     </Card>
                   );

@@ -110,7 +110,7 @@ const BankAccountScreen = () => {
                   <DropdownToggle caret  variant="outline-primary">
                     {selectedOption}
                   </DropdownToggle>
-                  <DropdownMenu variant="outline-primary">
+                  <DropdownMenu required variant="outline-primary">
                     <DropdownItem onClick={() => handleOptionSelect('High School')}>High School</DropdownItem>
                     <DropdownItem onClick={() => handleOptionSelect("Associate's Degree")}>Associate's Degree</DropdownItem>
                     <DropdownItem onClick={() => handleOptionSelect("Bachelor's Degree")}>Bachelor's Degree</DropdownItem>
@@ -130,7 +130,7 @@ const BankAccountScreen = () => {
             <Col> 
               <Form.Group controlId="idCardUpload">
                 <Form.Label>ID Card Upload *</Form.Label>
-               <Form.Control type="file" />
+               <Form.Control required type="file" />
               <Form.Text className="text-muted">
                 Upload a scanned copy of your identification proof.
               </Form.Text>
@@ -147,7 +147,7 @@ const BankAccountScreen = () => {
             </Col>
             <Col><Form.Group controlId="educationLevel">
                 <Form.Label>Account Type *</Form.Label>
-                 <Dropdown isOpen={false} toggle={() => {}}>
+                 <Dropdown required isOpen={false} toggle={() => {}}>
                   <DropdownToggle caret  variant="outline-primary">
                     {selectedOption2}
                   </DropdownToggle>

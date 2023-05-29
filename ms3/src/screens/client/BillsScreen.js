@@ -14,12 +14,16 @@ const BillsScreen = () => {
   const handleShow = () => setShow(true);
   const [isValidated, setIsValidated] = useState(false);
   const [isValidated2, setIsValidated2] = useState(false);
+  const [isValidated3, setIsValidated3] = useState(false);
 
   const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
   let [chosenBill, setChosenBill] = useState('');
 
   const handleClose2 = () => setShow2(false);
+  const handleClose3 = () => setShow3(false);
   const handleShow2 = () => setShow2(true);
+  const handleShow3 = () => setShow3(true);
   const [amountPaid, setAmountPaid] = useState('');
 
   const [description, setDescription] = useState('');
@@ -88,10 +92,15 @@ const BillsScreen = () => {
   };
 
   const setReminderOff = (billNumber) => {
+    setChosenBill(billNumber);
     let newBills = [];
     for (let bill of bills) {
-      if (bill.billNumber == billNumber) {
-        bill.reminder = !bill.reminder;
+      if (bill.billNumber == billNumber && bill.billType === "UTILITY") {
+        if (!bill.reminder) {
+          setShow3(true);
+        } else {
+          bill.reminder = !bill.reminder;
+        }
         newBills.push(bill);
       } else {
         newBills.push(bill);
@@ -109,11 +118,11 @@ const BillsScreen = () => {
       console.log(chosenBill);
       for (let bill of bills) {
         if (bill.billNumber == chosenBill) {
-          if (amountPaid == bill.billedAmt) {
+          if (amountPaid >= bill.billedAmt) {
             bill.status = "PAID";
           } else {
-            const amtLeft = parseFloat(bill.billedAmt) - parseFloat(amountPaid);
-            bill.status = "PARTIALLY PAID - " + amtLeft + " EGP remaining";
+            const amtLeft = (parseFloat(bill.billedAmt) - parseFloat(amountPaid)) >= 0 ? (parseFloat(bill.billedAmt) - parseFloat(amountPaid)) : 0;
+            bill.status = "PARTIALLY PAID - " + amtLeft + " USD remaining";
           }
           newBills.push(bill);
         } else {
@@ -166,7 +175,7 @@ const BillsScreen = () => {
                         <td>{bill.billType}</td>
                         <td>{bill.billDescription}</td>
                         <td>{bill.payee}</td>
-                        <td>{bill.billedAmt} EGP</td>
+                        <td>{bill.billedAmt} USD</td>
                         <td>{bill.dueDate}</td>
                         <td>{bill.status}</td>
                         <td className='text-center'>{(bill.billType === "UTILITY" && bill.reminder === false) ? (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-secondary cursor-pointer" size={24} />) : (<BellFill onClick={() => setReminderOff(bill.billNumber)} className="text-warning cursor-pointer" size={24} />)}</td>
@@ -273,7 +282,7 @@ const BillsScreen = () => {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="loanAmt">Amount to Pay in EGP <span className="text-danger">*</span></Form.Label>
+              <Form.Label htmlFor="loanAmt">Amount to Pay in USD <span className="text-danger">*</span></Form.Label>
               <Form.Control
                 type="text"
                 id="loanAmt"
@@ -293,6 +302,74 @@ const BillsScreen = () => {
               </Button>
               <Button variant="primary" type="submit">
                 Pay Now
+              </Button>
+            </Modal.Footer>
+          </Form>
+        </Modal.Body>
+      </Modal>
+
+
+
+
+
+      <Modal show={show3} onHide={handleClose3}>
+        <Modal.Header closeButton>
+          <Modal.Title>Set Reminder</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form noValidate validated={isValidated3} onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.currentTarget;
+            if (form.checkValidity()) {
+
+              let newBills = [];
+              for (let bill of bills) {
+                console.log(chosenBill);
+                if (bill.billNumber == chosenBill) {
+                  bill.reminder = true;
+                  newBills.push(bill);
+                } else {
+                  newBills.push(bill);
+                }
+              }
+              setBills(newBills);
+              handleClose3();
+            }
+
+            setIsValidated3(true);
+          }}>
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="bankAccChoice">When do you want to be reminded?  <span className="text-danger">*</span></Form.Label>
+              <Form.Select required id="bankAccChoice">
+                <option value="">Choose...</option>
+                <option value="1">24 hours before</option>
+                <option value="3">48 hours befor</option>
+                <option value="2">72 hours before</option>
+              </Form.Select>
+              <Form.Control.Feedback type="invalid">
+                Please select a time to be reminded at.
+              </Form.Control.Feedback>
+            </Form.Group>
+
+
+            <Form.Check // prettier-ignore
+              type="checkbox"
+              id={`default1`}
+              label="Notify via SMS"
+            />
+
+            <Form.Check // prettier-ignore
+              type="checkbox"
+              id={`default-2`}
+              label="Notify via Email"
+            />
+
+            <Modal.Footer className='mt-2'>
+              <Button onClick={handleClose3} variant="secondary">
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit">
+                Set Reminder
               </Button>
             </Modal.Footer>
           </Form>
