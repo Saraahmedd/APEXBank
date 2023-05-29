@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -6,7 +6,7 @@ import { FaChevronDown, FaDollarSign } from 'react-icons/fa';
 import { MDBInput } from 'mdbreact';
 import Message from './Message';
 
-function CloseBankAccountModal({ show, handleClose, handleShow }) {
+function CloseBankAccountModal({ show, handleClose, handleShow,id,list }) {
   const [reason, setReason] = useState('');
   const [additionalComments, setAdditionalComments] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -16,16 +16,22 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
   const [message,setMessage] = useState("");
   const [success,setSuccess] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // Handle form submission
     // You can perform any necessary logic here
+    console.log(list)
+    e.preventDefault()
+    list.splice(id,1);
+    console.log(list)
     setSuccess(true)
+
     setMessage('Account closed successfully')
      const timer = setTimeout(() => {
       setMessage("");
-    }, 5000);
+    }, 6000);
     handleClose();
   };
+ 
 
   return (
     <>
@@ -37,7 +43,7 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
         <Modal.Header closeButton>
           <Modal.Title>Close Bank Account</Modal.Title>
         </Modal.Header>
-         <Form onSubmit={handleSubmit}>
+         <Form onSubmit={ (e) => handleSubmit(e)}>
         <Modal.Body>
          
             <Form.Group controlId="formFirstName">
@@ -70,6 +76,17 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formEmail">
+              <Form.Label>Transfer all funds to*</Form.Label>
+              <Form.Control
+                type="number"
+                required
+                placeholder="Account Number"
+                
+                // onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 
@@ -109,6 +126,8 @@ function CloseBankAccountModal({ show, handleClose, handleShow }) {
                 onChange={(e) => setAdditionalComments(e.target.value)}
               />
             </Form.Group>
+
+            
          
         </Modal.Body>
         <Modal.Footer>
