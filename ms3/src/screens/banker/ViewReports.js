@@ -3,7 +3,7 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/footer";
-import Notification from "../../components/notification2";
+import Notification from "../../components/notification";
 import Message from "../../components/client/Message";
 
 const ViewCreditCardReports = () => {
@@ -49,13 +49,21 @@ const ViewCreditCardReports = () => {
               <div class="card-header h4">Stolen credit card</div>
               <div class="card-body row">
                 <p>{loremText}</p>
-                <div className="col-10"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(1)}>
-                  resolved
-                </button>
+                <div className="col-9">
+                  <textarea
+                    className="form-control"
+                    placeholder="Add description..."
+                    value={descriptions[1] || ""}
+                    onChange={(e) => handleDescriptionChange(e, 1)}></textarea>
+                </div>
+                <div className="col-2 d-flex align-items-center justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => removeCard(1)}>
+                    Resolve
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -64,14 +72,21 @@ const ViewCreditCardReports = () => {
               <div class="card-header h4">Poor customer service</div>
               <div class="card-body row">
                 <p>{loremText}</p>
-                <p></p>
-                <div className="col-10"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(2)}>
-                  resolved
-                </button>
+                <div className="col-9">
+                  <textarea
+                    className="form-control"
+                    placeholder="Add description..."
+                    value={descriptions[2] || ""}
+                    onChange={(e) => handleDescriptionChange(e, 2)}></textarea>
+                </div>
+                <div className="col-2 d-flex align-items-center justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => removeCard(1)}>
+                    Resolve
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -80,13 +95,21 @@ const ViewCreditCardReports = () => {
               <div class="card-header h4">Unsatisfactory customer service</div>
               <div class="card-body row ">
                 <p>{loremText}</p>
-                <div className="col-10"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-2 justify-content-end"
-                  onClick={() => removeCard(3)}>
-                  resolved
-                </button>
+                <div className="col-9">
+                  <textarea
+                    className="form-control"
+                    placeholder="Add description..."
+                    value={descriptions[3] || ""}
+                    onChange={(e) => handleDescriptionChange(e, 3)}></textarea>
+                </div>
+                <div className="col-2 d-flex align-items-center justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => removeCard(1)}>
+                    Resolve
+                  </button>
+                </div>
               </div>
             </div>
           </div>
