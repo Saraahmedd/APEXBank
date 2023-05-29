@@ -79,8 +79,8 @@ const LoansScreen = () => {
                         <td>{loan.loanNumber}</td>
                         <td>{loan.loanType}</td>
                         <td>{loan.loanTerm}</td>
-                        <td>{loan.loanedAmount} EGP</td>
-                        <td>{loan.nextPaymentDate} EGP</td>
+                        <td>{loan.loanedAmount} USD</td>
+                        <td>{loan.nextPaymentDate} USD</td>
                         <td>{loan.startDate}</td>
                         <td>{loan.endDate}</td>
                         <td>{(loan.amountPaid * 100 / loan.loanedAmount).toFixed(2)}%</td>

@@ -108,7 +108,7 @@ export default function () {
                     setShowMessage={setSuccess}></Message>
                 )}
                 <div className="form-group mt-3">
-                  <label>Email address</label>
+                  <label>Email Address</label>
                   <input
                     type="email"
                     className="form-control mt-1"

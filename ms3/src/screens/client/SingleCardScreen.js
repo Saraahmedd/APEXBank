@@ -209,7 +209,7 @@ const SingleCardScreen = () => {
                                                     <tr>
                                                         <td>{transaction.reference}</td>
                                                         <td>{transaction.description}</td>
-                                                        <td>{transaction.value} EGP</td>
+                                                        <td>{transaction.value} USD</td>
                                                         <td>{transaction.date}</td>
                                                     </tr>
                                                 );
@@ -233,7 +233,7 @@ const SingleCardScreen = () => {
                                         <Card.Subtitle className="mb-2 text-muted">{cards.filter(card => card.id == cardId)[0].type}</Card.Subtitle>
                                         <Card.Text>
                                             <span className='text-muted fw-bold fs-6'>
-                                                {cards.filter(card => card.id == cardId)[0].remaining} / {cards.filter(card => card.id == cardId)[0].limit} EGP
+                                                {cards.filter(card => card.id == cardId)[0].remaining} / {cards.filter(card => card.id == cardId)[0].limit} USD
                                             </span>
                                         </Card.Text>
                                         <div className='d-flex flex-row'>
@@ -312,7 +312,7 @@ const SingleCardScreen = () => {
                     <Modal.Title>Redeem Points</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>Are you sure you want to redeem 20,000 points? 2000 EGP will be credited to your account.</h4>
+                    <h4>Are you sure you want to redeem 20,000 points? 2000 USD will be credited to your account.</h4>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose3}>

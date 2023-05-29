@@ -207,14 +207,14 @@ const ViewLoanDataScreen = () => {
                     <hr />
                     <button
                       type="submit"
-                      className="btn btn-primary m-2 col-3"
+                      className="btn btn-primary m-2"
                       onClick={(e) => handleGrant(loan.id)}
                     >
                       Grant
                     </button>
                     <button
                       type="submit"
-                      className="btn btn-primary m-2 col-3"
+                      className="btn btn-primary m-2"
                       onClick={(e) => removeCard(loan.id)}
                     >
                       Reject

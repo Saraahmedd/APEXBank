@@ -31,7 +31,7 @@ const HomeScreen = () => {
                   <div className="flex-grow-1"></div>
                   <div className="d-flex flex-column align-items-end">
                     <h4 className="m-0 p-0">Net Position</h4>
-                    <p className="m-0 p-0 fw-semibold text-success">513,763.81 EGP</p>
+                    <p className="m-0 p-0 fw-semibold text-success">513,763.81 USD</p>
                   </div>
                 </div>
                 <Accordion>
@@ -47,7 +47,7 @@ const HomeScreen = () => {
                         <tr>
                           <td>100041652181</td>
                           <td>Savings</td>
-                          <td>214,550.50 EGP</td>
+                          <td>214,550.50 USD</td>
                           <td>May 25, 2023</td>
                         </tr>
                       </table>
@@ -67,20 +67,20 @@ const HomeScreen = () => {
                           <tr>
                             <td>25-05-2023</td>
                             <td>FT23145YHS41 - Talabat Cairo EG 526805 53180500000</td>
-                            <td className="text-danger">-175.50 EGP</td>
-                            <td>214,550.50 EGP</td>
+                            <td className="text-danger">-175.50 USD</td>
+                            <td>214,550.50 USD</td>
                           </tr>
                           <tr>
                             <td>24-05-2023</td>
                             <td>FT23145GP244 - CAREEM TEMPORARY HOLD Giza EG NBE01</td>
-                            <td className="text-danger">-34.00 EGP</td>
-                            <td>214,726.00 EGP</td>
+                            <td className="text-danger">-34.00 USD</td>
+                            <td>214,726.00 USD</td>
                           </tr>
                           <tr>
                             <td>21-05-2023</td>
                             <td>FT23145LCGKW - TRANSFER FROM CIB "PAYMENT"</td>
-                            <td className="text-success">+5500.00 EGP</td>
-                            <td>214,760.00 EGP</td>
+                            <td className="text-success">+5500.00 USD</td>
+                            <td>214,760.00 USD</td>
                           </tr>
                         </tbody>
                       </Table>
@@ -103,7 +103,7 @@ const HomeScreen = () => {
                         <tr>
                           <td>100041652184</td>
                           <td>Current</td>
-                          <td>300,213.31 EGP</td>
+                          <td>300,213.31 USD</td>
                           <td>May 13, 2023</td>
                         </tr>
                       </table>
@@ -123,20 +123,20 @@ const HomeScreen = () => {
                           <tr>
                             <td>13-05-2023</td>
                             <td>FT67140KLC62 - Nike Cairo EG 526805 53180500000</td>
-                            <td className="text-danger">-3750.00 EGP</td>
-                            <td>300,213.31 EGP</td>
+                            <td className="text-danger">-3750.00 USD</td>
+                            <td>300,213.31 USD</td>
                           </tr>
                           <tr>
                             <td>12-05-2023</td>
                             <td>FT23545XK944 - CAREEM TEMPORARY HOLD Giza EG NBE01</td>
-                            <td className="text-danger">-34.00 EGP</td>
-                            <td>303,963.31 EGP</td>
+                            <td className="text-danger">-34.00 USD</td>
+                            <td>303,963.31 USD</td>
                           </tr>
                           <tr>
                             <td>11-05-2023</td>
                             <td>FT23145LCGKW - TRANSFER FROM HSBC "PAYMENT"</td>
-                            <td className="text-success">+5500.00 EGP</td>
-                            <td>303,997.31 EGP</td>
+                            <td className="text-success">+5500.00 USD</td>
+                            <td>303,997.31 USD</td>
                           </tr>
                         </tbody>
                       </Table>

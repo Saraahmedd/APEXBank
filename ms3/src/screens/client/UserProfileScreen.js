@@ -11,10 +11,6 @@ const UserProfileScreen = () => {
     // You can perform any necessary logic here
     setSuccess(true)
     setMessage('Account Updated Successfuly')
-     const timer = setTimeout(() => {
-      setMessage("");
-    }, 5000);
-
   };
   return (
 <>

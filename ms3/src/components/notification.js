@@ -19,7 +19,7 @@ const Notification = () => {
           <li className="list-group-item">
             <span className="fw-bold">Transaction</span>
             <br />
-            Spent 175.50 EGP at Talabat Cairo EG
+            Spent 175.50 USD at Talabat Cairo EG
             <br />
             <span className="text-muted">25-05-2023</span>
           </li>

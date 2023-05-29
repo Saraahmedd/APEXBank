@@ -52,15 +52,15 @@ const ReportIssueModal = ({ show, onHide }) => {
           <Form.Group controlId="categorySelect">
             <Form.Label>Category *</Form.Label>
            <Form.Control as="select" className='form-select' required value={category} onChange={handleCategoryChange} defaultValue="">
-              <option value="">Select a category</option>
-              <option value="category1">Category 1</option>
-              <option value="category2">Category 2</option>
+              <option value="">Select a Category</option>
+              <option value="category1">Security Issue</option>
+              <option value="category2">Bug Report</option>
               <option value="other">Other</option>
             </Form.Control>
           </Form.Group>
           {category === 'other' && (
             <Form.Group controlId="otherCategoryInput">
-              <Form.Label>Please specify *</Form.Label>
+              <Form.Label>Please Specify *</Form.Label>
               <Form.Control required
                 type="text"
                 placeholder="Specify other category"

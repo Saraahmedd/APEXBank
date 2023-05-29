@@ -127,7 +127,7 @@ const SingleLoanScreen = () => {
                                                 <tr>
                                                     <td>{payment.paymentId}</td>
                                                     <td>{payment.paymentDate}</td>
-                                                    <td>{payment.paidAmount} EGP</td>
+                                                    <td>{payment.paidAmount} USD</td>
                                                     <td>{payment.status}</td>
                                                 </tr>
                                             );

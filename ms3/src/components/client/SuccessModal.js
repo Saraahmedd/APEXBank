@@ -6,7 +6,7 @@ const SuccessModal = ({ modal, toggleShow, title, message }) => {
     <Modal show={modal} onHide={toggleShow} centered>
       <Modal.Header closeButton>
         <Modal.Title>
-          <i className="fas fa-check-circle text-success mr-5"></i>
+          <i className="fas fa-check-circle text-success me-2"></i>
           {title}
         </Modal.Title>
       </Modal.Header>
