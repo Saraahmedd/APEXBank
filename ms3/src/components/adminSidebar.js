@@ -60,7 +60,17 @@ const AdminSidebar = () => {
                 Technical Issues
               </CDBSidebarMenuItem>
             </NavLink>
-
+            <NavLink
+              exact
+              to="/admin/createaccount"
+              activeClassName="activeClicked">
+              <CDBSidebarMenuItem
+                id="technicalissues"
+                className="text-primary a"
+                icon="table">
+                Create Account
+              </CDBSidebarMenuItem>
+            </NavLink>
             <NavLink
               exact
               to="/admin/termsandconditions"

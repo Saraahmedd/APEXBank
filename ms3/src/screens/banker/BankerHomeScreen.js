@@ -8,57 +8,31 @@ import Grid from "../../components/grid";
 import Footer from "../../components/footer";
 
 const BankerHomeScreen = () => {
-  // const chartData = {
-  //   labels: [
-  //     "Jan",
-  //     "Feb",
-  //     "Mar",
-  //     "Apr",
-  //     "May",
-  //     "Jun",
-  //     "Jul",
-  //     "Aug",
-  //     "Sep",
-  //     "Oct",
-  //     "Nov",
-  //     "Dec",
-  //   ],
-  //   datasets: [
-  //     {
-  //       label: "Total Expenses",
-  //       data: [500, 700, 600, 800, 400, 900, 750, 650, 850, 700, 600, 1000],
-  //       fill: false,
-  //       borderColor: "rgba(75,192,192,1)",
-  //       backgroundColor: "rgba(75,192,192,0.4)",
-  //     },
-  //   ],
-  // };
-
-  const [data] = useState({
+  const chartData = {
     labels: [
-      "Eating",
-      "Drinking",
-      "Sleeping",
-      "Designing",
-      "Coding",
-      "Cycling",
-      "Running",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ],
     datasets: [
       {
-        label: "My First dataset",
-        backgroundColor: "rgba(194, 116, 161, 0.5)",
-        borderColor: "rgb(194, 116, 161)",
-        data: [65, 59, 90, 81, 56, 55, 40],
-      },
-      {
-        label: "My Second dataset",
-        backgroundColor: "rgba(71, 225, 167, 0.5)",
-        borderColor: "rgb(71, 225, 167)",
-        data: [28, 48, 40, 19, 96, 27, 100],
+        label: "Total Expenses",
+        data: [500, 700, 600, 800, 400, 900, 750, 650, 850, 700, 600, 1000],
+        fill: false,
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,0.4)",
       },
     ],
-  });
+  };
 
   const removeCard = (number) => {
     if (document.getElementById(`card ${number}`)) {
@@ -71,49 +45,10 @@ const BankerHomeScreen = () => {
     <>
       <div className="row bg-white ">
         <Sidebar></Sidebar>
-        <div className="col-9 p-4 position-relative">
+        <div className="col-9 p-4">
           <Notification></Notification>
           <h1 className="p-4">Welcome, Banker</h1>
           <div className="row flex-row">
-            {/* <div className="card col-9 col-lg-3 m-1">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src="https://www.conseilspatrimoineservices.fr/wp-content/uploads/2020/01/gestionnaires-de-patrimoine.svg"
-                  alt="Card image cap"
-                />
-                <h5 className="card-title">View clients</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  View all the details for one client
-                </h6>
-              </div>
-            </div>
-            <div className="card col-9 col-lg-3 m-1">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src="https://www.conseilspatrimoineservices.fr/wp-content/uploads/2020/01/gestionnaires-de-patrimoine.svg"
-                  alt="Card image cap"
-                />
-                <h5 className="card-title">View clients</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  View all the details for one client
-                </h6>
-              </div>
-            </div>
-            <div className="card col-9 col-lg-3 m-1">
-              <div className="card-body">
-                <img
-                  className="card-img-top"
-                  src="https://www.conseilspatrimoineservices.fr/wp-content/uploads/2020/01/gestionnaires-de-patrimoine.svg"
-                  alt="Card image cap"
-                />
-                <h5 className="card-title">View clients</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  View all the details for one client
-                </h6>
-              </div>
-            </div> */}
             <div className="col-6 flex-col">
               <div className="col-12">
                 <CardComponent
@@ -133,7 +68,12 @@ const BankerHomeScreen = () => {
                   ]}></CardComponent>
               </div>
             </div>
-            <div className="col-5 bg-secondary"></div>
+            <div className="col-5 bg-secondary">
+              {/* <div className="mt-5">
+                <h4>Total Expenses per Month</h4>
+                <Line data={chartData} />
+              </div> */}
+            </div>
           </div>
           <hr />
           <div class="h2">To-do List</div>

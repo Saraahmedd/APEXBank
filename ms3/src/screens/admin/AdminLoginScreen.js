@@ -12,7 +12,7 @@ export default function () {
     if (email === "hazem" && password === "1234") {
       navigate("/admin/homescreen");
     } else if (email === "hazem") {
-      setWarning("incorrect password");
+      setWarning("incorrect email");
     } else if (password === "1234") {
       setWarning("incorrect password");
     } else {
@@ -28,6 +28,11 @@ export default function () {
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
+            {warning && (
+              <div className="alert alert-danger" role="alert">
+                {warning}
+              </div>
+            )}
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
@@ -46,11 +51,7 @@ export default function () {
                 id="password"
               />
             </div>
-            {warning && (
-              <div className="alert alert-danger" role="alert">
-                {warning}
-              </div>
-            )}
+
             <div className="d-grid gap-2 mt-3">
               <button
                 type="button"

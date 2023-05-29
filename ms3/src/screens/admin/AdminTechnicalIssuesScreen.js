@@ -3,6 +3,7 @@ import Datatable from "../../components/table";
 import Grid from "../../components/grid";
 import Footer from "../../components/footer";
 import React, { useState } from "react";
+import Message from "../../components/client/Message";
 
 const AdminTechnicalIssuesScreen = () => {
   const loremText =
@@ -24,21 +25,26 @@ const AdminTechnicalIssuesScreen = () => {
         </div>
         <div className="column m-4" style={{ flex: "3" }}>
           {resolve && (
-            <div
-              class="alert alert-success position-absolute"
-              role="alert"
-              style={{ left: "60%" }}>
-              Error resolved successfuly
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-                onClick={() => setResolve(false)}></button>
-            </div>
+            // <div
+            //   class="alert alert-success position-absolute"
+            //   role="alert"
+            //   style={{ left: "60%" }}>
+            //   Error resolved successfuly
+            //   <button
+            //     type="button"
+            //     class="btn-close"
+            //     data-bs-dismiss="alert"
+            //     aria-label="Close"
+            //     onClick={() => setResolve(false)}></button>
+            // </div>
+            <Message
+              variant="success"
+              children="Report resolved successfully!"
+              showMessage={resolve}
+              setShowMessage={setResolve}></Message>
           )}
           <div className="m-3">
-            <h1 className="mt-3">Technical errors page</h1>
+            <h1 className="mt-3">Technical Issues Page</h1>
             <h4 className="mb-5">Make sure to resolve all technical errors</h4>
           </div>
           <div className="col-11 mt-2">
